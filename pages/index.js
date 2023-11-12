@@ -17,7 +17,7 @@ export default function Home() {
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.description}>
           <p>
-           ¡Hello Eventify!
+           ¡Hello Eventify!...
           </p>
           <div>
             <a

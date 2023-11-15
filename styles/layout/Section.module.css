@@ -1,0 +1,7 @@
+.container.contained{
+  padding: 2rem;
+}
+
+.container.full{
+  padding: 0;
+}

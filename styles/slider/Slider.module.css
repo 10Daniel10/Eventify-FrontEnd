@@ -1,0 +1,25 @@
+.slider.cards > div > div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider.cards > button{
+  z-index: 1;
+  right: 1rem;
+}
+
+.slider.cards > button:nth-child(1){
+  left: 1rem
+}
+
+.slider.cards > button:nth-child(2){
+  right: 1rem;
+}
+
+@media screen and (min-width: 601px){
+  .slider.cards > div > div{
+    gap: 1rem;
+    left: -1rem;
+  }
+}

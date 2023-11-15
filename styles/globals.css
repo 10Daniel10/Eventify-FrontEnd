@@ -1,0 +1,21 @@
+:root {
+  --max-width: 1200px;
+
+  /* colors */
+  --color-primary: #3AB795;
+  --color-primary-hover: #47D5AF;
+  --color-secondary: #F4D06F;
+  --color-secondary-hover: #F7DC94;
+  --color-light-gray: #F6F6F6;
+  --color-medium-gray: #C6C6C6;
+  --color-dark-gray: #8F8F8F;
+  --color-white: #FFFFFF;
+  
+  /* fonts */
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 14px;
+}
+
+body{
+  margin: 0;
+}

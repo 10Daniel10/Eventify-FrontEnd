@@ -1,0 +1,11 @@
+.input > div{
+  border-radius: 2rem;
+}
+
+.input > label.Mui-focused{
+  padding-left: .3rem;
+}
+
+.input > div.Mui-focused fieldset{
+  border-color: var(--color-primary) !important;
+}

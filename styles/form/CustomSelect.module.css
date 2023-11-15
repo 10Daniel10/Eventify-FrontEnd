@@ -1,0 +1,11 @@
+.label.Mui-focused{
+  color: var(--color-primary) !important;
+}
+
+.select{
+  border-radius: 2rem;
+}
+
+.select.Mui-focused fieldset{
+  border-color: var(--color-primary) !important;
+}

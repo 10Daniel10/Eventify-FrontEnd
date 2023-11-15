@@ -1,0 +1,4 @@
+.container.navigation{
+  margin-top: 4.5rem;
+  max-width: var(--max-width);
+}

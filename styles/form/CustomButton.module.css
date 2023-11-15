@@ -1,0 +1,31 @@
+.button, .button-outline{
+  display: flex;
+  gap: .5rem;
+  letter-spacing: .05rem;
+  width: 100%;
+  border-radius: 2rem;
+}
+
+.button svg, .button-outline svg{
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.button.primary{
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.button.primary:hover{
+  background-color: var(--color-primary-hover);
+}
+
+.button-outline.primary{
+  color: var(--color-primary);
+  border: .1rem solid var(--color-primary);
+}
+
+.button-outline.primary:hover{
+  color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}

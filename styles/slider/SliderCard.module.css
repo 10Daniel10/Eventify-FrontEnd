@@ -1,0 +1,10 @@
+.slider-card-header span:first-child{
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.slider-card-actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

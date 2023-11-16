@@ -33,7 +33,7 @@ export const createCategory = async (data: ProviderCategoryT): Promise<any> => {
 
 
 export const getCategories = async (): Promise<any> => {
-  return await readFileContent('../../examples/categories.json');
+  return await require('../../examples/categories.json');
 
   const response = await fetch(`${apiUrl}/category`, {
     headers: {

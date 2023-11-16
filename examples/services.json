@@ -14,13 +14,13 @@
       "photos": [
         {
           "id": 1,
-          "url": "https://example.com/photo1.jpg",
+          "url": "https://randompicturegenerator.com/img/people-generator/g5d8c66cb0f69f011ab5315c6e3b29c5250a2c59f03c9fb0136a638b1bb9b2d20172975768ce3425bde4d664b712ace74_640.jpg",
           "activityId": 1,
           "main": true
         },
         {
           "id": 2,
-          "url": "https://example.com/photo2.jpg",
+          "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
           "activityId": 1,
           "main": false
         }
@@ -59,9 +59,15 @@
       "photos": [
         {
           "id": 3,
-          "url": "https://example.com/photo3.jpg",
+          "url": "https://randomwordgenerator.com/img/picture-generator/52e4d0464c54a414f1dc8460962e33791c3ad6e04e50744075287bd4954cc3_640.jpg",
           "activityId": 2,
           "main": true
+        },        
+        {
+          "id": 2,
+          "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+          "activityId": 1,
+          "main": false
         }
       ],
       "products": [
@@ -91,8 +97,22 @@
         "id": 3,
         "name": "Decoración"
       },
-      "photos": [],
-      "products": [],
+      "photos": [        
+        {
+          "id": 2,
+          "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+          "activityId": 1,
+          "main": false
+        }
+      ],
+      "products": [        
+        {
+          "id": 2,
+          "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+          "activityId": 1,
+          "main": false
+        }
+      ],
       "user": {
         "id": 1,
         "username": "john.doe@example.com",
@@ -114,7 +134,14 @@
         "id": 2,
         "name": "Banquete"
       },
-      "photos": [],
+      "photos": [        
+        {
+          "id": 2,
+          "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+          "activityId": 1,
+          "main": false
+        }
+      ],
       "products": [],
       "user": {
         "id": 5,
@@ -137,7 +164,14 @@
         "id": 2,
         "name": "Banquete"
       },
-      "photos": [],
+      "photos": [        
+        {
+          "id": 2,
+          "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+          "activityId": 1,
+          "main": false
+        }
+      ],
       "products": [],
       "user": {
         "id": 5,
@@ -160,7 +194,14 @@
         "id": 1,
         "name": "Vestimenta"
       },
-      "photos": [],
+      "photos": [        
+        {
+          "id": 2,
+          "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+          "activityId": 1,
+          "main": false
+        }
+      ],
       "products": [],
       "user": {
         "id": 5,
@@ -183,7 +224,14 @@
         "id": 2,
         "name": "Banquete"
       },
-      "photos": [],
+      "photos": [        
+        {
+          "id": 2,
+          "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+          "activityId": 1,
+          "main": false
+        }
+      ],
       "products": [],
       "user": {
         "id": 5,
@@ -206,7 +254,14 @@
         "id": 1,
         "name": "Vestimenta"
       },
-      "photos": [],
+      "photos": [        
+        {
+          "id": 2,
+          "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+          "activityId": 1,
+          "main": false
+        }
+      ],
       "products": [],
       "user": {
         "id": 5,

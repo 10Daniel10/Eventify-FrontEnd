@@ -1,7 +1,10 @@
-const path = require('path')
- 
 module.exports = {
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  },
+  reactStrictMode: true,
+  webpack: (
+    config,
+    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
+  ) => {
+    // Important: return the modified config
+    return config
+  }
 }

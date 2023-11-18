@@ -1,3 +1,4 @@
+'use client';
 import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -13,7 +14,7 @@ import { CustomButton } from '../form/CustomButton';
 import { CustomTitle } from '../layout/CustomTitle';
 import { LoginFormT } from 'types/auth/LoginForm.types';
 import { loginUser } from 'eventapp/services/auth/auth.service';
-import s from '../../styles/auth/LoginForm.module.css';
+import s from '../../styles/auth/Auth.module.css';
 
 const initialData = {
   email: '',
@@ -75,11 +76,11 @@ export const LoginForm: FC = () => {
   };
 
   return(
-    <Container>
+    <Container className={s.container}>
       <Toast open={credentialsError} onClose={handleCloseToast} severity="error" message={credentialsErrorMessage}/>
       <Box>
         <CustomLink href="/" underline="none" customVariant="link" customColor="gray"><ArrowBack/></CustomLink>
-        <CustomTitle color="gray" htmlTag="h2" text="Iniciar sesión"/>
+        <CustomTitle color="gray" htmlTag="h2" text="Iniciar sesión" className={s.title}/>
         <Box component="form" onSubmit={handleSubmit(onSubmit)} mb={2}>
           <Grid container spacing={2}>
             <Grid item xs={12}>

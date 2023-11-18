@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Button from '@mui/material/Button';
-import s from '../../styles/form/CustomButton.module.css';
 import { CustomButtonI } from 'types/form/CustomButton.types';
+import s from '../../styles/form/CustomButton.module.css';
 
 export const CustomButton: FC<CustomButtonI> = ({ children, className, variant, customColor, type, disabled, href, onClick }: CustomButtonI) => {
   const buttonVariant = variant === 'outlined' ? s[`button-outline`] : s.button;

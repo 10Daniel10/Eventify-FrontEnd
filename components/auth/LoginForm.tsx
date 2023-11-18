@@ -11,9 +11,9 @@ import { CustomLink } from '../form/CustomLink';
 import { CustomInput } from '../form/CustomInput';
 import { CustomButton } from '../form/CustomButton';
 import { CustomTitle } from '../layout/CustomTitle';
-import s from '../../styles/auth/LoginForm.module.css';
 import { LoginFormT } from 'types/auth/LoginForm.types';
 import { loginUser } from 'eventapp/services/auth/auth.service';
+import s from '../../styles/auth/LoginForm.module.css';
 
 const initialData = {
   email: '',

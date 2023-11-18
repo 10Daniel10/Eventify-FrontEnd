@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Link from '@mui/material/Link';
-import s from '../../styles/form/CustomLink.module.css';
 import { CustomLinkI } from 'types/form/CustomLink.types';
+import s from '../../styles/form/CustomLink.module.css';
 
 export const CustomLink: FC<CustomLinkI> = ({ children, className, customVariant, customColor, href, underline }: CustomLinkI) => {
   const linkColor = customVariant !== 'button' && customColor ? s[customColor] : s[`button-${customColor}`];

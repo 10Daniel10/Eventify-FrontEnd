@@ -11,9 +11,9 @@ import { CustomLink } from '../form/CustomLink';
 import { CustomInput } from '../form/CustomInput';
 import { CustomButton } from '../form/CustomButton';
 import { CustomTitle } from '../layout/CustomTitle';
-import s from '../../styles/auth/RegisterForm.module.css';
 import { RegisterFormT } from 'types/auth/RegisterForm.types';
 import { createUser } from 'eventapp/services/auth/auth.service';
+import s from '../../styles/auth/RegisterForm.module.css';
 
 const initialData = {
   firstname: '',

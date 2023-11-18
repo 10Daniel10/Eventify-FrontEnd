@@ -1,8 +1,8 @@
 import React, { FC, PropsWithChildren } from 'react';
 import Stack from '@mui/material/Stack';
 import { Navbar } from '../nav/Navbar';
-import s from '../../styles/layout/Layout.module.css';
 import { UserT } from 'types/users/User.types';
+import s from '../../styles/layout/Layout.module.css';
 
 interface LayoutI extends PropsWithChildren {
   className?: string,

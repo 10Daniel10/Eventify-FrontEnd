@@ -10,9 +10,9 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import s from '../../styles/slider/SliderCard.module.css';
 import { CustomLinkI } from 'types/form/CustomLink.types';
 import { CustomLink } from '../form/CustomLink';
+import s from '../../styles/slider/SliderCard.module.css';
 
 export interface SliderCardI {
   className?: string,

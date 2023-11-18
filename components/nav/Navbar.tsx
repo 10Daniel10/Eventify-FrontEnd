@@ -7,10 +7,10 @@ import Redeem from '@mui/icons-material/Redeem';
 import SupervisorAccount from '@mui/icons-material/SupervisorAccount';
 import { CustomLink } from '../form/CustomLink';
 import { NavbarMenu } from './NavbarMenu';
-import s from '../../styles/nav/Navbar.module.css';
 import { UserT } from 'types/users/User.types';
 import { NavbarMenuAuth } from './NavbarMenuAuth';
 import { useRouter } from 'next/router';
+import s from '../../styles/nav/Navbar.module.css';
 
 interface NavbarProps {
   auth: boolean,

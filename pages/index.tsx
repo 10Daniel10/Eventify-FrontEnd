@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 import { CategoriesList } from 'eventapp/components/categories/CategoriesList';
 import { Hero } from 'eventapp/components/home/Hero';

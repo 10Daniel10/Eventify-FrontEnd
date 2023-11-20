@@ -24,7 +24,7 @@ export const logOut = async () => {
 
 export const createUser = async (data: RegisterFormT): Promise<any> => {
   data['firstname'] = data['email'];
-  data['type'] = 'USER';
+  // data['type'] = 'USER';
   const userData = JSON.stringify(data);
   console.log(userData)
 

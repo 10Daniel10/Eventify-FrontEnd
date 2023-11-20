@@ -24,13 +24,7 @@ const initialData = {
 export const LoginForm: FC = () => {
   const router = useRouter();
 
-  const { control, handleSubmit } = useForm<LoginFormT>();
-
-  const [emailError, setEmailError] = useState<boolean>(false);
-  const [emailErrorMessage, setEmailErrorMessage] = useState<string | undefined>(undefined);
-
-  const [pswError, setPswError] = useState<boolean>(false);
-  const [pswErrorMessage, setPswErrorMessage] = useState<string | undefined>(undefined);
+  const { control, handleSubmit, formState: {errors} } = useForm<LoginFormT>();
 
   const [credentialsError, setCredentialsError] = useState<boolean>(false);
   const [credentialsErrorMessage, setCredentialsErrorMessage] = useState<string | undefined>(undefined);
@@ -43,20 +37,10 @@ export const LoginForm: FC = () => {
     const emailValidation = validateEmail(formData.email);
     const passwordValidation = validatePasswordLength(formData.password);
 
-    setEmailError(emailValidation !== undefined);
-    setEmailErrorMessage(emailValidation);
-    setPswError(passwordValidation !== undefined);
-    setPswErrorMessage(passwordValidation);
+    control.setError('email', { message: emailValidation });
+    control.setError('password', { message: passwordValidation });
 
-    if (emailValidation) {
-      setEmailError(true);
-      setEmailErrorMessage(emailValidation);
-      return;
-    }
-
-    if (passwordValidation) {
-      setPswError(true);
-      setPswErrorMessage(passwordValidation);
+    if (Object.keys(errors).length > 0) {
       return;
     }
 
@@ -92,8 +76,8 @@ export const LoginForm: FC = () => {
                 defaultValue={initialData.email}
                 placeholder="Ej: maria@perez.com"
                 required={true}
-                error={emailError}
-                helperText={emailErrorMessage}
+                error={Boolean(errors.email)}
+                helperText={errors.email?.message}
               />
             </Grid>
             <Grid item xs={12}>
@@ -105,8 +89,8 @@ export const LoginForm: FC = () => {
                 defaultValue={initialData.password}
                 placeholder="······"
                 required={true}
-                error={pswError}
-                helperText={pswErrorMessage}
+                error={Boolean(errors.password)}
+                helperText={errors.password?.message}
               />
             </Grid>
             <Grid item xs={12}>

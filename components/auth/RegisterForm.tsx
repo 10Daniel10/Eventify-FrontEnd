@@ -14,28 +14,28 @@ import { CustomButton } from '../form/CustomButton';
 import { CustomTitle } from '../layout/CustomTitle';
 import { RegisterFormT } from 'types/auth/RegisterForm.types';
 import { createUser } from 'eventapp/services/auth/auth.service';
+import { CustomSwitch } from '../form/CustomSwitch';
+import { CategoriesT } from 'types/categories/Category.types';
+import { CustomSelect } from '../form/CustomSelect';
+import MenuItem from '@mui/material/MenuItem';
 import s from '../../styles/auth/Auth.module.css';
 
-const initialData = {
+const categories: CategoriesT[] = ['photography', 'food', 'website', 'video', 'music', 'lights', 'decoration', 'flowers', 'invitations', 'places', 'tents', 'cars', 'livings'];
+
+const initialData: RegisterFormT = {
   firstname: '',
   lastname: '',
+  type: 0,
   email: '',
   password: '',
-  confirmPassword: ''
+  confirmPassword: '',
+  defaultCategory: ''
 }
 
 export const RegisterForm: FC = () => {
   const router = useRouter();
-  const { control, handleSubmit } = useForm<RegisterFormT>();
 
-  const [emailError, setEmailError] = useState<boolean>(false);
-  const [emailErrorMessage, setEmailErrorMessage] = useState<string | undefined>(undefined);
-
-  const [pswError, setPswError] = useState<boolean>(false);
-  const [pswErrorMessage, setPswErrorMessage] = useState<string | undefined>(undefined);
-
-  const [confirmPswError, setConfirmPswError] = useState<boolean>(false);
-  const [confirmPswErrorMessage, setConfirmPswErrorMessage] = useState<string | undefined>(undefined);
+  const { control, handleSubmit, formState: {errors} } = useForm<RegisterFormT>();
 
   const [credentialsError, setCredentialsError] = useState<boolean>(false);
   const [credentialsErrorMessage, setCredentialsErrorMessage] = useState<string | undefined>(undefined);
@@ -49,28 +49,11 @@ export const RegisterForm: FC = () => {
     const passwordValidation = validatePasswordLength(formData.password);
     const passwordComparation = comparePassword(formData.password, formData.confirmPassword);
 
-    setEmailError(emailValidation !== undefined);
-    setEmailErrorMessage(emailValidation);
-    setPswError(passwordValidation !== undefined);
-    setPswErrorMessage(passwordValidation);
-    setConfirmPswError(passwordComparation !== undefined);
-    setConfirmPswErrorMessage(passwordComparation);
+    control.setError('email', { message: emailValidation });
+    control.setError('password', { message: passwordValidation });
+    control.setError('confirmPassword', { message: passwordComparation });
 
-    if (emailValidation) {
-      setEmailError(true);
-      setEmailErrorMessage(emailValidation);
-      return;
-    }
-
-    if (passwordValidation) {
-      setPswError(true);
-      setPswErrorMessage(passwordValidation);
-      return;
-    }
-
-    if (passwordComparation) {
-      setConfirmPswError(true);
-      setConfirmPswErrorMessage(passwordComparation);
+    if (Object.keys(errors).length > 0) {
       return;
     }
 
@@ -128,8 +111,8 @@ export const RegisterForm: FC = () => {
                 defaultValue={initialData.email}
                 placeholder="Ej: maria@perez.com"
                 required={true}
-                error={emailError}
-                helperText={emailErrorMessage}
+                error={Boolean(errors.email)}
+                helperText={errors.email?.message}
               />
             </Grid>
             <Grid item xs={12}>
@@ -141,8 +124,8 @@ export const RegisterForm: FC = () => {
                 defaultValue={initialData.password}
                 placeholder="······"
                 required={true}
-                error={pswError}
-                helperText={pswErrorMessage}
+                error={Boolean(errors.password)}
+                helperText={errors.password?.message}
               />
             </Grid>
             <Grid item xs={12}>
@@ -154,9 +137,30 @@ export const RegisterForm: FC = () => {
                 defaultValue={initialData.confirmPassword}
                 placeholder="······"
                 required={true}
-                error={confirmPswError}
-                helperText={confirmPswErrorMessage}
+                error={Boolean(errors.confirmPassword)}
+                helperText={errors.confirmPassword?.message}
               />
+            </Grid>
+            <Grid item xs={12}>
+              <CustomSwitch
+                name="type"
+                label="Soy proveedor"
+                control={control}
+                defaultChecked={Boolean(initialData.type === 1)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <CustomSelect
+                name="defaultCategory"
+                label="Selecciona tu servicio principal"
+                control={control}
+                defaultValue={initialData.defaultCategory}
+                required={true}>
+                  <MenuItem value="" disabled><em>None</em></MenuItem>
+                  {categories.map((c, index) => (
+                    <MenuItem key={index} value={c}>{c}</MenuItem>
+                  ))}
+              </CustomSelect>
             </Grid>
             <Grid item xs={12}>
               <CustomButton type="submit" variant="contained" customColor="primary">Registrarme</CustomButton>

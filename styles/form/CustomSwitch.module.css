@@ -1,0 +1,7 @@
+.switch > span:first-child{
+  color: var(--color-primary) !important;
+}
+
+.switch > span:last-child{
+  background-color: var(--color-primary) !important;
+}

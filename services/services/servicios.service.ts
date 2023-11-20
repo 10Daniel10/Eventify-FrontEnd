@@ -1,6 +1,6 @@
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-export const getProviders = async (): Promise<any> => {
+export const getServices = async (): Promise<any> => {
   return await require('../../examples/services.json');
 
   const response = await fetch(`${apiUrl}`, {

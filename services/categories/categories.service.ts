@@ -1,4 +1,5 @@
 import { ProviderCategoryT } from 'types/categories/Category.types';
+import { readFileContent } from 'utils/readfiles';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -32,6 +33,8 @@ export const createCategory = async (data: ProviderCategoryT): Promise<any> => {
 
 
 export const getCategories = async (): Promise<any> => {
+  return await require('../../examples/categories.json');
+
   const response = await fetch(`${apiUrl}/category`, {
     headers: {
       Accept: "application/json",

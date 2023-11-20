@@ -2,24 +2,23 @@
 import { useEffect, useState } from 'react';
 import { CategoriesList } from 'eventapp/components/categories/CategoriesList';
 import { Hero } from 'eventapp/components/home/Hero';
-import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
+import { ServicesList } from 'eventapp/components/services/ServicesList';
 import { Layout } from 'eventapp/components/layout/Layout';
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { UserProviderI } from 'types/users/User.types';
-import { getProviders } from 'eventapp/services/providers/providers.service';
 import { CategoryT } from 'types/categories/Category.types';
 import { getCategories } from 'eventapp/services/categories/categories.service';
+import { getServices } from 'eventapp/services/services/servicios.service';
 
 const Home: NextPage = () => {
-  const [providers, setProviders] = useState<UserProviderI[]>([]);
+  const [services, setServices] = useState([]);
   const [categories, setCategories] = useState<CategoryT[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {        
-        const providersData = await getProviders();
-        setProviders(providersData);
+        const servicesData = await getServices();
+        setServices(servicesData);
       } catch (error) {
         console.error('Error al obtener proveedores:', error);
       }
@@ -57,9 +56,9 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout variant='navigation'>
-        <Hero/>
-        <ProvidersList listVariant='slider' title={{text: 'Proveedores'}} providers={providers}/>
+        <Hero/>        
         <CategoriesList listVariant='slider' title={{text: 'Categorías'}} categories={categories}/>
+        <ServicesList listVariant='slider' title={{text: 'Servicios'}} services={services}/>
       </Layout>
     </>
   )

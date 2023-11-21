@@ -31,21 +31,21 @@ export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUse
         className={s['app-bar']}
       >
         <MenuItem onClick={handleClose}>
-          <CustomLink href={`/user/${userId}/profile`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
+          <CustomLink href={`/users/${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
         </MenuItem>
         {userType === 'USER' ? (
           <>
             <MenuItem onClick={handleClose}>
-              <CustomLink href={`/user/${userId}/reservations`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mis reservas</CustomLink>
+              <CustomLink href={`/reservations?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mis reservas</CustomLink>
             </MenuItem>
           </>
         ) : (
           <>
             <MenuItem onClick={handleClose}>
-              <CustomLink href={`/user/${userId}/categories`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis categorías</CustomLink>
+              <CustomLink href={`/services?providerId=${userId}`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
             </MenuItem>
             <MenuItem onClick={handleClose}>
-              <CustomLink href={`/user/${userId}/agenda`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mi agenda</CustomLink>
+              <CustomLink href={`agenda/${userId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mi agenda</CustomLink>
             </MenuItem>
           </>
         )}

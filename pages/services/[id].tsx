@@ -47,7 +47,6 @@ const Service: NextPage = () => {
       <Layout variant='navigation'>
       {service ? (
         <>
-          <ServicesCard service={service} />
           <ServiceReservation servicePrice={service.price} />
         </>
       ) : (

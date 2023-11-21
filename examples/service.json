@@ -5,7 +5,7 @@
   "creationDate": "2023-11-03T13:00:00.000+00:00",
   "updateDate": "2023-11-03T13:00:00.000+00:00",
   "address": "Boutique de Novias",
-  "price": 0.0,
+  "price": 5,
   "category": {
     "id": 1,
     "name": "Vestimenta"

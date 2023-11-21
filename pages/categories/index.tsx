@@ -3,11 +3,11 @@ import { CategoriesList } from 'eventapp/components/categories/CategoriesList';
 import { Layout } from 'eventapp/components/layout/Layout';
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { CategoryT } from 'types/categories/Category.types';
 import { getCategories } from 'eventapp/services/categories/categories.service';
+import { ICategory } from 'interfaces';
 
 const Categories: NextPage = () => {
-  const [categories, setCategories] = useState<CategoryT[]>([]);
+  const [categories, setCategories] = useState<ICategory[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +15,7 @@ const Categories: NextPage = () => {
         const categoriesData = await getCategories();
         setCategories(categoriesData);
       } catch (error) {
-        console.error('Error al obtener proveedores:', error);
+        console.error('Error al obtener categorías:', error);
       }
     };
     fetchData();

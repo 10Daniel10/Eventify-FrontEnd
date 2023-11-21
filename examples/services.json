@@ -1,0 +1,275 @@
+[
+  {
+    "id": 1,
+    "name": "Elección del vestido de novia",
+    "information": "Consulta con diseñadores para encontrar el vestido perfecto",
+    "creationDate": "2023-11-03T13:00:00.000+00:00",
+    "updateDate": "2023-11-03T13:00:00.000+00:00",
+    "address": "Boutique de Novias",
+    "price": 0.0,
+    "category": {
+      "id": 1,
+      "name": "Vestimenta"
+    },
+    "photos": [
+      {
+        "id": 1,
+        "url": "https://randompicturegenerator.com/img/people-generator/g5d8c66cb0f69f011ab5315c6e3b29c5250a2c59f03c9fb0136a638b1bb9b2d20172975768ce3425bde4d664b712ace74_640.jpg",
+        "activityId": 1,
+        "main": true
+      },
+      {
+        "id": 2,
+        "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+        "activityId": 1,
+        "main": false
+      }
+    ],
+    "products": [
+      {
+        "id": 1,
+        "name": "Producto 1"
+      },
+      {
+        "id": 2,
+        "name": "Producto 2"
+      }
+    ],
+    "user": {
+      "id": 1,
+      "username": "john.doe@example.com",
+      "email": "john.doe@example.com",
+      "firstname": "John",
+      "lastname": "Doe",
+      "type": "USER"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Cata de vinos",
+    "information": "Prueba de platos para seleccionar el menú del banquete",
+    "creationDate": "2023-11-03T17:00:00.000+00:00",
+    "updateDate": "2023-11-03T17:00:00.000+00:00",
+    "address": "Restaurante Elegante",
+    "price": 50.0,
+    "category": {
+      "id": 2,
+      "name": "Banquete"
+    },
+    "photos": [
+      {
+        "id": 3,
+        "url": "https://randomwordgenerator.com/img/picture-generator/52e4d0464c54a414f1dc8460962e33791c3ad6e04e50744075287bd4954cc3_640.jpg",
+        "activityId": 2,
+        "main": true
+      },        
+      {
+        "id": 2,
+        "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+        "activityId": 1,
+        "main": false
+      }
+    ],
+    "products": [
+      {
+        "id": 2,
+        "name": "Producto 2"
+      }
+    ],
+    "user": {
+      "id": 2,
+      "username": "jane.doe@example.com",
+      "email": "jane.doe@example.com",
+      "firstname": "Jane",
+      "lastname": "Doe",
+      "type": "USER"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Selección de decoración",
+    "information": "Reunión con decoradores para planificar la decoración del evento",
+    "creationDate": "2023-11-04T14:00:00.000+00:00",
+    "updateDate": "2023-11-04T14:00:00.000+00:00",
+    "address": "Salón de Eventos Especializados",
+    "price": 30.0,
+    "category": {
+      "id": 3,
+      "name": "Decoración"
+    },
+    "photos": [        
+      {
+        "id": 2,
+        "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+        "activityId": 1,
+        "main": false
+      }
+    ],
+    "products": [        
+      {
+        "id": 2,
+        "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+        "activityId": 1,
+        "main": false
+      }
+    ],
+    "user": {
+      "id": 1,
+      "username": "john.doe@example.com",
+      "email": "john.doe@example.com",
+      "firstname": "John",
+      "lastname": "Doe",
+      "type": "USER"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Que miraaaas!",
+    "information": "Era por abajo. Algo me ibas  decir, pero la integracion",
+    "creationDate": null,
+    "updateDate": null,
+    "address": "",
+    "price": 34.0,
+    "category": {
+      "id": 2,
+      "name": "Banquete"
+    },
+    "photos": [        
+      {
+        "id": 2,
+        "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+        "activityId": 1,
+        "main": false
+      }
+    ],
+    "products": [],
+    "user": {
+      "id": 5,
+      "username": "asdasdasd@asdasda.com",
+      "email": "asdasdasd@asdasda.com",
+      "firstname": "jamon",
+      "lastname": "queso",
+      "type": "USER"
+    }
+  },
+  {
+    "id": 18,
+    "name": "Al esta pasando",
+    "information": "qweeqweq qwe qwqw eqwe qwqwe asd asd asd asd asdas dd",
+    "creationDate": null,
+    "updateDate": null,
+    "address": "",
+    "price": 231.0,
+    "category": {
+      "id": 2,
+      "name": "Banquete"
+    },
+    "photos": [        
+      {
+        "id": 2,
+        "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+        "activityId": 1,
+        "main": false
+      }
+    ],
+    "products": [],
+    "user": {
+      "id": 5,
+      "username": "asdasdasd@asdasda.com",
+      "email": "asdasdasd@asdasda.com",
+      "firstname": "jamon",
+      "lastname": "queso",
+      "type": "USER"
+    }
+  },
+  {
+    "id": 19,
+    "name": "No fantasmas",
+    "information": "mag icooo ooo oom agi coo oooooom a gicooooooo om agicoooooo  oo magicooooo ooomag icooooooo o",
+    "creationDate": null,
+    "updateDate": null,
+    "address": "",
+    "price": 3.0,
+    "category": {
+      "id": 1,
+      "name": "Vestimenta"
+    },
+    "photos": [        
+      {
+        "id": 2,
+        "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+        "activityId": 1,
+        "main": false
+      }
+    ],
+    "products": [],
+    "user": {
+      "id": 5,
+      "username": "asdasdasd@asdasda.com",
+      "email": "asdasdasd@asdasda.com",
+      "firstname": "jamon",
+      "lastname": "queso",
+      "type": "USER"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Cata de canapes",
+    "information": "sabores locos para todo el mundo  sabores locos para todo el mundo ",
+    "creationDate": null,
+    "updateDate": null,
+    "address": "",
+    "price": 23.0,
+    "category": {
+      "id": 2,
+      "name": "Banquete"
+    },
+    "photos": [        
+      {
+        "id": 2,
+        "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+        "activityId": 1,
+        "main": false
+      }
+    ],
+    "products": [],
+    "user": {
+      "id": 5,
+      "username": "asdasdasd@asdasda.com",
+      "email": "asdasdasd@asdasda.com",
+      "firstname": "jamon",
+      "lastname": "queso",
+      "type": "USER"
+    }
+  },
+  {
+    "id": 21,
+    "name": "EjemploNombre222",
+    "information": "Información del proveedor",
+    "creationDate": null,
+    "updateDate": null,
+    "address": null,
+    "price": 45.99,
+    "category": {
+      "id": 1,
+      "name": "Vestimenta"
+    },
+    "photos": [        
+      {
+        "id": 2,
+        "url": "https://randompicturegenerator.com/img/people-generator/g75dc4acb4bf82d212b60446b8d9c5b827d18e6a02d312d5df55f8c0328cb9972bfb9518c1fd6552cd8c2271ebd63db30_640.jpg",
+        "activityId": 1,
+        "main": false
+      }
+    ],
+    "products": [],
+    "user": {
+      "id": 5,
+      "username": "asdasdasd@asdasda.com",
+      "email": "asdasdasd@asdasda.com",
+      "firstname": "jamon",
+      "lastname": "queso",
+      "type": "USER"
+    }
+  }
+]

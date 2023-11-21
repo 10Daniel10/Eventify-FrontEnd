@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 
 export interface CustomButtonI extends PropsWithChildren {
   className?: string,
@@ -7,5 +7,5 @@ export interface CustomButtonI extends PropsWithChildren {
   type?: 'submit' | 'button' | 'reset' | undefined,
   disabled?: boolean,
   href?: string,
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }

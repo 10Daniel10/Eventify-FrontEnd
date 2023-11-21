@@ -1,5 +1,4 @@
 import React, { FC, PropsWithChildren } from 'react';
-import Container from '@mui/material/Container';
 import s from '../../styles/layout/Section.module.css';
 
 interface SectionI extends PropsWithChildren {
@@ -11,8 +10,10 @@ export const Section: FC<SectionI> = ({ className, variant, children }) => {
   const containerClass = `${s.container} ${s[variant]} ${className}`;
 
   return (
-    <Container className={containerClass}>
-      {children}
-    </Container>
+    <section className={containerClass}>
+      <div className={s.subcontainer}>
+        {children}
+      </div>
+    </section>
   )
 }

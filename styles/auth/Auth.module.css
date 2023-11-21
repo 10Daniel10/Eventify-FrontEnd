@@ -1,0 +1,12 @@
+.container{
+  padding-top: 3rem;
+  max-width: 400px;
+}
+
+.title{
+  margin-bottom: 2rem;
+}
+
+.link-description{
+  color: var(--color-dark-gray);
+}

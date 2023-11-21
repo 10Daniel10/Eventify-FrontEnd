@@ -10,16 +10,19 @@ interface CustomSliderProps extends PropsWithChildren {
   totalCards: number,
   cardsToShow: number,
   autoplay?: boolean,
-  autoplaySpeed?: number
+  autoplaySpeed?: number,
+  dots?: boolean,
+  arrows?: boolean
 }
 
-export const CustomSlider:FC<CustomSliderProps> = ({ className, variant, totalCards, cardsToShow, autoplay, autoplaySpeed, children }) => {
+export const CustomSlider:FC<CustomSliderProps> = ({ className, variant, totalCards, cardsToShow, autoplay, autoplaySpeed, dots = true, arrows = true, children }) => {
   const containerClass = `${s.slider} ${s[variant]} ${className}`;
 
   const settings = {
-    dots: true,
+    dots: dots,
     infinite: false,
     speed: 500,
+    arrows: arrows,
     // fade: true,
     // centerMode: true,
     autoplay: autoplay,

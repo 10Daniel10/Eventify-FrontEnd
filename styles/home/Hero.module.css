@@ -1,0 +1,18 @@
+.slider-container > div > div > div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+@media screen and (min-width: 480px){
+  .slider-container > div > div > div{
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 960px){
+  .slider-container > div > div > div{
+    height: 300px;
+  }
+}

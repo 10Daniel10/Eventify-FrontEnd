@@ -7,12 +7,10 @@ export type CustomSelectT = {
   required?: boolean,
   control: Control<any>,
   defaultValue?: any,
-  value: any,
   displayEmpty?: boolean,
   error?: boolean,
   helperText?: string,
   selectProps?: Record<string, any>,
-  onChange: (event: SelectChangeEvent) => void,
   children: React.ReactNode,
   className?: string
 }

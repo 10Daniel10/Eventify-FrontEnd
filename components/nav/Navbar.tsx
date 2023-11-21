@@ -7,14 +7,14 @@ import Redeem from '@mui/icons-material/Redeem';
 import SupervisorAccount from '@mui/icons-material/SupervisorAccount';
 import { CustomLink } from '../form/CustomLink';
 import { NavbarMenu } from './NavbarMenu';
-import { UserT } from 'types/users/User.types';
 import { NavbarMenuAuth } from './NavbarMenuAuth';
 import { useRouter } from 'next/router';
+import { IUser } from 'interfaces';
 import s from '../../styles/nav/Navbar.module.css';
 
 interface NavbarProps {
   auth: boolean,
-  user?: UserT
+  user?: IUser
 }
 
 export const Navbar:FC<NavbarProps> = ({ auth, user }) => {
@@ -74,8 +74,10 @@ export const Navbar:FC<NavbarProps> = ({ auth, user }) => {
             EVENTIFY
           </CustomLink>
           <Box className={s['button-group']}>
+            {/* // TODO: CAMBIAR ICON */}
             <CustomLink href="/categories" underline="none" customVariant="link" customColor="primary"><Redeem/> Categorías</CustomLink>
-            <CustomLink href="/providers" underline="none" customVariant="link" customColor="primary"><SupervisorAccount/> Proveedores</CustomLink>
+            {/* <CustomLink href="/providers" underline="none" customVariant="link" customColor="primary"><SupervisorAccount/> Proveedores</CustomLink> */}
+            <CustomLink href="/services" underline="none" customVariant="link" customColor="primary"><Redeem/> Servicios</CustomLink>
           </Box>
         </Box>
         {logged ? (

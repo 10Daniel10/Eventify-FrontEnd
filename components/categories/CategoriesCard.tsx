@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { SliderCard } from '../slider/SliderCard';
-import { CategoryT } from 'types/categories/Category.types';
+import { ICategory } from 'interfaces';
 
 interface CategoriesCardI {
-  category: CategoryT
+  category: ICategory
 }
 
 export const CategoriesCard:FC<CategoriesCardI> = ({ category }) => {
@@ -12,18 +12,17 @@ export const CategoriesCard:FC<CategoriesCardI> = ({ category }) => {
       key={category.id}
       title={`${category.name}`}
       cardImg={{
-        imgSrc: category.defaultImage || '',
+        imgSrc: category.imageUrl || '',
         imgAlt: category.name
       }}
-      description={category.description}
       favButtons={false}
       link={{
         element: {
           customVariant: 'button-outline',
           customColor: 'primary',
-          href: `/categories/${category.name}`
+          href: `/services?categoryId=${category.id}`
         },
-        text: 'Buscar proveedores'
+        text: 'Ver servicios'
       }}
     />
   )

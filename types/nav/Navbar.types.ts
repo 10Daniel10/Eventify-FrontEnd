@@ -1,6 +1,6 @@
 export type NavbarT = {
   userId?: number | null,
-  userType?: 'client' | 'provider' | null,
+  userType?: 'USER' | 'PROVIDER' | null,
   userEmail?: string | null,
   userMenu?: HTMLElement | null,
   appBarMenu?: HTMLElement | null,

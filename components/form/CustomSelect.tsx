@@ -12,12 +12,10 @@ export const CustomSelect = ({
   required,
   control,
   defaultValue,
-  value,
   displayEmpty,
   error,
   helperText,
   selectProps,
-  onChange,
   children,
   className
 }: CustomSelectT) => {
@@ -39,8 +37,6 @@ export const CustomSelect = ({
             displayEmpty={displayEmpty}
             error={error}
             {...selectProps}
-            value={value}
-            onChange={onChange}
             className={inputSelect}
           >
             {children}

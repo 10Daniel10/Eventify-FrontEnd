@@ -3,8 +3,8 @@ import { Layout } from 'eventapp/components/layout/Layout';
 import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { UserProviderI } from 'types/users/User.types';
 import { getProviders } from 'eventapp/services/providers/providers.service';
+import { UserProviderI } from 'interfaces';
 
 const Categories: NextPage = () => {
   const [providers, setProviders] = useState<UserProviderI[]>([]);

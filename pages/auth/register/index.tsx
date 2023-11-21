@@ -1,5 +1,6 @@
 import { RegisterForm } from 'eventapp/components/auth/RegisterForm';
 import { Layout } from 'eventapp/components/layout/Layout';
+import { Section } from 'eventapp/components/layout/Section';
 import { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -22,7 +23,9 @@ const Register: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout variant='navigation'>
-        <RegisterForm/>
+        <Section variant='contained'>
+          <RegisterForm/>
+        </Section>
       </Layout>
     </>
   )

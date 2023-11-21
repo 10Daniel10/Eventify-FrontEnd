@@ -27,7 +27,7 @@ export interface SliderCardI {
     imgSrc: string,
     imgAlt: string
   }
-  description: string | ReactNode,
+  description?: string | ReactNode,
   extraDescription?: string | ReactNode,
   favButtons?: boolean,
   link?: {

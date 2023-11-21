@@ -1,4 +1,9 @@
 .container.navigation{
-  margin-top: 4.5rem;
-  max-width: var(--max-width);
+  margin-top: 4rem;
+}
+
+@media screen and (min-width: 600px){
+  .container.navigation{
+    margin-top: 4.5rem;
+  }
 }

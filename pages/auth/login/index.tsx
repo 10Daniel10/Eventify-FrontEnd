@@ -1,5 +1,6 @@
 import { LoginForm } from 'eventapp/components/auth/LoginForm';
 import { Layout } from 'eventapp/components/layout/Layout';
+import { Section } from 'eventapp/components/layout/Section';
 import { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -22,7 +23,9 @@ const Login: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout variant='navigation'>
-        <LoginForm/>
+        <Section variant='contained'>
+          <LoginForm/>
+        </Section>
       </Layout>
     </>
   )

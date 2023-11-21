@@ -43,7 +43,7 @@ const Service: NextPage = () => {
         ></meta>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Layout variant='navigation'>
+      <Layout>
         <ServicesCard service={service} />
       </Layout>
     </>

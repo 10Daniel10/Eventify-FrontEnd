@@ -1,5 +1,5 @@
 .container{
-  background-color: var(--color-white);
+  background-color: var(--white);
 }
 
 .sub-container{
@@ -18,7 +18,7 @@
   gap: .5rem;
   font-size: 1.2rem;
   font-weight: bold;
-  color: var(--color-primary);
+  color: var(--primary);
   letter-spacing: .1rem;
 }
 

@@ -8,12 +8,13 @@ import Grid from '@mui/material/Grid';
 import { UserProviderI } from 'interfaces';
 
 interface ProvidersListI {
+  className?: string,
   title?: CustomTitleI,
   listVariant?: 'slider' | 'grid',
   providers: UserProviderI[]
 }
 
-export const ProvidersList:FC<ProvidersListI> = ({ title, listVariant = 'slider', providers }) => {
+export const ProvidersList:FC<ProvidersListI> = ({ className, title, listVariant = 'slider', providers }) => {
   const { color = 'primary', htmlTag = 'h2', text } = {...title};
 
   const xs = useMediaQuery('(max-width:600px)');
@@ -23,7 +24,7 @@ export const ProvidersList:FC<ProvidersListI> = ({ title, listVariant = 'slider'
   const cardsToShow = xs ? 1 : (sm ? 2 : (md ? 3 : 4));
 
   return (
-    <Section variant="contained">
+    <Section className={className}>
       {listVariant === 'slider' ? (
         <>
           <CustomTitle color={color} htmlTag={htmlTag} text={text} />

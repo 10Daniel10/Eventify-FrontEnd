@@ -8,12 +8,13 @@ import { CategoriesCard } from './CategoriesCard';
 import { ICategory } from 'interfaces';
 
 interface CategoriesListI {
+  className?: string,
   title?: CustomTitleI,
   listVariant?: 'slider' | 'grid',
   categories: ICategory[]
 }
 
-export const CategoriesList:FC<CategoriesListI> = ({ title, listVariant = 'slider', categories }) => {
+export const CategoriesList:FC<CategoriesListI> = ({ className, title, listVariant = 'slider', categories }) => {
   const { color = 'primary', htmlTag = 'h2', text } = {...title};
 
   const xs = useMediaQuery('(max-width:600px)');
@@ -23,7 +24,7 @@ export const CategoriesList:FC<CategoriesListI> = ({ title, listVariant = 'slide
   const cardsToShow = xs ? 1 : (sm ? 2 : (md ? 3 : 4));
 
   return (
-    <Section variant="contained">
+    <Section className={className}>
       {listVariant === 'slider' ? (
         <>
           <CustomTitle color={color} htmlTag={htmlTag} text={text} />

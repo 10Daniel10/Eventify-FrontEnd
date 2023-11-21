@@ -12,6 +12,8 @@ import { ICategory, IService } from 'interfaces';
 import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
 import { getProviders } from 'eventapp/services/providers/providers.service';
 
+import s from './index.module.css';
+
 const Home: NextPage = () => {
   const [services, setServices] = useState<IService[]>([]);
   const [providers, setProviders] = useState([]);
@@ -70,11 +72,11 @@ const Home: NextPage = () => {
         ></meta>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Layout variant='navigation'>
+      <Layout>
         <Hero/>
-        <CategoriesList listVariant='slider' title={{text: 'Categorías'}} categories={categories}/>
+        <CategoriesList listVariant='slider' title={{text: 'Categorías'}} categories={categories} className={s['categories-container']} />
         {/* <ProvidersList listVariant='slider' title={{text: 'Proveedores'}} providers={providers}/> */}
-        <ServicesList listVariant='slider' title={{text: 'Servicios'}} services={services}/>
+        <ServicesList listVariant='slider' title={{text: 'Servicios'}} services={services} className={s['services-container']}/>
       </Layout>
     </>
   )

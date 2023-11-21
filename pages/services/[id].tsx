@@ -44,7 +44,7 @@ const Service: NextPage = () => {
         ></meta>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Layout variant='navigation'>
+      <Layout>
       {service ? (
         <>
           <ServiceReservation servicePrice={service.price} />

@@ -1,5 +1,5 @@
 .label.Mui-focused{
-  color: var(--color-primary) !important;
+  color: var(--primary) !important;
 }
 
 .select{
@@ -7,5 +7,5 @@
 }
 
 .select.Mui-focused fieldset{
-  border-color: var(--color-primary) !important;
+  border-color: var(--primary) !important;
 }

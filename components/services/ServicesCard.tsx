@@ -24,13 +24,13 @@ export const ServicesCard:FC<Service> = ({service}) => {
         imgSrc: '' || '/users/avatar.png',
         imgAlt: `${firstname} ${lastname}`
       }}
-      title={`${firstname} ${lastname}`}
+      title={service.name}
       cardImg={{
         imgSrc: mainPhoto?.url || service.photos[0]?.url,
-        imgAlt: `${firstname} ${lastname}`
+        imgAlt: service.name
       }}
       description={service.information}
-      extraDescription={`Categoría: ${categoryName}`}
+      extraDescription={`Proveedor: ${firstname} ${lastname} | Categoría: ${categoryName}`}
       link={{
         element: {
           customVariant: 'button-outline',

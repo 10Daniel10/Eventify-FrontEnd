@@ -57,21 +57,25 @@ export const SliderCard:FC<SliderCardI> = ({ className, avatar, title, subheader
         image={cardImg?.imgSrc}
         alt={cardImg?.imgAlt}
       />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">{description}</Typography>
-        {extraDescription && <Typography variant="body2" color="text.secondary">{extraDescription}</Typography>}
-      </CardContent>
-      <CardActions disableSpacing className={s['slider-card-actions']}>
-        {favButtons && <div>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-        </div>}
-        {link && <CustomLink customVariant={link.element.customVariant} customColor={link.element.customColor} href={link.element.href} underline='none'>{link.text}</CustomLink>}
-      </CardActions>
+      {(description || extraDescription) && 
+        <CardContent>
+          <Typography variant="body2" color="text.secondary">{description}</Typography>
+          {extraDescription && <Typography variant="body2" color="text.secondary">{extraDescription}</Typography>}
+        </CardContent>
+      }
+      {(favButtons || link) &&
+        <CardActions disableSpacing className={s['slider-card-actions']}>
+          {favButtons && <div>
+            <IconButton aria-label="add to favorites">
+              <FavoriteIcon />
+            </IconButton>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+          </div>}
+          {link && <CustomLink customVariant={link.element.customVariant} customColor={link.element.customColor} href={link.element.href} underline='none'>{link.text}</CustomLink>}
+        </CardActions>
+      }
     </Card>
   )
 }

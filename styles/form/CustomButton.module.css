@@ -12,20 +12,20 @@
 }
 
 .button.primary{
-  color: var(--color-white);
-  background-color: var(--color-primary);
+  color: var(--white);
+  background-color: var(--primary);
 }
 
 .button.primary:hover{
-  background-color: var(--color-primary-hover);
+  background-color: var(--primary-hover);
 }
 
 .button-outline.primary{
-  color: var(--color-primary);
-  border: .1rem solid var(--color-primary);
+  color: var(--primary);
+  border: .1rem solid var(--primary);
 }
 
 .button-outline.primary:hover{
-  color: var(--color-primary-hover);
-  border-color: var(--color-primary-hover);
+  color: var(--primary-hover);
+  border-color: var(--primary-hover);
 }

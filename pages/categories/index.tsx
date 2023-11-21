@@ -38,7 +38,7 @@ const Categories: NextPage = () => {
         ></meta>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Layout variant='navigation'>
+      <Layout>
         <CategoriesList listVariant='grid' title={{text: 'Categorías'}} categories={categories}/>
       </Layout>
     </>

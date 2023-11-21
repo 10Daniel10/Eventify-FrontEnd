@@ -38,7 +38,7 @@ const Services: NextPage = () => {
         ></meta>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Layout variant='navigation'>
+      <Layout>
         <ServicesList listVariant='grid' title={{text: 'Servicios'}} services={services}/>
       </Layout>
     </>

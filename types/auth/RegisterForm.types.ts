@@ -4,6 +4,5 @@ export type RegisterFormT = {
   type: number,
   email: string,
   password: string,
-  confirmPassword: string,
-  defaultCategory: string
+  confirmPassword: string
 }

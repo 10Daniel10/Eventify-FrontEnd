@@ -33,7 +33,7 @@ export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUse
         <MenuItem onClick={handleClose}>
           <CustomLink href={`/user/${userId}/profile`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
         </MenuItem>
-        {userType === 'client' ? (
+        {userType === 'USER' ? (
           <>
             <MenuItem onClick={handleClose}>
               <CustomLink href={`/user/${userId}/reservations`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mis reservas</CustomLink>

@@ -1,8 +1,8 @@
 import React, { FC, PropsWithChildren } from 'react';
 import Stack from '@mui/material/Stack';
 import { Navbar } from '../nav/Navbar';
-import { UserT } from 'types/users/User.types';
 import s from '../../styles/layout/Layout.module.css';
+import { IUser } from 'interfaces';
 
 interface LayoutI extends PropsWithChildren {
   className?: string,
@@ -11,11 +11,11 @@ interface LayoutI extends PropsWithChildren {
 
 // fixMe: ver de dónde saco estas credenciales para saber quién es el user si está loggeado (auth = true)
 const auth = false;
-const fakeUser: UserT = {
+const fakeUser: IUser = {
   id: 1,
-  type: 'client',
-  firstName: 'María',
-  lastName: 'Pérez',
+  type: 'USER',
+  firstname: 'María',
+  lastname: 'Pérez',
   email: 'maria@perez.com'
 }
 

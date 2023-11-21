@@ -1,45 +1,45 @@
 {
+  "id": 1,
+  "name": "Elección del vestido de novia",
+  "information": "Consulta con diseñadores para encontrar el vestido perfecto",
+  "creationDate": "2023-11-03T13:00:00.000+00:00",
+  "updateDate": "2023-11-03T13:00:00.000+00:00",
+  "address": "Boutique de Novias",
+  "price": 0.0,
+  "category": {
     "id": 1,
-    "name": "Elección del vestido de novia",
-    "information": "Consulta con diseñadores para encontrar el vestido perfecto",
-    "creationDate": "2023-11-03T13:00:00.000+00:00",
-    "updateDate": "2023-11-03T13:00:00.000+00:00",
-    "address": "Boutique de Novias",
-    "price": 0.0,
-    "category": {
+    "name": "Vestimenta"
+  },
+  "photos": [
+    {
       "id": 1,
-      "name": "Vestimenta"
+      "url": "https://example.com/photo1.jpg",
+      "activityId": 1,
+      "main": true
     },
-    "photos": [
-      {
-        "id": 1,
-        "url": "https://example.com/photo1.jpg",
-        "activityId": 1,
-        "main": true
-      },
-      {
-        "id": 2,
-        "url": "https://example.com/photo2.jpg",
-        "activityId": 1,
-        "main": false
-      }
-    ],
-    "products": [
-      {
-        "id": 1,
-        "name": "Producto 1"
-      },
-      {
-        "id": 2,
-        "name": "Producto 2"
-      }
-    ],
-    "user": {
-      "id": 1,
-      "username": "john.doe@example.com",
-      "email": "john.doe@example.com",
-      "firstname": "John",
-      "lastname": "Doe",
-      "type": "USER"
+    {
+      "id": 2,
+      "url": "https://example.com/photo2.jpg",
+      "activityId": 1,
+      "main": false
     }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Producto 1"
+    },
+    {
+      "id": 2,
+      "name": "Producto 2"
+    }
+  ],
+  "user": {
+    "id": 1,
+    "username": "john.doe@example.com",
+    "email": "john.doe@example.com",
+    "firstname": "John",
+    "lastname": "Doe",
+    "type": "USER"
   }
+}

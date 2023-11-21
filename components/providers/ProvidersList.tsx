@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { CustomSlider } from '../slider/Slider';
-import { UserProviderI } from 'types/users/User.types';
 import { CustomTitle, CustomTitleI } from '../layout/CustomTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Section } from '../layout/Section';
 import { ProvidersCard } from './ProvidersCard';
 import Grid from '@mui/material/Grid';
+import { UserProviderI } from 'interfaces';
 
 interface ProvidersListI {
   title?: CustomTitleI,

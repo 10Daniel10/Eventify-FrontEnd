@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
 import { CustomSlider } from '../slider/Slider';
-import { CategoriesT } from 'types/categories/Category.types';
 import Image from 'next/image';
 import { Section } from '../layout/Section';
 import s from '../../styles/home/Hero.module.css';
 
 // fixMe: traer listado de imgs de services
-const imgs: CategoriesT[] = ['photography', 'food', 'website', 'video', 'music', 'lights', 'decoration', 'flowers', 'invitations', 'places', 'tents', 'cars', 'livings'];
+const imgs = ['photography', 'food', 'website', 'video', 'music', 'lights', 'decoration', 'flowers', 'invitations', 'places', 'tents', 'cars', 'livings'];
 
 export const Hero:FC = () => {
   return (

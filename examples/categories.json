@@ -1,14 +1,14 @@
 [
-    {
-      "id": 1,
-      "name": "Vestimenta"
-    },
-    {
-      "id": 2,
-      "name": "Banquete"
-    },
-    {
-      "id": 3,
-      "name": "Decoración"
-    }
-  ]
+  {
+    "id": 1,
+    "name": "Vestimenta"
+  },
+  {
+    "id": 2,
+    "name": "Banquete"
+  },
+  {
+    "id": 3,
+    "name": "Decoración"
+  }
+]

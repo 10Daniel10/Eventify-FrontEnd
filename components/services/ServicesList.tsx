@@ -1,17 +1,17 @@
 import React, { FC } from 'react';
 import { CustomSlider } from '../slider/Slider';
-import { UserProviderI } from 'types/users/User.types';
 import { CustomTitle, CustomTitleI } from '../layout/CustomTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Section } from '../layout/Section';
 import { ServicesCard } from './ServicesCard';
 import Grid from '@mui/material/Grid';
+import { IService } from 'interfaces';
 
 interface ServicesListI {
   title?: CustomTitleI,
   listVariant?: 'slider' | 'grid',
   //TODO: HAY QUE TIPAR EL FUCKING SERVICE
-  services: any
+  services: IService[]
 }
 
 export const ServicesList:FC<ServicesListI> = ({ title, listVariant = 'slider', services }) => {

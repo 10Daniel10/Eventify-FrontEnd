@@ -1,30 +1,35 @@
+'use client';
 import { useEffect, useState } from 'react';
 import { Layout } from 'eventapp/components/layout/Layout';
-import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { getProviders } from 'eventapp/services/providers/providers.service';
-import { UserProviderI } from 'interfaces';
+import { getServiceById } from 'eventapp/services/services/servicios.service';
+import { useRouter } from 'next/router';
+import { ServicesCard } from 'eventapp/components/services/ServicesCard';
+import { IService } from 'interfaces';
 
-const Categories: NextPage = () => {
-  const [providers, setProviders] = useState<UserProviderI[]>([]);
+const Service: NextPage = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const [service, setService] = useState<IService | undefined>();
 
   useEffect(() => {
     const fetchData = async () => {
       try {        
-        const providersData = await getProviders();
-        setProviders(providersData);
+        const serviceData = await getServiceById(id);
+        setService(serviceData);
       } catch (error) {
-        console.error('Error al obtener proveedores:', error);
+        console.error('Error al obtener servicio:', error);
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <>
       <Head>
-        <title>Eventify | Proveedores</title>
+        <title>Eventify</title>
         <meta property='og:title' content='Eventify' key='title'></meta>
         <meta
           name='description'
@@ -39,10 +44,10 @@ const Categories: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout variant='navigation'>
-        <ProvidersList listVariant='grid' title={{text: 'Proveedores'}} providers={providers}/>
+        <ServicesCard service={service} />
       </Layout>
     </>
   )
 }
 
-export default Categories;
+export default Service;

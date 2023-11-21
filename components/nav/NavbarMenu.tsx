@@ -29,11 +29,15 @@ export const NavbarMenu = ({appBarMenu, handleAppBarMenu, handleClose}: NavbarT)
         onClose={handleClose}
         className={s['app-bar']}
       >
+        {/* // TODO: CAMBIAR ICON */}
         <MenuItem onClick={handleClose}>
           <CustomLink href="/categories" underline="none" customVariant="link" customColor="primary"><Redeem/> Categorías</CustomLink>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        {/* <MenuItem onClick={handleClose}>
           <CustomLink href="/providers" underline="none" customVariant="link" customColor="primary"><SupervisorAccount/> Proveedores</CustomLink>
+        </MenuItem> */}
+        <MenuItem onClick={handleClose}>
+          <CustomLink href="/services" underline="none" customVariant="link" customColor="primary"><Redeem/>  Servicios</CustomLink>
         </MenuItem>
         <MenuItem onClick={handleClose} className={s['buttons-box']}>
           <CustomLink href="/auth/login" underline="none" customVariant="button-outline" customColor="primary">Iniciar sesión</CustomLink>

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { SliderCard } from '../slider/SliderCard';
-import { UserProviderI } from 'types/users/User.types';
+import { UserProviderI } from 'interfaces';
 
 interface ProvidersCardI {
   provider: UserProviderI
@@ -10,24 +10,23 @@ export const ProvidersCard:FC<ProvidersCardI> = ({ provider }) => {
   return (
     <SliderCard
       avatar={{
-        ariaLabel: `${provider.firstName} ${provider.lastName}`,
+        ariaLabel: `${provider.firstname} ${provider.lastname}`,
         imgSrc: provider.avatar || '/users/avatar.png',
-        imgAlt: `${provider.firstName} ${provider.lastName}`
+        imgAlt: `${provider.firstname} ${provider.lastname}`
       }}
-      title={`${provider.firstName} ${provider.lastName}`}
+      title={`${provider.firstname} ${provider.lastname}`}
       cardImg={{
         imgSrc: provider.defaultImage,
         imgAlt: provider.type
       }}
       description={provider.shortDescription}
-      extraDescription={`Categorías: ${provider.categories}`}
       link={{
         element: {
           customVariant: 'button-outline',
           customColor: 'primary',
-          href: `/providers/${provider.id}`
+          href: `/services?providerId=${provider.id}`
         },
-        text: 'Ver proveedor'
+        text: 'Ver servicios'
       }}
     />
   )

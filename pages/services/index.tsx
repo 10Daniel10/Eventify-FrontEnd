@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Layout } from 'eventapp/components/layout/Layout';
-import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
+import { ServicesList } from 'eventapp/components/services/ServicesList';
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { getProviders } from 'eventapp/services/providers/providers.service';
-import { UserProviderI } from 'interfaces';
+import { IService } from 'interfaces';
+import { getServices } from 'eventapp/services/services/servicios.service';
 
-const Categories: NextPage = () => {
-  const [providers, setProviders] = useState<UserProviderI[]>([]);
+const Services: NextPage = () => {
+  const [services, setServices] = useState<IService[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {        
-        const providersData = await getProviders();
-        setProviders(providersData);
+        const servicesData = await getServices();
+        setServices(servicesData);
       } catch (error) {
-        console.error('Error al obtener proveedores:', error);
+        console.error('Error al obtener servicios:', error);
       }
     };
     fetchData();
@@ -24,7 +24,7 @@ const Categories: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Eventify | Proveedores</title>
+        <title>Eventify | Servicios</title>
         <meta property='og:title' content='Eventify' key='title'></meta>
         <meta
           name='description'
@@ -39,10 +39,10 @@ const Categories: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout variant='navigation'>
-        <ProvidersList listVariant='grid' title={{text: 'Proveedores'}} providers={providers}/>
+        <ServicesList listVariant='grid' title={{text: 'Servicios'}} services={services}/>
       </Layout>
     </>
   )
 }
 
-export default Categories;
+export default Services;

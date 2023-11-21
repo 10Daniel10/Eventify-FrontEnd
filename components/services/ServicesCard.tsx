@@ -3,20 +3,20 @@ import { SliderCard } from '../slider/SliderCard';
 import { IService } from 'interfaces';
 
 interface Service {
- service: IService
+ service: IService | undefined
 }
 
-
-
 export const ServicesCard:FC<Service> = ({service}) => {
-  
+  if(!service){
+    return;
+  }
+
   const { id, user, category, photos } = service;
   const { firstname , lastname } = user;
   const {  name : categoryName } = category;
   
   const mainPhoto = service.photos.find(photo => photo.main);
 
-  console.log(mainPhoto?.url || service.photos[0]?.url)
   return (
     <SliderCard
       avatar={{
@@ -27,7 +27,7 @@ export const ServicesCard:FC<Service> = ({service}) => {
       title={`${firstname} ${lastname}`}
       cardImg={{
         imgSrc: mainPhoto?.url || service.photos[0]?.url,
-        imgAlt: service.type
+        imgAlt: `${firstname} ${lastname}`
       }}
       description={service.information}
       extraDescription={`Categoría: ${categoryName}`}
@@ -35,9 +35,9 @@ export const ServicesCard:FC<Service> = ({service}) => {
         element: {
           customVariant: 'button-outline',
           customColor: 'primary',
-          href: `/Services/${id}`
+          href: `/services/${id}`
         },
-        text: 'Ver proveedor'
+        text: 'Ver servicio'
       }}
     />
   )

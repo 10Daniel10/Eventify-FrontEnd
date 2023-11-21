@@ -15,12 +15,7 @@ import { CustomTitle } from '../layout/CustomTitle';
 import { RegisterFormT } from 'types/auth/RegisterForm.types';
 import { createUser } from 'eventapp/services/auth/auth.service';
 import { CustomSwitch } from '../form/CustomSwitch';
-import { CategoriesT } from 'types/categories/Category.types';
-import { CustomSelect } from '../form/CustomSelect';
-import MenuItem from '@mui/material/MenuItem';
 import s from '../../styles/auth/Auth.module.css';
-
-const categories: CategoriesT[] = ['photography', 'food', 'website', 'video', 'music', 'lights', 'decoration', 'flowers', 'invitations', 'places', 'tents', 'cars', 'livings'];
 
 const initialData: RegisterFormT = {
   firstname: '',
@@ -28,8 +23,7 @@ const initialData: RegisterFormT = {
   type: 0,
   email: '',
   password: '',
-  confirmPassword: '',
-  defaultCategory: ''
+  confirmPassword: ''
 }
 
 export const RegisterForm: FC = () => {
@@ -148,19 +142,6 @@ export const RegisterForm: FC = () => {
                 control={control}
                 defaultChecked={Boolean(initialData.type === 1)}
               />
-            </Grid>
-            <Grid item xs={12}>
-              <CustomSelect
-                name="defaultCategory"
-                label="Selecciona tu servicio principal"
-                control={control}
-                defaultValue={initialData.defaultCategory}
-                required={true}>
-                  <MenuItem value="" disabled><em>None</em></MenuItem>
-                  {categories.map((c, index) => (
-                    <MenuItem key={index} value={c}>{c}</MenuItem>
-                  ))}
-              </CustomSelect>
             </Grid>
             <Grid item xs={12}>
               <CustomButton type="submit" variant="contained" customColor="primary">Registrarme</CustomButton>

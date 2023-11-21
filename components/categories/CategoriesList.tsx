@@ -3,14 +3,14 @@ import { CustomSlider } from '../slider/Slider';
 import { CustomTitle, CustomTitleI } from '../layout/CustomTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Section } from '../layout/Section';
-import { CategoryT } from 'types/categories/Category.types';
 import Grid from '@mui/material/Grid';
 import { CategoriesCard } from './CategoriesCard';
+import { ICategory } from 'interfaces';
 
 interface CategoriesListI {
   title?: CustomTitleI,
   listVariant?: 'slider' | 'grid',
-  categories: CategoryT[]
+  categories: ICategory[]
 }
 
 export const CategoriesList:FC<CategoriesListI> = ({ title, listVariant = 'slider', categories }) => {

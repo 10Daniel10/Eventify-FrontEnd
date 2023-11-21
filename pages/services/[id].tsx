@@ -7,6 +7,7 @@ import { getServiceById } from 'eventapp/services/services/servicios.service';
 import { useRouter } from 'next/router';
 import { ServicesCard } from 'eventapp/components/services/ServicesCard';
 import { IService } from 'interfaces';
+import { ServiceReservation } from 'eventapp/components/services/ServicesReservation';
 
 const Service: NextPage = () => {
   const router = useRouter();
@@ -44,7 +45,14 @@ const Service: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout variant='navigation'>
-        <ServicesCard service={service} />
+      {service ? (
+        <>
+          <ServicesCard service={service} />
+          <ServiceReservation servicePrice={service.price} />
+        </>
+      ) : (
+        <p>Cargando...</p>
+      )}
       </Layout>
     </>
   )

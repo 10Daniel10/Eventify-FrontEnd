@@ -11,4 +11,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+@media screen and (min-width: 600px){
+  .slider-card-content{
+    height: 4rem;
+    overflow: hidden;
+  }
 }

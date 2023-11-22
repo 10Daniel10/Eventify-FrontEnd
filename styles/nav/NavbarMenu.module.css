@@ -1,6 +1,6 @@
 .user-email{
   display: none;
-  color: var(--color-primary);
+  color: var(--primary);
 }
 
 .app-bar > div:nth-child(3){
@@ -10,8 +10,8 @@
   max-width: 100%;
   height: 100vh;
   max-height: calc(100vh - 4rem);
-  box-shadow: 1rem 1rem 2rem var(--color-light-gray), 1rem 1rem 2rem var(--color-light-gray);
-  box-shadow: 0 .5rem .5rem -.3rem var(--color-light-gray), 0 .5rem 1rem .1rem var(--color-light-gray);
+  box-shadow: 1rem 1rem 2rem var(--light-gray), 1rem 1rem 2rem var(--light-gray);
+  box-shadow: 0 .5rem .5rem -.3rem var(--light-gray), 0 .5rem 1rem .1rem var(--light-gray);
   border-radius: 0;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .app-bar > div:nth-child(3) ul li:first-child{
-  border-top: .1rem solid var(--color-primary);
+  border-top: .1rem solid var(--primary);
 }
 
 .app-bar > div:nth-child(3) ul li a{
@@ -35,7 +35,7 @@
 }
 
 .app-bar > div:nth-child(3) ul li.buttons-box{
-  border-top: .1rem solid var(--color-primary);
+  border-top: .1rem solid var(--primary);
   position: absolute;
   bottom: 0;
   gap: 1rem;
@@ -46,7 +46,7 @@
 }
 
 .button-menu{
-  color: var(--color-primary);
+  color: var(--primary);
   padding: 0;
 }
 

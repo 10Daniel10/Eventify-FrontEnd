@@ -6,7 +6,7 @@ import { IUser } from 'interfaces';
 
 interface LayoutI extends PropsWithChildren {
   className?: string,
-  variant: 'navigation' | 'full'
+  variant?: 'navigation' | 'full'
 }
 
 // fixMe: ver de dónde saco estas credenciales para saber quién es el user si está loggeado (auth = true)
@@ -19,7 +19,7 @@ const fakeUser: IUser = {
   email: 'maria@perez.com'
 }
 
-export const Layout: FC<LayoutI> = ({ className, variant, children }) => {
+export const Layout: FC<LayoutI> = ({ className, variant = 'navigation', children }) => {
   const containerClass = `${s.container} ${s[variant]} ${className}`;
 
   return (

@@ -10,7 +10,7 @@ const imgs = ['photography', 'food', 'website', 'video', 'music', 'lights', 'dec
 export const Hero:FC = () => {
   return (
     <Section variant="full" className={s.container}>
-      <CustomSlider className={s['slider-container']} variant="images" totalCards={imgs.length} cardsToShow={1} autoplay={true} autoplaySpeed={2000} dots={false} arrows={false}>
+      <CustomSlider className={s['slider-container']} variant="images" totalCards={imgs.length} cardsToShow={1} autoplay={true} autoplaySpeed={2000} dots={false}>
         {imgs.map((img, index) => (
           <Image
             key={index}

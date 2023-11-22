@@ -1,14 +1,52 @@
 [
   {
     "id": 1,
-    "name": "Vestimenta"
+    "name": "Iluminación",
+    "imageUrl": "/categories/lights.jpeg"
   },
   {
     "id": 2,
-    "name": "Banquete"
+    "name": "Catering",
+    "imageUrl": "/categories/food.jpeg"
   },
   {
     "id": 3,
-    "name": "Decoración"
+    "name": "Decoración",
+    "imageUrl": "/categories/decoration.jpeg"
+  },
+  {
+    "id": 4,
+    "name": "Alquiler de autos",
+    "imageUrl": "/categories/cars.jpeg"
+  },
+  {
+    "id": 5,
+    "name": "Alquiler de livings",
+    "imageUrl": "/categories/livings.jpeg"
+  },
+  {
+    "id": 6,
+    "name": "Alquiler de carpas",
+    "imageUrl": "/categories/tents.jpeg"
+  },
+  {
+    "id": 7,
+    "name": "Video",
+    "imageUrl": "/categories/video.jpeg"
+  },
+  {
+    "id": 8,
+    "name": "Página web",
+    "imageUrl": "/categories/website.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "Música",
+    "imageUrl": "/categories/music.jpeg"
+  },
+  {
+    "id": 10,
+    "name": "Fotografía",
+    "imageUrl": "/categories/photography.jpeg"
   }
 ]

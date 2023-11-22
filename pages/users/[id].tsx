@@ -20,7 +20,7 @@ const UserId: NextPage = () => {
         ></meta>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Layout variant='navigation'>
+      <Layout>
         <h1>Aquí va el formulario del perfil del usuario</h1>
       </Layout>
     </>

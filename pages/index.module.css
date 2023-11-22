@@ -1,0 +1,13 @@
+.categories-container > div{
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+}
+
+.services-container{
+  background-color: var(--light-gray);
+}
+
+.services-container > div{
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+}

@@ -11,52 +11,52 @@
 }
 
 .primary{
-  color: var(--color-primary);
+  color: var(--primary);
 }
 
 .primary:hover{
-  color: var(--color-primary-hover);
+  color: var(--primary-hover);
 }
 
 .secondary{
-  color: var(--color-secondary);
+  color: var(--secondary);
 }
 
 .secondary:hover{
-  color: var(--color-secondary-hover);
+  color: var(--secondary-hover);
 }
 
 .white{
-  color: var(--color-white);
+  color: var(--white);
 }
 
 .white:hover{
-  color: var(--color-medium-gray);
+  color: var(--medium-gray);
 }
 
 .gray{
-  color: var(--color-dark-gray);
+  color: var(--dark-gray);
 }
 
 .gray:hover{
-  color: var(--color-medium-gray);
+  color: var(--medium-gray);
 }
 
 .button{
   justify-content: center;
-  color: var(--color-white);
+  color: var(--white);
   border-radius: 2rem;
   border: .1rem solid;
   padding: 0.4rem 0.8rem;
 }
 
 .button-primary{
-  background-color: var(--color-primary);
-  border: .1rem solid var(--color-primary);
+  background-color: var(--primary);
+  border: .1rem solid var(--primary);
 }
 
 .button-primary:hover{
-  background-color: var(--color-primary-hover);
+  background-color: var(--primary-hover);
 }
 
 .button-outline{

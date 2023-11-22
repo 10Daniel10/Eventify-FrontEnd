@@ -5,6 +5,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { getProviders } from 'eventapp/services/providers/providers.service';
 import { UserProviderI } from 'interfaces';
+import s from '../index.module.css';
 
 const Categories: NextPage = () => {
   const [providers, setProviders] = useState<UserProviderI[]>([]);
@@ -39,7 +40,7 @@ const Categories: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
-        <ProvidersList listVariant='grid' title={{text: 'Proveedores'}} providers={providers}/>
+        <ProvidersList listVariant='grid' title={{text: 'Proveedores'}} providers={providers} className={s['page-container']}/>
       </Layout>
     </>
   )

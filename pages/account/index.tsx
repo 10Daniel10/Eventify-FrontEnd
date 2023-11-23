@@ -6,7 +6,7 @@ const UserId: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Eventify | Clientes</title>
+        <title>Eventify | Mi perfil</title>
         <meta property='og:title' content='Eventify' key='title'></meta>
         <meta
           name='description'

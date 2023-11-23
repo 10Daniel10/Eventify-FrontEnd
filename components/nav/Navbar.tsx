@@ -3,7 +3,8 @@ import Image from 'next/image';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Redeem from '@mui/icons-material/Redeem';
+import CategoryRounded from '@mui/icons-material/CategoryRounded';
+import LocalMall from '@mui/icons-material/LocalMall';
 import SupervisorAccount from '@mui/icons-material/SupervisorAccount';
 import { CustomLink } from '../form/CustomLink';
 import { NavbarMenu } from './NavbarMenu';
@@ -74,10 +75,9 @@ export const Navbar:FC<NavbarProps> = ({ auth, user }) => {
             EVENTIFY
           </CustomLink>
           <Box className={s['button-group']}>
-            {/* // TODO: CAMBIAR ICON */}
-            <CustomLink href="/categories" underline="none" customVariant="link" customColor="primary"><Redeem/> Categorías</CustomLink>
+            <CustomLink href="/categories" underline="none" customVariant="link" customColor="primary"><CategoryRounded/> Categorías</CustomLink>
             {/* <CustomLink href="/providers" underline="none" customVariant="link" customColor="primary"><SupervisorAccount/> Proveedores</CustomLink> */}
-            <CustomLink href="/services" underline="none" customVariant="link" customColor="primary"><Redeem/> Servicios</CustomLink>
+            <CustomLink href="/services" underline="none" customVariant="link" customColor="primary"><LocalMall/> Servicios</CustomLink>
           </Box>
         </Box>
         {logged ? (

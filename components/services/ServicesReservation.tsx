@@ -5,7 +5,10 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { validateDate, validateTime, validateHours } from 'utils/validations';
 import { CustomInput } from '../form/CustomInput';
 import { CustomButton } from '../form/CustomButton';
 import { CustomTitle } from '../layout/CustomTitle';
@@ -16,15 +19,15 @@ interface ServiceReservationProps {
 }
 
 interface ReservationFormData {
-  day: string;
-  hour: string;
+  date: string;
+  time: string;
   hoursCount: number;
   totalPrice: number;
 }
 
 const initialReservationData: ReservationFormData = {
-  day: '',
-  hour: '',
+  date: '2023-11-22',
+  time: '00:00',
   hoursCount: 1,
   totalPrice: 0,
 };
@@ -32,7 +35,7 @@ const initialReservationData: ReservationFormData = {
 export const ServiceReservation: FC<ServiceReservationProps> = ({ servicePrice }) => {
   const [price, setPrice] = useState(0);
 
-  const { control, handleSubmit } = useForm<ReservationFormData>();
+  const { control, handleSubmit, formState: {errors} } = useForm<ReservationFormData>();
 
   const handleHoursCountChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newPrice = parseInt(e.target.value);
@@ -40,7 +43,33 @@ export const ServiceReservation: FC<ServiceReservationProps> = ({ servicePrice }
   };
 
   const onSubmit: SubmitHandler<ReservationFormData> = (formData) => {
+
+    const dateValidation = validateDate(formData.date);
+    const timeValidation = validateTime(formData.time);
+    const hoursValidation = validateHours(formData.hoursCount);
+
+    control.setError('date', { message: dateValidation });
+    control.setError('time', { message: timeValidation });
+    control.setError('hoursCount', { message: hoursValidation });
+
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
+
+    // try{
+    //   if(!response.error){
+    //     router.push('/');
+    //   } else{
+    //     setCredentialsError(true);
+    //     setCredentialsErrorMessage(`${response.error}: ${response.message}`);
+    //   }
+    // } catch(error: any){
+    //   setCredentialsError(true);
+    //   setCredentialsErrorMessage(`${response.error}: ${response.message}`);
+    // }
+
     console.log('Reserva enviada:', formData);
+
   };
 
   return (
@@ -55,9 +84,12 @@ export const ServiceReservation: FC<ServiceReservationProps> = ({ servicePrice }
               <CustomInput
                 type="date"
                 name="day"
-                label="Fecha"
+                label=""
                 control={control}
                 required={true}
+                // defaultValue={initialReservationData.date}
+                error={Boolean(errors.date)}
+                helperText={errors.date?.message}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -66,8 +98,10 @@ export const ServiceReservation: FC<ServiceReservationProps> = ({ servicePrice }
                 name="time"
                 label=""
                 control={control}
-                placeholder="Ej: 18:00"
                 required={true}
+                // defaultValue={initialReservationData.time}
+                error={Boolean(errors.time)}
+                helperText={errors.time?.message}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -76,16 +110,21 @@ export const ServiceReservation: FC<ServiceReservationProps> = ({ servicePrice }
                 name="hours"
                 label="Horas"
                 control={control}
-                placeholder="Cantidad de horas"
                 required={true}
+                // defaultValue={initialReservationData.hoursCount}
+                error={Boolean(errors.hoursCount)}
+                helperText={errors.hoursCount?.message}
                 onChange={handleHoursCountChange}
               />
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="body1" className="colorGray">
-                Precio total: ${price}
-              </Typography>
+            <OutlinedInput
+              startAdornment={<InputAdornment position="start">Precio total: ${price}</InputAdornment>}
+              readOnly
+              fullWidth
+            />
             </Grid>
+            <Typography variant="subtitle2" color={"gray"}>*El precio total se calcula multiplicando el precio del servicio por la cantidad de horas del evento</Typography>
           </Grid>
           <Grid item xs={12}>
           <CustomButton type="submit" variant="contained" customColor="primary">Reservar</CustomButton>

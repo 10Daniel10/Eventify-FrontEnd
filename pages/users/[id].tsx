@@ -1,4 +1,6 @@
+import { ProfileForm } from 'eventapp/components/auth/ProfileForm';
 import { Layout } from 'eventapp/components/layout/Layout';
+import { Section } from 'eventapp/components/layout/Section';
 import { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -21,10 +23,12 @@ const UserId: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
-        <h1>Aquí va el formulario del perfil del usuario</h1>
+        <Section>
+          <ProfileForm />
+        </Section>
       </Layout>
     </>
-  )
-}
+  );
+};
 
 export default UserId;

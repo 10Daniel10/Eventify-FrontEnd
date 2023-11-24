@@ -88,11 +88,11 @@ export const ServiceReservation: FC<ServiceReservationProps> = ({ servicePrice }
                 control={control}
                 required={true}
                 // defaultValue={initialReservationData.date}
-                error={Boolean(errors.date)}
-                helperText={errors.date?.message}
+                // error={Boolean(errors.date)}
+                // helperText={errors.date?.message}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            {/* <Grid item xs={12} sm={6}>
               <CustomInput
                 type="time"
                 name="time"
@@ -124,10 +124,10 @@ export const ServiceReservation: FC<ServiceReservationProps> = ({ servicePrice }
               fullWidth
             />
             </Grid>
-            <Typography variant="subtitle2" color={"gray"}>*El precio total se calcula multiplicando el precio del servicio por la cantidad de horas del evento</Typography>
+            <Typography variant="subtitle2" color={"gray"}>*El precio total se calcula multiplicando el precio del servicio por la cantidad de horas del evento</Typography> */}
           </Grid>
           <Grid item xs={12}>
-          <CustomButton type="submit" variant="contained" customColor="primary">Reservar</CustomButton>
+          <CustomButton type="submit" variant="contained" customColor="primary">Iniciar reserva</CustomButton>
           </Grid>
         </Box>
       </Box>

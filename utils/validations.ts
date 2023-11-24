@@ -33,8 +33,8 @@ export const validateTime = (time: string): string | undefined => {
   return undefined;
 };
 
-export const validateHours = (hour: number): string | undefined => {
-  if (hour < 1) {
+export const validateHours = (hoursCount: number): string | undefined => {
+  if (hoursCount <= 0) {
     return 'El evento debe durar al menos una hora.';
   }
   return undefined;

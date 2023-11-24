@@ -80,7 +80,7 @@ export const ServiceReservation: FC<ServiceReservationProps> = ({ servicePrice }
         <CustomTitle color="gray" htmlTag="h4" text="Formulario de reserva" className={s.title}/>
         <Box component="form" onSubmit={handleSubmit(onSubmit)} mb={2}>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <CustomInput
                 type="date"
                 name="day"
@@ -92,7 +92,7 @@ export const ServiceReservation: FC<ServiceReservationProps> = ({ servicePrice }
                 // helperText={errors.date?.message}
               />
             </Grid>
-            {/* <Grid item xs={12} sm={6}>
+            {/* <Grid item xs={12}>
               <CustomInput
                 type="time"
                 name="time"
@@ -104,7 +104,7 @@ export const ServiceReservation: FC<ServiceReservationProps> = ({ servicePrice }
                 helperText={errors.time?.message}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <CustomInput
                 type="number"
                 name="hours"
@@ -119,12 +119,13 @@ export const ServiceReservation: FC<ServiceReservationProps> = ({ servicePrice }
             </Grid>
             <Grid item xs={12}>
             <OutlinedInput
+              style={{borderRadius: "2rem"}}
               startAdornment={<InputAdornment position="start">Precio total: ${price}</InputAdornment>}
               readOnly
               fullWidth
             />
             </Grid>
-            <Typography variant="subtitle2" color={"gray"}>*El precio total se calcula multiplicando el precio del servicio por la cantidad de horas del evento</Typography> */}
+            <Typography variant="subtitle2" color={"gray"} style={{paddingTop: "1rem"}}>*El precio total se calcula multiplicando el precio del servicio por la cantidad de horas del evento</Typography> */}
           </Grid>
           <Grid item xs={12}>
           <CustomButton type="submit" variant="contained" customColor="primary">Iniciar reserva</CustomButton>

@@ -5,7 +5,7 @@ import { Section } from '../layout/Section';
 import s from '../../styles/home/Hero.module.css';
 
 // fixMe: traer listado de imgs de services
-const imgs = ['photography', 'food', 'website', 'video', 'music', 'lights', 'decoration', 'flowers', 'invitations', 'places', 'tents', 'cars', 'livings'];
+const imgs = ['1', '2', '3', '4'];
 
 export const Hero:FC = () => {
   return (
@@ -14,7 +14,7 @@ export const Hero:FC = () => {
         {imgs.map((img, index) => (
           <Image
             key={index}
-            src={`/categories/${img}.jpeg`}
+            src={`/hero/${img}.jpeg`}
             alt={img}
             width={500}
             height={200}

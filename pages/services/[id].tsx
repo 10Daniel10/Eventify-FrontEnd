@@ -5,8 +5,8 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { getServiceById } from 'eventapp/services/services/servicios.service';
 import { useRouter } from 'next/router';
-import { ServicesCard } from 'eventapp/components/services/ServicesCard';
 import { IService } from 'interfaces';
+import { ServicesDetail } from 'eventapp/components/services/ServicesDetail';
 
 const Service: NextPage = () => {
   const router = useRouter();
@@ -44,7 +44,7 @@ const Service: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
-        <ServicesCard service={service} />
+        <ServicesDetail service={service} />
       </Layout>
     </>
   )

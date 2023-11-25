@@ -10,12 +10,18 @@
   --medium-gray: #C6C6C6;
   --dark-gray: #8F8F8F;
   --white: #FFFFFF;
+  --black: #292D34;
   
   /* fonts */
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Nunito Sans', sans-serif !important;
   font-size: 14px;
 }
 
 body{
   margin: 0;
+}
+
+ul{
+  padding-left: 0;
+  list-style: none;
 }

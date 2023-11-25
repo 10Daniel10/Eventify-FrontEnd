@@ -43,6 +43,21 @@ export const Navbar:FC<NavbarProps> = ({ auth, user }) => {
   //   }
   // }, []);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const handleAppBarMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAppBarMenu(event.currentTarget);
   };
@@ -67,17 +82,17 @@ export const Navbar:FC<NavbarProps> = ({ auth, user }) => {
   }
 
   return (
-    <AppBar className={s.container}>
+    <AppBar className={`${s.container} ${scrolled && s.scrolled}`}>
       <Toolbar className={s['sub-container']}>
         <Box display={"flex"} alignItems={"center"} gap={4}>
           <CustomLink href="/" underline="none" className={s['navbar-logo']}>
-            <Image src="/iso_positive.png" alt="Eventify" width={30} height={30}/>
-            EVENTIFY
+            <Image src="/iso_logo.png" alt="Eventify" width={20} height={20}/>
+            Eventify
           </CustomLink>
           <Box className={s['button-group']}>
-            <CustomLink href="/categories" underline="none" customVariant="link" customColor="primary"><CategoryRounded/> Categorías</CustomLink>
-            {/* <CustomLink href="/providers" underline="none" customVariant="link" customColor="primary"><SupervisorAccount/> Proveedores</CustomLink> */}
-            <CustomLink href="/services" underline="none" customVariant="link" customColor="primary"><LocalMall/> Servicios</CustomLink>
+            <CustomLink href="/categories" underline="none" customVariant="link" customColor="black"><CategoryRounded/> Categorías</CustomLink>
+            <CustomLink href="/providers" underline="none" customVariant="link" customColor="black"><SupervisorAccount/> Proveedores</CustomLink>
+            <CustomLink href="/services" underline="none" customVariant="link" customColor="black"><LocalMall/> Servicios</CustomLink>
           </Box>
         </Box>
         {logged ? (

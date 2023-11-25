@@ -32,7 +32,7 @@
 }
 
 .features li svg{
-  color: var(--black);
+  color: var(--secondary);
 }
 
 @media screen and (min-width: 600px){
@@ -67,9 +67,6 @@
   }
   .title{
     font-size: 3rem;
-  }
-  .description, .features li{
-    font-size: 1.8rem;
   }
 }
 

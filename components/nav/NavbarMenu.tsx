@@ -33,9 +33,9 @@ export const NavbarMenu = ({appBarMenu, handleAppBarMenu, handleClose}: NavbarT)
         <MenuItem onClick={handleClose}>
           <CustomLink href="/categories" underline="none" customVariant="link" customColor="primary"><CategoryRounded/> Categorías</CustomLink>
         </MenuItem>
-        {/* <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleClose}>
           <CustomLink href="/providers" underline="none" customVariant="link" customColor="primary"><SupervisorAccount/> Proveedores</CustomLink>
-        </MenuItem> */}
+        </MenuItem>
         <MenuItem onClick={handleClose}>
           <CustomLink href="/services" underline="none" customVariant="link" customColor="primary"><LocalMall/> Servicios</CustomLink>
         </MenuItem>

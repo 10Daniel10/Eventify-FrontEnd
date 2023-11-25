@@ -1,28 +1,24 @@
 import React, { FC } from 'react';
-import { CustomSlider } from '../slider/Slider';
 import Image from 'next/image';
 import { Section } from '../layout/Section';
+import { CustomTitle } from '../layout/CustomTitle';
+import { Check } from '@mui/icons-material';
 import s from '../../styles/home/Hero.module.css';
-
-// fixMe: traer listado de imgs de services
-const imgs = ['1', '2', '3', '4'];
 
 export const Hero:FC = () => {
   return (
-    <Section variant="full" className={s.container}>
-      <CustomSlider className={s['slider-container']} variant="images" totalCards={imgs.length} cardsToShow={1} autoplay={true} autoplaySpeed={2000} dots={false}>
-        {imgs.map((img, index) => (
-          <Image
-            key={index}
-            src={`/hero/${img}.jpeg`}
-            alt={img}
-            width={500}
-            height={200}
-            objectFit='contain'
-            objectPosition='center'
-          />
-        ))}
-      </CustomSlider>
+    <Section className={s.container}>
+      <Image src={'/shapes/shape2.png'} alt={'Eventify'} height={500} width={500} className={s.image}/>
+      <div className={s.content}>
+        <CustomTitle text={'Planea y organiza eventos inolvidables con Eventify.'} htmlTag='h1' className={s.title}/>
+        <p className={s.description}>Coordina eventos, colabora con clientes, administra presupuestos y ¡mucho más! con las sencillas herramientas de administración de eventos de Eventify.</p>
+        <ul className={s.features}>
+          <li><Check/> Gestión de eventos y cronogramas</li>
+          <li><Check/> Protección de datos y fiabilidad</li>
+          <li><Check/> Agenda personalizada</li>
+          <li><Check/> Visión panorámica de reservas</li>
+        </ul>
+      </div>
     </Section>
   )
 }

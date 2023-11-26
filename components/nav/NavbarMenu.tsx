@@ -3,7 +3,8 @@ import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Redeem from '@mui/icons-material/Redeem';
+import CategoryRounded from '@mui/icons-material/CategoryRounded';
+import LocalMall from '@mui/icons-material/LocalMall';
 import SupervisorAccount from '@mui/icons-material/SupervisorAccount';
 import { NavbarT } from 'types/nav/Navbar.types';
 import { CustomLink } from '../form/CustomLink';
@@ -29,15 +30,14 @@ export const NavbarMenu = ({appBarMenu, handleAppBarMenu, handleClose}: NavbarT)
         onClose={handleClose}
         className={s['app-bar']}
       >
-        {/* // TODO: CAMBIAR ICON */}
         <MenuItem onClick={handleClose}>
-          <CustomLink href="/categories" underline="none" customVariant="link" customColor="primary"><Redeem/> Categorías</CustomLink>
+          <CustomLink href="/categories" underline="none" customVariant="link" customColor="primary"><CategoryRounded/> Categorías</CustomLink>
         </MenuItem>
-        {/* <MenuItem onClick={handleClose}>
-          <CustomLink href="/providers" underline="none" customVariant="link" customColor="primary"><SupervisorAccount/> Proveedores</CustomLink>
-        </MenuItem> */}
         <MenuItem onClick={handleClose}>
-          <CustomLink href="/services" underline="none" customVariant="link" customColor="primary"><Redeem/>  Servicios</CustomLink>
+          <CustomLink href="/providers" underline="none" customVariant="link" customColor="primary"><SupervisorAccount/> Proveedores</CustomLink>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <CustomLink href="/services" underline="none" customVariant="link" customColor="primary"><LocalMall/> Servicios</CustomLink>
         </MenuItem>
         <MenuItem onClick={handleClose} className={s['buttons-box']}>
           <CustomLink href="/auth/login" underline="none" customVariant="button-outline" customColor="primary">Iniciar sesión</CustomLink>

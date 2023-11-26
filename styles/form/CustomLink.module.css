@@ -34,6 +34,14 @@
   color: var(--medium-gray);
 }
 
+.black{
+  color: var(--black);
+}
+
+.black:hover{
+  color: var(--primary);
+}
+
 .gray{
   color: var(--dark-gray);
 }
@@ -65,4 +73,5 @@
   border: .1rem solid;
   border-radius: 2rem;
   letter-spacing: .05rem;
+  background-color: var(--white);
 }

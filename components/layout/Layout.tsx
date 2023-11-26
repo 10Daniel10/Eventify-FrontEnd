@@ -1,11 +1,9 @@
 import React, { FC, PropsWithChildren } from 'react';
 import Stack from '@mui/material/Stack';
 import { Navbar } from '../nav/Navbar';
-import s from '../../styles/layout/Layout.module.css';
 import { IUser } from 'interfaces';
 
 interface LayoutI extends PropsWithChildren {
-  className?: string,
   variant?: 'navigation' | 'full'
 }
 
@@ -19,11 +17,9 @@ const fakeUser: IUser = {
   email: 'maria@perez.com'
 }
 
-export const Layout: FC<LayoutI> = ({ className, variant = 'navigation', children }) => {
-  const containerClass = `${s.container} ${s[variant]} ${className}`;
-
+export const Layout: FC<LayoutI> = ({ variant = 'navigation', children }) => {
   return (
-    <Stack className={containerClass}>
+    <Stack>
       {variant === 'navigation' && <Navbar auth={auth} user={fakeUser} />}
       {children}
       {/* {variant === 'navigation' && <Footer />} */}

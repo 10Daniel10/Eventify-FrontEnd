@@ -1,0 +1,34 @@
+.container > div{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.title{
+  color: var(--dark-gray);
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.clients{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.clients li img{
+  width: auto;
+  height: 3rem;
+  filter: grayscale(100%);
+}
+
+@media screen and (min-width: 600px){
+  .clients{
+    flex-direction: row;
+  }
+}

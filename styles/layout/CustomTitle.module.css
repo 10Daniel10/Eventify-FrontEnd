@@ -1,7 +1,8 @@
 .title{
   margin: 1rem 0;
-  font-weight: bold;
+  font-weight: 900;
   letter-spacing: .05rem;
+  font-family: 'Nunito Sans', sans-serif !important;
 }
 
 .h1{

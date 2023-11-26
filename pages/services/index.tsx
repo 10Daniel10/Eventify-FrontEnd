@@ -5,6 +5,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { IService } from 'interfaces';
 import { getServices } from 'eventapp/services/services/servicios.service';
+import s from '../index.module.css';
 
 const Services: NextPage = () => {
   const [services, setServices] = useState<IService[]>([]);
@@ -39,7 +40,7 @@ const Services: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
-        <ServicesList listVariant='grid' title={{text: 'Servicios'}} services={services}/>
+        <ServicesList listVariant='grid' title={{text: 'Servicios'}} services={services} className={s['page-container']}/>
       </Layout>
     </>
   )

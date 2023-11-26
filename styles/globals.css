@@ -2,20 +2,26 @@
   --max-width: 1200px;
 
   /* colors */
-  --primary: #3AB795;
-  --primary-hover: #47D5AF;
-  --secondary: #F4D06F;
-  --secondary-hover: #F7DC94;
+  --primary: #2ABCC8;
+  --primary-hover: #26a8b4;
+  --secondary: #FE5CA7;
+  --secondary-hover: #f82a8a;
   --light-gray: #F6F6F6;
   --medium-gray: #C6C6C6;
   --dark-gray: #8F8F8F;
   --white: #FFFFFF;
+  --black: #292D34;
   
   /* fonts */
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Nunito Sans', sans-serif !important;
   font-size: 14px;
 }
 
 body{
   margin: 0;
+}
+
+ul{
+  padding-left: 0;
+  list-style: none;
 }

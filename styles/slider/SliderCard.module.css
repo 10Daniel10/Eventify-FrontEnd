@@ -4,7 +4,8 @@
 
 .slider-card-header span:first-child{
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: .05rem;
 }
 
 .slider-card-actions{

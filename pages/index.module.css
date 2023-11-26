@@ -1,13 +1,20 @@
-.categories-container > div{
+/* home page */
+.categories-slider-container > div{
   padding-top: 4rem;
   padding-bottom: 6rem;
 }
 
-.services-container{
+.services-slider-container{
   background-color: var(--light-gray);
 }
 
-.services-container > div{
+.services-slider-container > div{
   padding-top: 4rem;
   padding-bottom: 6rem;
+}
+
+/* internal pages */
+.page-container > div > h2{
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }

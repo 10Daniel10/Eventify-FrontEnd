@@ -1,11 +1,11 @@
 /* home page */
+.categories-slider-container{
+  background-color: var(--light-gray);
+}
+
 .categories-slider-container > div{
   padding-top: 4rem;
   padding-bottom: 6rem;
-}
-
-.services-slider-container{
-  background-color: var(--light-gray);
 }
 
 .services-slider-container > div{

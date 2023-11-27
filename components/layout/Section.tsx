@@ -10,7 +10,7 @@ export const Section: FC<SectionI> = ({ className, children }) => {
 
   return (
     <section className={containerClass}>
-      <div className={s.subcontainer}>
+      <div>
         {children}
       </div>
     </section>

@@ -9,8 +9,9 @@ import Head from 'next/head';
 import { getCategories } from 'eventapp/services/categories/categories.service';
 import { getServices } from 'eventapp/services/services/servicios.service';
 import { ICategory, IService } from 'interfaces';
-import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
-import { getProviders } from 'eventapp/services/providers/providers.service';
+import { HeadCustom } from 'eventapp/components/layout/HeadCustom';
+import { Search } from 'eventapp/components/search/search';
+
 
 const Home: NextPage = () => {
   const [services, setServices] = useState<IService[]>([]);
@@ -55,23 +56,10 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Eventify</title>
-        <meta property='og:title' content='Eventify' key='title'></meta>
-        <meta
-          name='description'
-          content='Planifica tu evento de forma sencilla y eficaz'
-        />
-        <meta charSet='utf-8' />
-        <meta name='evento, app de eventos, organización de eventos, organización' />
-        <meta
-          name='viewport'
-          content='width=device-width, initial-scale=1'
-        ></meta>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <HeadCustom />      
       <Layout variant='navigation'>
         <Hero/>
+        <Search />
         <CategoriesList listVariant='slider' title={{text: 'Categorías'}} categories={categories}/>
         {/* <ProvidersList listVariant='slider' title={{text: 'Proveedores'}} providers={providers}/> */}
         <ServicesList listVariant='slider' title={{text: 'Servicios'}} services={services}/>

@@ -39,6 +39,9 @@ export const NavbarMenu = ({appBarMenu, handleAppBarMenu, handleClose}: NavbarT)
         <MenuItem onClick={handleClose}>
           <CustomLink href="/services" underline="none" customVariant="link" customColor="primary"><Redeem/>  Servicios</CustomLink>
         </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <CustomLink href="/providers/add" underline="none" customVariant="link" customColor="primary"><Redeem/>  Add Provider</CustomLink>
+        </MenuItem>
         <MenuItem onClick={handleClose} className={s['buttons-box']}>
           <CustomLink href="/auth/login" underline="none" customVariant="button-outline" customColor="primary">Iniciar sesión</CustomLink>
           <CustomLink href="/auth/register" underline="none" customVariant="button" customColor="primary">Registrarme</CustomLink>

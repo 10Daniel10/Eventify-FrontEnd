@@ -78,6 +78,7 @@ export const Navbar:FC<NavbarProps> = ({ auth, user }) => {
             <CustomLink href="/categories" underline="none" customVariant="link" customColor="primary"><Redeem/> Categorías</CustomLink>
             {/* <CustomLink href="/providers" underline="none" customVariant="link" customColor="primary"><SupervisorAccount/> Proveedores</CustomLink> */}
             <CustomLink href="/services" underline="none" customVariant="link" customColor="primary"><Redeem/> Servicios</CustomLink>
+            <CustomLink href="/providers/add" underline="none" customVariant="link" customColor="primary"><Redeem/> Add Provider</CustomLink>
           </Box>
         </Box>
         {logged ? (

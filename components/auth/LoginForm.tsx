@@ -93,6 +93,20 @@ export const LoginForm: FC = () => {
                 helperText={errors.password?.message}
               />
             </Grid>
+
+            {/* <CustomSelect
+  name="serviceType"
+  label="Tipo de servicio"
+  control={control}
+  required={true}
+>
+  <MenuItem value=""><em>None</em></MenuItem>
+  {options.map((option) => (
+  <MenuItem key={option.value} value={option.value}>
+    {option.label}
+  </MenuItem>
+  ))}
+</CustomSelect> */}
             <Grid item xs={12}>
               <CustomButton type="submit" variant="contained" customColor="primary">Iniciar sesión</CustomButton>
             </Grid>

@@ -10,8 +10,9 @@ import { Section } from '../layout/Section';
 import { CustomTitle } from '../layout/CustomTitle';
 import { CustomLink } from '../form/CustomLink';
 import { AddCircleOutline, Visibility } from '@mui/icons-material';
-import { Box } from '@mui/material';
+import { Box, CardContent, CardMedia, Typography } from '@mui/material';
 import s from '../../styles/services/ProviderServices.module.css';
+import { Card } from '@mui/material';
 
 // TODO: actualmente existe un IService, que no lo vamos a usar porque no está alineado con lo que le pedimos al back. Una vez que esté todo integrado, vamos a modificar la interfaz que tenemos y reemplazarla por este type para que nos quede en todos lados igual. Si lo cambio ahora, rompo tutti.
 type ServiceType = {
@@ -41,9 +42,34 @@ interface ProviderServicesProps {
 export const ProviderServices:React.FC<ProviderServicesProps> = ({ services }) => {
   return (
     <Section className={s.container}>
+
+    {/* <Box display={"flex"} gap={2}>
+      <Card>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Total Diciembre
+          </Typography>
+          <Typography variant="h2" color="text.secondary">
+            $ 30.000
+          </Typography>
+        </CardContent>
+      </Card>
+      
+      <Card>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Total Diciembre
+          </Typography>
+          <Typography variant="h2" color="text.secondary">
+            $ 30.000
+          </Typography>
+        </CardContent>
+      </Card>
+    
+    </Box> */}
       <Box className={s['title-box']}>
         <CustomTitle color='primary' htmlTag='h1' text='Mis servicios' />
-        <CustomLink customVariant='link' customColor='primary' href='/services/new'>
+        <CustomLink customVariant='link' customColor='primary' href='dashboard/new'>
           <AddCircleOutline /> Agregar
         </CustomLink>
       </Box>

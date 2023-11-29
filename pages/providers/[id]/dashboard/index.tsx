@@ -5,7 +5,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { IService } from 'interfaces';
 import { getServices } from 'eventapp/services/services/servicios.service';
-import { ProviderServices } from 'eventapp/components/services/ProviderServices';
+import { ProviderServices } from 'eventapp/components/dashboard/ProviderServices';
 
 const services = [
   {

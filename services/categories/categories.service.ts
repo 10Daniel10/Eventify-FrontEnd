@@ -1,7 +1,6 @@
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const getCategories = async (): Promise<any> => {
-  return await require('../../examples/categories.json');
 
   const response = await fetch(`${apiUrl}/category`, {
     headers: {
@@ -10,5 +9,7 @@ export const getCategories = async (): Promise<any> => {
     },
     method: 'GET'
   });
+
+  console.log({ response })
   return await response.json();
 }

@@ -1,0 +1,11 @@
+.container{
+  background-color: var(--light-gray);
+  margin-top: 4rem;
+  height: calc(100vh - 4rem);
+}
+
+.title-box{
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}

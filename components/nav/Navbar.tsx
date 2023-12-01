@@ -95,7 +95,7 @@ export const Navbar:FC<NavbarProps> = ({ auth, user }) => {
             <CustomLink href="/services" underline="none" customVariant="link" customColor="black"><LocalMall/> Servicios</CustomLink>
           </Box>
         </Box>
-        {logged ? (
+        {!logged ? (
           <NavbarMenuAuth
             // fixMe: cambiar datos por los que recibo en props
             userId={userId}

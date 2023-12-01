@@ -1,25 +1,31 @@
 {
   "id": 1,
-  "name": "Elección del vestido de novia",
-  "information": "Consulta con diseñadores para encontrar el vestido perfecto",
+  "name": "Mundo canapé",
+  "information": "Recepción y mesa dulce para eventos empresariales",
   "creationDate": "2023-11-03T13:00:00.000+00:00",
   "updateDate": "2023-11-03T13:00:00.000+00:00",
   "address": "Boutique de Novias",
   "price": 5,
   "category": {
     "id": 1,
-    "name": "Vestimenta"
+    "name": "Catering"
   },
   "photos": [
     {
       "id": 1,
-      "url": "https://example.com/photo1.jpg",
+      "url": "/categories/cars.jpeg",
       "activityId": 1,
       "main": true
     },
     {
       "id": 2,
-      "url": "https://example.com/photo2.jpg",
+      "url": "/categories/photography.jpeg",
+      "activityId": 1,
+      "main": false
+    },
+    {
+      "id": 3,
+      "url": "/categories/flowers.jpeg",
       "activityId": 1,
       "main": false
     }

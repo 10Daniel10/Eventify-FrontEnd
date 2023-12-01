@@ -4,11 +4,21 @@
 
 .slider-card-header span:first-child{
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: .05rem;
 }
 
 .slider-card-actions{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+@media screen and (min-width: 600px){
+  .slider-card-content{
+    height: 4rem;
+    overflow: hidden;
+  }
 }

@@ -1,0 +1,19 @@
+.container{
+  background-color: var(--light-gray);
+}
+
+.title{
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form{
+  margin: 0 auto;
+  max-width: 35rem;
+}
+
+@media screen and (min-width: 600px){
+  .button{
+    padding: 16.5px 14px;
+  }
+}

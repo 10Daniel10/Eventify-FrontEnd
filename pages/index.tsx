@@ -13,6 +13,8 @@ import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
 import { getProviders } from 'eventapp/services/providers/providers.service';
 
 import s from './index.module.css';
+import { Clients } from 'eventapp/components/home/Clients';
+import { CallToAction } from 'eventapp/components/home/CallToAction';
 
 const Home: NextPage = () => {
   const [services, setServices] = useState<IService[]>([]);
@@ -74,9 +76,11 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <Hero/>
-        <CategoriesList listVariant='slider' title={{text: 'Categorías'}} categories={categories} className={s['categories-container']} />
+        <CallToAction/>
+        <Clients/>
+        <CategoriesList listVariant='slider' title={{text: 'Categorías'}} categories={categories} className={s['categories-slider-container']} />
         {/* <ProvidersList listVariant='slider' title={{text: 'Proveedores'}} providers={providers}/> */}
-        <ServicesList listVariant='slider' title={{text: 'Servicios'}} services={services} className={s['services-container']}/>
+        <ServicesList listVariant='slider' title={{text: 'Servicios'}} services={services} className={s['services-slider-container']}/>
       </Layout>
     </>
   )

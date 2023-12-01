@@ -1,18 +1,78 @@
-.slider-container > div > div > div{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
+.container{
+  position: relative;
+  overflow: hidden;
 }
 
-@media screen and (min-width: 480px){
-  .slider-container > div > div > div{
-    height: 250px;
+.container > div{
+  padding-top: 12rem !important;
+  padding-bottom: 6rem !important;
+}
+
+.image{
+  position: absolute;
+  bottom: 1rem;
+  right: -5rem;
+}
+
+.content{
+  position: relative;
+  max-width: calc(100vw - 4rem);
+}
+
+.description{
+  font-size: 1.2rem;
+}
+
+.features li{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .5rem;
+  font-size: 1.2rem;
+}
+
+.features li svg{
+  color: var(--secondary);
+}
+
+@media screen and (min-width: 600px){
+  .title{
+    font-size: 2.5rem;
+  }
+  .description, .features li{
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (min-width: 960px){
-  .slider-container > div > div > div{
-    height: 300px;
+  .content{
+    width: 40rem;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .image{
+    bottom: 5rem;
+    right: 1rem;
+  }
+}
+
+@media screen and (min-width: 1280px){
+  .image{
+    bottom: 10rem;
+    right: 5rem;
+  }
+  .content{
+    width: 50rem;
+  }
+  .title{
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 1920px){
+  .image{
+    bottom: 5rem;
+    right: 20rem;
   }
 }

@@ -1,25 +1,25 @@
 import React, { FC } from 'react';
 import { SliderCard } from '../slider/SliderCard';
-import { UserProviderI } from 'interfaces';
+import { IProvider } from 'interfaces/IProvider';
 
 interface ProvidersCardI {
-  provider: UserProviderI
+  provider: IProvider
 }
 
 export const ProvidersCard:FC<ProvidersCardI> = ({ provider }) => {
   return (
     <SliderCard
       avatar={{
-        ariaLabel: `${provider.firstname} ${provider.lastname}`,
-        imgSrc: provider.avatar || '/users/avatar.png',
-        imgAlt: `${provider.firstname} ${provider.lastname}`
+        ariaLabel: `${provider.user.firstname} ${provider.user.lastname}`,
+        imgSrc: provider.user.avatar || '/users/avatar.png',
+        imgAlt: `${provider.user.firstname} ${provider.user.lastname}`
       }}
-      title={`${provider.firstname} ${provider.lastname}`}
+      title={`${provider.defaultImage}`}
       cardImg={{
-        imgSrc: provider.defaultImage,
-        imgAlt: provider.type
+        imgSrc: provider.defaultImage, 
+        imgAlt: provider.defaultImage       
       }}
-      description={provider.shortDescription}
+      description={provider.information}
       link={{
         element: {
           customVariant: 'button-outline',

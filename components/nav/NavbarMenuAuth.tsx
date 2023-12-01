@@ -31,7 +31,7 @@ export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUse
         className={s['app-bar']}
       >
         <MenuItem onClick={handleClose}>
-          <CustomLink href={`/users/${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
+          <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
         </MenuItem>
         {userType === 'USER' ? (
           <>
@@ -42,10 +42,10 @@ export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUse
         ) : (
           <>
             <MenuItem onClick={handleClose}>
-              <CustomLink href={`/services?providerId=${userId}`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
+              <CustomLink href={`/services?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
             </MenuItem>
             <MenuItem onClick={handleClose}>
-              <CustomLink href={`agenda/${userId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mi agenda</CustomLink>
+              <CustomLink href={`/agenda?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mi agenda</CustomLink>
             </MenuItem>
           </>
         )}

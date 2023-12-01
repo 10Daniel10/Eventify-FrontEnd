@@ -1,5 +1,11 @@
 .container{
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.container.scrolled{
   background-color: var(--white);
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 .sub-container{
@@ -8,7 +14,7 @@
   justify-content: space-between;
   padding: 0 1rem;
   margin: 0 auto;
-  width: calc(100% - 2rem);
+  width: calc(100% - 4rem);
   max-width: var(--max-width);
 }
 
@@ -17,7 +23,7 @@
   align-items: center;
   gap: .5rem;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 900;
   color: var(--primary);
   letter-spacing: .1rem;
 }

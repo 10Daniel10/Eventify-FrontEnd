@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react';
 export interface CustomButtonI extends PropsWithChildren {
   className?: string,
   variant: 'text' | 'contained' | 'outlined',
-  customColor: 'primary' | 'secondary' | 'white' | 'gray',
+  customColor: 'primary' | 'secondary' | 'white' | 'gray' | 'black',
   type?: 'submit' | 'button' | 'reset' | undefined,
   disabled?: boolean,
   href?: string,

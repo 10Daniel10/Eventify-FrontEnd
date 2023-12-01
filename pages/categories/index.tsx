@@ -5,6 +5,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { getCategories } from 'eventapp/services/categories/categories.service';
 import { ICategory } from 'interfaces';
+import s from '../index.module.css';
 
 const Categories: NextPage = () => {
   const [categories, setCategories] = useState<ICategory[]>([]);
@@ -39,7 +40,7 @@ const Categories: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
-        <CategoriesList listVariant='grid' title={{text: 'Categorías'}} categories={categories}/>
+        <CategoriesList listVariant='grid' title={{text: 'Categorías'}} categories={categories} className={s['page-container']}/>
       </Layout>
     </>
   )

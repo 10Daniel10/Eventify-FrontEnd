@@ -10,3 +10,7 @@
 .link-description{
   color: var(--dark-gray);
 }
+
+.fp-link{
+  display: inline-flex;
+}

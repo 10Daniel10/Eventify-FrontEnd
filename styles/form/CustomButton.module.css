@@ -4,6 +4,8 @@
   letter-spacing: .05rem;
   width: 100%;
   border-radius: 2rem;
+  margin-top: 2rem; 
+  /* margin-top -> cambio ultimo momento para lo de iniciar reserva, despues se cambia */
 }
 
 .button svg, .button-outline svg{

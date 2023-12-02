@@ -19,33 +19,23 @@ export const comparePassword = (password: string, confirmPassword: string): stri
   return undefined;
 }
 
-export const validateTitleLength = (title: string): string | undefined => {
-  if (title.length < 5) {
-    return 'El título debe tener al menos 5 caracteres';
+export const validateDate = (date: string): string | undefined => {
+  if (!date ) {
+    return 'Debes completar el campo de la fecha.';
   }
   return undefined;
-}
+};
 
-export const validateShortDescriptionLength = (shortDescription: string): string | undefined => {
-  const wordCount = shortDescription.split(/\s+/).length;
-  if (wordCount < 2 || wordCount > 30) {
-    return 'La descripción corta debe tener entre 2 y 30 palabras.';
+export const validateTime = (time: string): string | undefined => {
+  if (!time) {
+    return 'Debes completar el campo de la hora.';
   }
   return undefined;
-}
+};
 
-export const validateLongDescriptionLength = (longDescription: string): string | undefined => {
-  const wordCount = longDescription.split(/\s+/).length;
-  if ( wordCount < 30 || wordCount > 100) {
-    return 'La descripción larga debe tener entre 30 y 100 palabras.';
+export const validateHours = (hoursCount: number): string | undefined => {
+  if (hoursCount <= 0) {
+    return 'El evento debe durar al menos una hora.';
   }
   return undefined;
-}
-
-export const validatePrice = (price: string): string | undefined => {
-  const priceAsNumber = parseFloat(price);
-  if (priceAsNumber === 0) {
-    return 'El precio debe ser mayor a 0.';
-  }
-  return undefined;
-}
+};

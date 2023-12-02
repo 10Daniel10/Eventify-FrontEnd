@@ -10,6 +10,5 @@ export const getCategories = async (): Promise<any> => {
     method: 'GET'
   });
 
-  console.log({ response })
   return await response.json();
 }

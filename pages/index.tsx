@@ -10,7 +10,7 @@ import { getCategories } from 'eventapp/services/categories/categories.service';
 import { getServices } from 'eventapp/services/services/servicios.service';
 import { ICategory, IService } from 'interfaces';
 import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
-import { getProviders } from 'eventapp/services/providers/providers.service';
+// import { getProviders } from 'eventapp/services/providers/providers.service';
 
 import s from './index.module.css';
 import { Clients } from 'eventapp/components/home/Clients';

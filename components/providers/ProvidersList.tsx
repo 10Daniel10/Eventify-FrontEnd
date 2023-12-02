@@ -13,7 +13,7 @@ interface IProvidersListProps {
   title?: CustomTitleI,
   listVariant?: 'slider' | 'grid',
   providers: IProvider[],
-  emptyState: boolean
+  emptyState?: boolean
 }
 
 export const ProvidersList:FC<IProvidersListProps> = ({ className, title, listVariant = 'slider', providers, emptyState }) => {

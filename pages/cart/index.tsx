@@ -1,33 +1,32 @@
 import { CartTable } from 'eventapp/components/cart/CartTable';
 import { Layout } from 'eventapp/components/layout/Layout';
 import { getReservations } from 'eventapp/services/cart/cart.services';
-import { IReservation } from 'interfaces';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
-const Reservations: NextPage = () => {
+const Cart: NextPage = () => {
 
-  const [reservations, setReservations] = useState<IReservation[]>([]);
+  const [reservations, setReservations] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {        
-        const reservationsData = await getReservations();
-        //setReservations(reservationsData);
+        const reservationsData = await getReservations();             
+        if (reservationsData !== undefined)
+          setReservations(reservationsData);
       } catch (error) {
         console.error('Error al obtener categorías:', error);
       }
-    };
+    }; 
     fetchData();
   }, []);
+  
 
-
-  //const reserv = Object.values(reservations);
   return (
     <>
       <Head>
-        <title>Eventify | Mis reservas</title>
+        <title>Eventify | Reservas por realizar</title>
         <meta property='og:title' content='Eventify' key='title'></meta>
         <meta
           name='description'
@@ -42,10 +41,15 @@ const Reservations: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
-        {/* <CartTable reservations={reserv} /> */}
+      {reservations !== null ? (
+        <CartTable reservations={reservations} />
+      ) : (
+        <p>No hay reservas</p>
+      )}        
+        
       </Layout>
     </>
   )
 }
 
-export default Reservations;
+export default Cart;

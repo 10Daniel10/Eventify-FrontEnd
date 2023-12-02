@@ -1,4 +1,4 @@
-export type NavbarT = {
+export type TNavbar = {
   userId?: number | null,
   userType?: 'USER' | 'PROVIDER' | null,
   userEmail?: string | null,

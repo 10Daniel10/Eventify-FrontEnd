@@ -47,15 +47,28 @@ export const LoginForm: FC = () => {
     const response = await loginUser(data);
 
     try{
-      if(!response.error){
+      if(response.ok){
+        const responseData = await response.json();
+
+        const userInformation = {
+          id: responseData.id,
+          email: responseData.email,
+          username: responseData.username,
+          firstname: responseData.firstname,
+          lastname: responseData.lastname,
+          type: responseData.type
+        };
+
+        localStorage.setItem('loginUser', JSON.stringify(userInformation));
+
         router.push('/');
       } else{
         setCredentialsError(true);
-        setCredentialsErrorMessage(`${response.error}: ${response.message}`);
+        setCredentialsErrorMessage('Credenciales inválidas');
       }
     } catch(error: any){
       setCredentialsError(true);
-      setCredentialsErrorMessage(`${response.error}: ${response.message}`);
+      setCredentialsErrorMessage(`Error al validar credenciales: ${error}`);
     }
   };
 
@@ -76,8 +89,8 @@ export const LoginForm: FC = () => {
                 defaultValue={initialData.email}
                 placeholder="Ej: maria@perez.com"
                 required={true}
-                error={Boolean(errors.email)}
-                helperText={errors.email?.message}
+                error={Boolean(errors?.email)}
+                helperText={errors?.email?.message}
               />
             </Grid>
             <Grid item xs={12}>
@@ -89,8 +102,8 @@ export const LoginForm: FC = () => {
                 defaultValue={initialData.password}
                 placeholder="······"
                 required={true}
-                error={Boolean(errors.password)}
-                helperText={errors.password?.message}
+                error={Boolean(errors?.password)}
+                helperText={errors?.password?.message}
               />
             </Grid>
             <Grid item xs={12}>

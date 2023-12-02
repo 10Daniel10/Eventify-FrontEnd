@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import ArrowBack from '@mui/icons-material/ArrowBack';
-import { comparePassword, validateEmail, validatePasswordLength } from 'utils/validations';
+import { checkIfEmailExists, comparePassword, validateEmail, validatePasswordLength } from 'utils/validations';
 import { TUserRegister } from 'types';
 import { createUser } from 'eventapp/services/auth/auth.service';
 import { Toast } from '../form/Toast';
@@ -24,13 +24,14 @@ const initialData: TUserRegister = {
   type: 'USER',
   email: '',
   password: '',
-  confirmPassword: ''
+  confirmPassword: '',
+  isProvider: false
 }
 
 export const RegisterForm: FC = () => {
   const router = useRouter();
 
-  const { control, handleSubmit, formState: {errors} } = useForm<TUserRegister>();
+  const { control, handleSubmit, getValues, formState: {errors} } = useForm<TUserRegister>();
 
   const [credentialsError, setCredentialsError] = useState<boolean>(false);
   const [credentialsErrorMessage, setCredentialsErrorMessage] = useState<string | undefined>(undefined);
@@ -52,18 +53,45 @@ export const RegisterForm: FC = () => {
       return;
     }
 
-    const response = await createUser(data);
+    const emailExists = await checkIfEmailExists(data.email);
+
+    if (emailExists) {
+      control.setError('email', { message: 'El correo ingresado ya está registrado. Inicia sesión o utiliza un correo nuevo' });
+      return;
+    }
+
+    const isProvider = getValues('isProvider');
+    const userType = isProvider ? 'PROVIDER' : 'USER';
+    const userData: TUserRegister = {
+      ...data,
+      type: userType,
+    };
+
+    const response = await createUser(userData);
 
     try{
-      if(!response.error){
+      if(response.ok){
+        const responseData = await response.json();
+
+        const userInformation = {
+          id: responseData.id,
+          email: responseData.email,
+          username: responseData.username,
+          firstname: responseData.firstname,
+          lastname: responseData.lastname,
+          type: responseData.type
+        };
+
+        localStorage.setItem('loginUser', JSON.stringify(userInformation));
+
         router.push('/');
       } else{
         setCredentialsError(true);
-        setCredentialsErrorMessage(`${response.error}: ${response.message}`);
+        setCredentialsErrorMessage('Ha ocurrido un error, revisa los datos ingresados');
       }
     } catch(error: any){
       setCredentialsError(true);
-      setCredentialsErrorMessage(`${response.error}: ${response.message}`);
+      setCredentialsErrorMessage(`Error al registrar usuario: ${error}`);
     }
   };
 
@@ -117,8 +145,8 @@ export const RegisterForm: FC = () => {
                 defaultValue={initialData.email}
                 placeholder="Ej: maria@perez.com"
                 required={true}
-                error={Boolean(errors.email)}
-                helperText={errors.email?.message}
+                error={Boolean(errors?.email)}
+                helperText={errors?.email?.message}
               />
             </Grid>
             <Grid item xs={12}>
@@ -130,8 +158,8 @@ export const RegisterForm: FC = () => {
                 defaultValue={initialData.password}
                 placeholder="······"
                 required={true}
-                error={Boolean(errors.password)}
-                helperText={errors.password?.message}
+                error={Boolean(errors?.password)}
+                helperText={errors?.password?.message}
               />
             </Grid>
             <Grid item xs={12}>
@@ -143,13 +171,13 @@ export const RegisterForm: FC = () => {
                 defaultValue={initialData.confirmPassword}
                 placeholder="······"
                 required={true}
-                error={Boolean(errors.confirmPassword)}
-                helperText={errors.confirmPassword?.message}
+                error={Boolean(errors?.confirmPassword)}
+                helperText={errors?.confirmPassword?.message}
               />
             </Grid>
             <Grid item xs={12}>
               <CustomSwitch
-                name="is_provider"
+                name="isProvider"
                 label="Soy proveedor"
                 control={control}
                 defaultChecked={false}

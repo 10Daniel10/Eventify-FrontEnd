@@ -1,8 +1,24 @@
+import { getAllUsers } from "eventapp/services/auth/auth.service";
+import { TUserData } from "types";
+
 export const validateEmail = (email: string): string | undefined => {
   if (!email.includes('@') || !email.includes('.com')) {
     return 'Por favor, ingresa un correo electrónico válido.';
   }
   return undefined;
+}
+
+export const checkIfEmailExists = async (emailToCheck: string) => {
+  try {
+    const allUsers = await getAllUsers();
+
+    const emailExists = allUsers.some((u: TUserData) => u.email === emailToCheck);
+
+    return emailExists;
+  } catch (error: any) {
+    console.error('Error al verificar correo electrónico:', error);
+    return false;
+  }
 }
 
 export const validatePasswordLength = (password: string): string | undefined => {
@@ -22,20 +38,6 @@ export const comparePassword = (password: string, confirmPassword: string): stri
 export const validateDate = (date: string): string | undefined => {
   if (!date ) {
     return 'Debes completar el campo de la fecha.';
-  }
-  return undefined;
-};
-
-export const validateTime = (time: string): string | undefined => {
-  if (!time) {
-    return 'Debes completar el campo de la hora.';
-  }
-  return undefined;
-};
-
-export const validateHours = (hoursCount: number): string | undefined => {
-  if (hoursCount <= 0) {
-    return 'El evento debe durar al menos una hora.';
   }
   return undefined;
 };

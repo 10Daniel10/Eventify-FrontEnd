@@ -6,11 +6,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CategoryRounded from '@mui/icons-material/CategoryRounded';
 import LocalMall from '@mui/icons-material/LocalMall';
 import SupervisorAccount from '@mui/icons-material/SupervisorAccount';
-import { NavbarT } from 'types/nav/Navbar.types';
+import { TNavbar } from 'types';
 import { CustomLink } from '../form/CustomLink';
 import s from '../../styles/nav/NavbarMenu.module.css';
 
-export const NavbarMenu = ({appBarMenu, handleAppBarMenu, handleClose}: NavbarT) => {
+export const NavbarMenu = ({appBarMenu, handleAppBarMenu, handleClose}: TNavbar) => {
   return (
     <>
       <IconButton

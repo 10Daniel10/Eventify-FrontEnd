@@ -14,12 +14,12 @@ import { NavbarMenuAuth } from './NavbarMenuAuth';
 import { CustomLink } from '../form/CustomLink';
 import s from '../../styles/nav/Navbar.module.css';
 
-interface NavbarProps {
+interface INavbarProps {
   auth: boolean,
   user?: TUserData
 }
 
-export const Navbar:FC<NavbarProps> = ({ auth, user }) => {
+export const Navbar:FC<INavbarProps> = ({ auth, user }) => {
   const router = useRouter();
 
   const [userMenu, setUserMenu] = useState<null | HTMLElement>(null);

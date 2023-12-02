@@ -1,0 +1,10 @@
+.container > div {
+  padding: 1rem;
+  gap: .5rem;
+  align-items: center;
+}
+
+.container > div > div {
+  margin: 0;
+  padding: 0;
+}

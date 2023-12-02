@@ -20,6 +20,7 @@ export type TUserRegister = {
   type: 'USER' | 'PROVIDER';
   password: string;
   confirmPassword: string;
+  isProvider?: boolean;
 }
 
 export type TUserEmail = {

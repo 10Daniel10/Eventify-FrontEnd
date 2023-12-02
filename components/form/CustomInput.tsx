@@ -11,11 +11,10 @@ export const CustomInput = ({
   control,
   placeholder,
   defaultValue,
-  error,
+  error = false,
   helperText,
   textFieldProps,
-  className,
-  onChange
+  className
 }: CustomInputT) => {
   const inputClass = `${s.input} ${className}`
   return(

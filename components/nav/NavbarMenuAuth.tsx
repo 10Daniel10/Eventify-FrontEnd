@@ -6,11 +6,11 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import CalendarMonth from '@mui/icons-material/CalendarMonth';
 import Logout from '@mui/icons-material/Logout';
 import Redeem from '@mui/icons-material/Redeem';
-import { NavbarT } from 'types/nav/Navbar.types';
+import { TNavbar } from 'types';
 import { CustomLink } from '../form/CustomLink';
 import s from '../../styles/nav/NavbarMenu.module.css';
 
-export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUserMenu, handleClose, handleLogOut}: NavbarT) => {
+export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUserMenu, handleClose, handleLogOut}: TNavbar) => {
   return (
     <Box display={"flex"} alignItems={"center"} gap={.5}>
       <span className={s['user-email']}>{userEmail}</span>
@@ -33,7 +33,7 @@ export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUse
         <MenuItem onClick={handleClose}>
           <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
         </MenuItem>
-        {userType !== 'USER' ? (
+        {userType === 'USER' ? (
           <>
             <MenuItem onClick={handleClose}>
               <CustomLink href={`/reservations`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mis reservas</CustomLink>

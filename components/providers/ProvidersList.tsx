@@ -5,16 +5,17 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { Section } from '../layout/Section';
 import { ProvidersCard } from './ProvidersCard';
 import Grid from '@mui/material/Grid';
-import { UserProviderI } from 'interfaces';
+import { IUserProvider } from 'interfaces/IProvider';
 
-interface ProvidersListI {
+
+interface IProvidersList {
   className?: string,
   title?: CustomTitleI,
   listVariant?: 'slider' | 'grid',
-  providers: UserProviderI[]
+  providers: IUserProvider[]
 }
 
-export const ProvidersList:FC<ProvidersListI> = ({ className, title, listVariant = 'slider', providers }) => {
+export const ProvidersList:FC<IProvidersList> = ({ className, title, listVariant = 'slider', providers }) => {
   const { color = 'primary', htmlTag = 'h2', text } = {...title};
 
   const xs = useMediaQuery('(max-width:600px)');
@@ -30,7 +31,7 @@ export const ProvidersList:FC<ProvidersListI> = ({ className, title, listVariant
           <CustomTitle color={color} htmlTag={htmlTag} text={text} />
           <CustomSlider variant="cards" totalCards={providers.length} cardsToShow={cardsToShow}>
             {providers.map((p) => (
-              <ProvidersCard key={p.id} provider={p}/>
+              <ProvidersCard key={p.id} provider={p} />
             ))}
           </CustomSlider>
         </>

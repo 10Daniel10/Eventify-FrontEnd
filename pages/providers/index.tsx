@@ -4,11 +4,11 @@ import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { getProviders } from 'eventapp/services/providers/providers.service';
-import { UserProviderI } from 'interfaces';
 import s from '../index.module.css';
+import { IUserProvider } from 'interfaces';
 
 const Categories: NextPage = () => {
-  const [providers, setProviders] = useState<UserProviderI[]>([]);
+  const [providers, setProviders] = useState<IUserProvider[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -1,21 +1,22 @@
 import React, { FC } from 'react';
-import { CustomSlider } from '../slider/Slider';
-import { CustomTitle, CustomTitleI } from '../layout/CustomTitle';
+import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { IProvider } from 'interfaces';
 import { Section } from '../layout/Section';
 import { ProvidersCard } from './ProvidersCard';
-import Grid from '@mui/material/Grid';
-import { IUserProvider } from 'interfaces/IProvider';
+import { CustomSlider } from '../slider/Slider';
+import { CustomTitle, CustomTitleI } from '../layout/CustomTitle';
+import { Loader } from '../loader/Loader';
 
-
-interface IProvidersList {
+interface IProvidersListProps {
   className?: string,
   title?: CustomTitleI,
   listVariant?: 'slider' | 'grid',
-  providers: IUserProvider[]
+  providers: IProvider[],
+  emptyState?: boolean
 }
 
-export const ProvidersList:FC<IProvidersList> = ({ className, title, listVariant = 'slider', providers }) => {
+export const ProvidersList:FC<IProvidersListProps> = ({ className, title, listVariant = 'slider', providers, emptyState }) => {
   const { color = 'primary', htmlTag = 'h2', text } = {...title};
 
   const xs = useMediaQuery('(max-width:600px)');
@@ -26,26 +27,30 @@ export const ProvidersList:FC<IProvidersList> = ({ className, title, listVariant
 
   return (
     <Section className={className}>
-      {listVariant === 'slider' ? (
-        <>
-          <CustomTitle color={color} htmlTag={htmlTag} text={text} />
-          <CustomSlider variant="cards" totalCards={providers.length} cardsToShow={cardsToShow}>
-            {providers.map((p) => (
-              <ProvidersCard key={p.id} provider={p} />
-            ))}
-          </CustomSlider>
-        </>
+      {emptyState ? (
+        <Loader />
       ) : (
-        <>
-          <CustomTitle color={color} htmlTag={htmlTag} text={text} />
-          <Grid container spacing={2}>
-            {providers.map((p) => (
-              <Grid key={p.id} item xs={12} sm={6} md={4}>
-                <ProvidersCard key={p.id} provider={p}/>
-              </Grid>
-            ))}
-          </Grid>
-        </>
+        (listVariant === 'slider') ? (
+          <>
+            <CustomTitle color={color} htmlTag={htmlTag} text={text} />
+            <CustomSlider variant="cards" totalCards={providers.length} cardsToShow={cardsToShow}>
+              {providers.map((p) => (
+                <ProvidersCard key={p.id} provider={p} />
+              ))}
+            </CustomSlider>
+          </>
+        ) : (
+          <>
+            <CustomTitle color={color} htmlTag={htmlTag} text={text} />
+            <Grid container spacing={2}>
+              {providers.map((p) => (
+                <Grid key={p.id} item xs={12} sm={6} md={4}>
+                  <ProvidersCard key={p.id} provider={p}/>
+                </Grid>
+              ))}
+            </Grid>
+          </>
+        )
       )}
     </Section>
   )

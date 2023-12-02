@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react';
-import { Layout } from 'eventapp/components/layout/Layout';
-import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { getProviders } from 'eventapp/services/providers/providers.service';
+import { useEffect, useState } from 'react';
+import { IProvider } from 'interfaces';
+import { getProviders } from 'eventapp/services/providers.service';
+import { Layout } from 'eventapp/components/layout/Layout';
+import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
 import s from '../index.module.css';
-import { IUserProvider } from 'interfaces/IProvider';
 
-
-const Categories: NextPage = () => {
-  const [providers, setProviders] = useState<IUserProvider[]>([]);
+const ProvidersPage: NextPage = () => {
+  const [providers, setProviders] = useState<IProvider[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,4 +46,4 @@ const Categories: NextPage = () => {
   )
 }
 
-export default Categories;
+export default ProvidersPage;

@@ -23,7 +23,7 @@ export interface SliderCardI {
   },
   title: string,
   subheader?: string,
-  cardImg: {
+  cardImg?: {
     imgSrc: string,
     imgAlt: string
   }

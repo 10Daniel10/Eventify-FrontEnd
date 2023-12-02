@@ -12,7 +12,7 @@ import { CustomLink } from '../form/CustomLink';
 import { CustomInput } from '../form/CustomInput';
 import { CustomButton } from '../form/CustomButton';
 import { CustomTitle } from '../layout/CustomTitle';
-import { loginUser } from 'eventapp/services/auth/auth.service';
+import { loginUser } from 'eventapp/services/auth.service';
 import { TUserLogin } from 'types';
 import s from '../../styles/auth/Auth.module.css';
 

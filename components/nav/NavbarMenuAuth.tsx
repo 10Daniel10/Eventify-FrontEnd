@@ -42,7 +42,7 @@ export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUse
         ) : (
           <>
             <MenuItem onClick={handleClose}>
-              <CustomLink href={`/providers/${userId}/dashboard`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
+              <CustomLink href={`/providers/${userId}/services`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
             </MenuItem>
             <MenuItem onClick={handleClose}>
               <CustomLink href={`/agenda?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mi agenda</CustomLink>

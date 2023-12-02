@@ -1,26 +1,37 @@
-import { IService } from "interfaces";
-
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const getServices = async (): Promise<any> => {
-  return await require('../../examples/services.json');
-
-  const response = await fetch(`${apiUrl}`, {
+  const response = await fetch(`${apiUrl}/product`, {
+    method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json"
     }
-  });
+  })
+
   return await response.json();
 }
 
-export const getServiceById = async (id: string | string[] | undefined) => {
-  return await require('../../examples/service.json');
+export const getServicesByProvider = async (id: number): Promise<any> => {
+  const response = await fetch(`${apiUrl}/product/provider/${id}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  })
 
-  // const services = await getServices();
+  return await response.json();
+}
 
-  // // Buscar el servicio por su ID
-  // const service = services.find((s: IService) => s.id === id);
+export const getServiceById = async (id: number): Promise<any> => {
+  const response = await fetch(`${apiUrl}/product/${id}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  })
 
-  // return service;
+  return await response.json();
 }

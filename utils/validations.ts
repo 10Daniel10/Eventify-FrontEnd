@@ -1,4 +1,4 @@
-import { getAllUsers } from "eventapp/services/auth/auth.service";
+import { getAllUsers } from "eventapp/services/auth.service";
 import { TUserData } from "types";
 
 export const validateEmail = (email: string): string | undefined => {

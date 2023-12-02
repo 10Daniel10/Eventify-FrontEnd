@@ -1,23 +1,23 @@
 import React, { FC } from 'react';
 import { SliderCard } from '../slider/SliderCard';
-import { IProvider } from 'interfaces/IProvider';
+import { IProvider } from 'interfaces';
 
-interface IProvidersCard {
+interface IProvidersCardProps {
   provider: IProvider
 }
 
-export const ProvidersCard:FC<IProvidersCard> = ({ provider }) => {
+export const ProvidersCard:FC<IProvidersCardProps> = ({ provider }) => {
   return (
     <SliderCard
       avatar={{
         ariaLabel: `${provider.user.firstname} ${provider.user.lastname}`,
-        imgSrc: provider.user.avatar || '/users/avatar.png',
+        imgSrc: provider.user.urlImage || '/users/avatar.png',
         imgAlt: `${provider.user.firstname} ${provider.user.lastname}`
       }}
-      title={`${provider.defaultImage}`}
+      title={`${provider.name}`}
       cardImg={{
         imgSrc: provider.defaultImage, 
-        imgAlt: provider.defaultImage       
+        imgAlt: provider.name
       }}
       description={provider.information}
       link={{

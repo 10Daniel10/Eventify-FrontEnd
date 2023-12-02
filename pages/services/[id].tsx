@@ -11,20 +11,21 @@ import { ServicesDetail } from 'eventapp/components/services/ServicesDetail';
 const Service: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
+  const serviceId = Number(id);
 
   const [service, setService] = useState<IService | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {        
-        const serviceData = await getServiceById(id);
+      try {
+        const serviceData = await getServiceById(serviceId);
         setService(serviceData);
       } catch (error) {
         console.error('Error al obtener servicio:', error);
       }
     };
     fetchData();
-  }, [id]);
+  }, [serviceId]);
 
   return (
     <>

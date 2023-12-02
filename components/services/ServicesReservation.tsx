@@ -8,6 +8,7 @@ import { CustomButton } from '../form/CustomButton';
 import { IServices } from 'interfaces';
 import { addProduct } from 'eventapp/services/cart/cart.services';
 import { useRouter } from 'next/router';
+import { getIdUser } from 'eventapp/services/users/users.service';
 
 type TInitialData = {
   dateReservation: Date;
@@ -18,13 +19,12 @@ const initialData: TInitialData = {
 
 export const ServiceReservation: FC<IServices> = ({service}) => {
   const router = useRouter();
-  
+  const userId = getIdUser();  
   const { control, handleSubmit, formState: {errors} } = useForm<TInitialData>();
   const { id, name } = service;  
 
   const numeroRandom = Math.floor(Math.random() * 9) + 1;
   const onSubmit: SubmitHandler<TInitialData> = async (data) => {    
-    const userId = 1;
     var fechaComoCadena = `${data.dateReservation}`;
     addProduct(userId,fechaComoCadena, service);
   };

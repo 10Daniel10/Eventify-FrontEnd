@@ -6,21 +6,22 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import ArrowBack from '@mui/icons-material/ArrowBack';
-import { Toast } from '../form/Toast';
 import { comparePassword, validateEmail, validatePasswordLength } from 'utils/validations';
+import { TUserRegister } from 'types';
+import { createUser } from 'eventapp/services/auth/auth.service';
+import { Toast } from '../form/Toast';
 import { CustomLink } from '../form/CustomLink';
 import { CustomInput } from '../form/CustomInput';
 import { CustomButton } from '../form/CustomButton';
 import { CustomTitle } from '../layout/CustomTitle';
-import { RegisterFormT } from 'types/auth/RegisterForm.types';
-import { createUser } from 'eventapp/services/auth/auth.service';
 import { CustomSwitch } from '../form/CustomSwitch';
 import s from '../../styles/auth/Auth.module.css';
 
-const initialData: RegisterFormT = {
+const initialData: TUserRegister = {
+  username: '',
   firstname: '',
   lastname: '',
-  type: 0,
+  type: 'USER',
   email: '',
   password: '',
   confirmPassword: ''
@@ -29,7 +30,7 @@ const initialData: RegisterFormT = {
 export const RegisterForm: FC = () => {
   const router = useRouter();
 
-  const { control, handleSubmit, formState: {errors} } = useForm<RegisterFormT>();
+  const { control, handleSubmit, formState: {errors} } = useForm<TUserRegister>();
 
   const [credentialsError, setCredentialsError] = useState<boolean>(false);
   const [credentialsErrorMessage, setCredentialsErrorMessage] = useState<string | undefined>(undefined);
@@ -38,20 +39,20 @@ export const RegisterForm: FC = () => {
     setCredentialsError(false);
   };
 
-  const onSubmit: SubmitHandler<RegisterFormT> = async (formData) => {
-    const emailValidation = validateEmail(formData.email);
-    const passwordValidation = validatePasswordLength(formData.password);
-    const passwordComparation = comparePassword(formData.password, formData.confirmPassword);
+  const onSubmit: SubmitHandler<TUserRegister> = async (data) => {
+    const emailValidation = validateEmail(data.email);
+    const passwordValidation = validatePasswordLength(data.password);
+    const passwordComparation = comparePassword(data.password, data.confirmPassword);
 
-    control.setError('email', { message: emailValidation });
-    control.setError('password', { message: passwordValidation });
+    control.setError('email', { message: passwordValidation });
+    control.setError('password', { message: emailValidation });
     control.setError('confirmPassword', { message: passwordComparation });
 
     if (Object.keys(errors).length > 0) {
       return;
     }
 
-    const response = await createUser(formData);
+    const response = await createUser(data);
 
     try{
       if(!response.error){
@@ -74,6 +75,17 @@ export const RegisterForm: FC = () => {
         <CustomTitle color="gray" htmlTag="h2" text="Registrarme" className={s.title}/>
         <Box component="form" onSubmit={handleSubmit(onSubmit)} mb={2}>
           <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <CustomInput
+                type="text"
+                name="username"
+                label="Nombre de usuario"
+                control={control}
+                defaultValue={initialData.username}
+                placeholder="Ej: mariaperez"
+                required={true}
+              />
+            </Grid>
             <Grid item xs={12}>
               <CustomInput
                 type="text"
@@ -137,10 +149,10 @@ export const RegisterForm: FC = () => {
             </Grid>
             <Grid item xs={12}>
               <CustomSwitch
-                name="type"
+                name="is_provider"
                 label="Soy proveedor"
                 control={control}
-                defaultChecked={Boolean(initialData.type === 1)}
+                defaultChecked={false}
               />
             </Grid>
             <Grid item xs={12}>

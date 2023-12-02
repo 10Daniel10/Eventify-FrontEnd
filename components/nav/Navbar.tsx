@@ -1,47 +1,29 @@
-import React, { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React, { FC, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import CategoryRounded from '@mui/icons-material/CategoryRounded';
 import LocalMall from '@mui/icons-material/LocalMall';
 import SupervisorAccount from '@mui/icons-material/SupervisorAccount';
-import { CustomLink } from '../form/CustomLink';
+import { logOut } from 'eventapp/services/auth/auth.service';
+import { TUserData } from 'types';
 import { NavbarMenu } from './NavbarMenu';
 import { NavbarMenuAuth } from './NavbarMenuAuth';
-import { useRouter } from 'next/router';
-import { IUser } from 'interfaces';
+import { CustomLink } from '../form/CustomLink';
 import s from '../../styles/nav/Navbar.module.css';
 
 interface NavbarProps {
   auth: boolean,
-  user?: IUser
+  user?: TUserData
 }
 
 export const Navbar:FC<NavbarProps> = ({ auth, user }) => {
   const router = useRouter();
 
-  const [logged, setLogged] = useState(auth);
-  const [userId, setUserId] = useState(user?.id);
-  const [userType, setUserType] = useState(user?.type);
-  const [userEmail, setUserEmail] = useState(user?.email);
-
   const [userMenu, setUserMenu] = useState<null | HTMLElement>(null);
   const [appBarMenu, setAppBarMenu] = useState<null | HTMLElement>(null);
-
-  // fixMe: integrar service login
-  // useEffect(() => {
-  //   const localLogin = localStorage.getItem('loginUser');
-  //   if (localLogin) {
-  //     setLogged(true);
-  //     const { id } = JSON.parse(localLogin);
-  //     setUserId(id);
-  //     const { type } = JSON.parse(localLogin);
-  //     setUserType(type);
-  //     const { email } = JSON.parse(localLogin);
-  //     setUserEmail(email);
-  //   }
-  // }, []);
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -72,12 +54,7 @@ export const Navbar:FC<NavbarProps> = ({ auth, user }) => {
   };
 
   const handleLogOut = () => {
-    // fixMe: agregar función de logOut a services
-    // logOut();
-    // setUserId('')
-    // setUserType('')
-    // setUserEmail('')
-    setLogged(false);
+    logOut();
     router.push('/');
   }
 
@@ -95,12 +72,11 @@ export const Navbar:FC<NavbarProps> = ({ auth, user }) => {
             <CustomLink href="/services" underline="none" customVariant="link" customColor="black"><LocalMall/> Servicios</CustomLink>
           </Box>
         </Box>
-        {logged ? (
+        {auth ? (
           <NavbarMenuAuth
-            // fixMe: cambiar datos por los que recibo en props
-            userId={userId}
-            userType={userType}
-            userEmail={userEmail}
+            userId={user?.id}
+            userType={user?.type}
+            userEmail={user?.email}
             userMenu={userMenu}
             handleUserMenu={handleUserMenu}
             handleClose={handleClose}

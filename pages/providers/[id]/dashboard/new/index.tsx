@@ -121,7 +121,7 @@ const ProviderAddForm: NextPage = () => {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                <CustomSelect
+                <CustomSelect xs={12}
                     name="category"
                     label="Categoria"
                     control={control}                    

@@ -13,6 +13,7 @@ export interface IService {
   photos?: IPhoto[];
   products?: IProduct[];
   user?: IUser;
+  bookedDates?: string[];
 }
 
 export interface IServiceProvider {

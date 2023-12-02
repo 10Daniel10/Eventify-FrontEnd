@@ -10,9 +10,9 @@ import { ServicesDetail } from 'eventapp/components/services/ServicesDetail';
 
 const Service: NextPage = () => {
   const router = useRouter();
-  const { id } = router.query;
-  const serviceId = Number(id);
-
+  let { id } = router.query;
+  const serviceId = id ? parseInt(id as string, 10) : 0;
+    
   const [service, setService] = useState<IService | null>(null);
 
   useEffect(() => {

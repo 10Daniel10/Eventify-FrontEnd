@@ -12,5 +12,5 @@ export type CustomInputT = {
     helperText?: string,
     textFieldProps?: Record<string, any>,
     className?: string,
-    onChange?: (e: any) => void
+    eventChange?: (e: any) => any
 }

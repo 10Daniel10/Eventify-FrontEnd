@@ -1,17 +1,27 @@
-import { ICategory, IPhoto, IProduct, IUser } from 'interfaces';
+import { ICategory, IPhoto, IProduct, IProvider, IUser } from 'interfaces';
 
 export interface IService {
-  id: number,
-  name: string,
-  information?: string,
-  creationDate?: string,
-  updateDate?: string,
-  address?: string,
-  price: number,
-  category?: ICategory,
-  photos: IPhoto[],
-  products?: IProduct[],
-  user?: IUser
+  id: number;
+  name: string;
+  price: number;
+  information?: string;
+  creationDate?: string;
+  updateDate?: string;
+  address?: string;
+  category?: ICategory;
+  provider?: IProvider;
+  photos?: IPhoto[];
+  products?: IProduct[];
+  user?: IUser;
+}
+
+export interface IServiceProvider {
+  shortDescription?: string;
+  description?: string;
+  location?: string;
+  categoryId?: number;
+  providerId?: number;
+  bookedDates?: Date[];
 }
 
 export interface IServices {

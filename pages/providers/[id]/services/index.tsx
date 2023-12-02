@@ -1,42 +1,43 @@
 'use client';
 import { NextPage } from 'next';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { IService } from 'interfaces';
-import { getServices, getServicesByProvider } from 'eventapp/services/services/servicios.service';
+import { getProviderServices } from 'eventapp/services/providers.service';
+import { IService, IServiceProvider } from 'interfaces';
 import { Layout } from 'eventapp/components/layout/Layout';
-import { ServicesList } from 'eventapp/components/services/ServicesList';
-import s from '../index.module.css';
+import { ProviderServices } from 'eventapp/components/providers/ProviderServices';
 
-const Services: NextPage = () => {
+const ProviderServicesPage: NextPage = () => {
   const router = useRouter();
-  const { providerId } = router.query;
-  const id = Number(providerId);
+  const { id } = router.query;
+  const providerId = Number(id);
 
-  const [services, setServices] = useState<IService[]>([]);
+  const [services, setServices] = useState<(IService & IServiceProvider)[]>([]);
+  const [emptyState, setEmptyState] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if(id){
-          const servicesData = await getServicesByProvider(id);
+        if(providerId){
+          const servicesData = await getProviderServices(providerId);
           setServices(servicesData);
+          setEmptyState(false);      
         } else{
-          const servicesData = await getServices();
-          setServices(servicesData);
+          setEmptyState(true);
         }
       } catch (error) {
+        setEmptyState(true);
         console.error('Error al obtener servicios:', error);
       }
     };
     fetchData();
-  }, [id]);
+  }, [providerId]);
 
   return (
     <>
       <Head>
-        <title>Eventify | Servicios</title>
+        <title>Eventify | Servicios por proveedor</title>
         <meta property='og:title' content='Eventify' key='title'></meta>
         <meta
           name='description'
@@ -51,10 +52,10 @@ const Services: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
-        <ServicesList listVariant='grid' title={{text: 'Servicios'}} services={services} className={s['page-container']}/>
+        <ProviderServices services={services} emptyState={emptyState}/>
       </Layout>
     </>
   )
 }
 
-export default Services;
+export default ProviderServicesPage;

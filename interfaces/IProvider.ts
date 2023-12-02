@@ -1,24 +1,14 @@
+import { TUserData } from "types";
 import { ICategory } from "./ICategory"
-import { IProduct } from "./IProduct"
-import { IUser } from "./IUser"
+import { IService, IServiceProvider } from "./IService";
 
 export interface IProvider {
-    id: number
-    name: string
-    information: string
-    address: string
-    defaultImage: string;
-    category: ICategory[]
-    products: IProduct[]
-    user: IUser
-}
-
-export interface IUserProvider extends IProvider {
-    country: string,
-    province: string,
-    shortDescription: string,
-    description?: string,
-    defaultImage: string,
-    gallery?: string[],
-    rating?: number
+  id: number;
+  name: string;
+  information: string;
+  address: string;
+  category: ICategory[];
+  defaultImage: string;
+  products: (IService & IServiceProvider)[];
+  user: TUserData
 }

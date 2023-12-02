@@ -5,6 +5,7 @@ export type TUserData = {
   firstname: string;
   lastname: string;
   type: 'USER' | 'PROVIDER';
+  urlImage?: string;
 }
 
 export type TUserLogin = {

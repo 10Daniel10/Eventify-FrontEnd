@@ -7,7 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import CategoryRounded from '@mui/icons-material/CategoryRounded';
 import LocalMall from '@mui/icons-material/LocalMall';
 import SupervisorAccount from '@mui/icons-material/SupervisorAccount';
-import { logOut } from 'eventapp/services/auth/auth.service';
+import { logOut } from 'eventapp/services/auth.service';
 import { TUserData } from 'types';
 import { NavbarMenu } from './NavbarMenu';
 import { NavbarMenuAuth } from './NavbarMenuAuth';

@@ -8,7 +8,7 @@ import Grid from '@mui/material/Grid';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import { checkIfEmailExists, comparePassword, validateEmail, validatePasswordLength } from 'utils/validations';
 import { TUserRegister } from 'types';
-import { createUser } from 'eventapp/services/auth/auth.service';
+import { createUser } from 'eventapp/services/auth.service';
 import { Toast } from '../form/Toast';
 import { CustomLink } from '../form/CustomLink';
 import { CustomInput } from '../form/CustomInput';

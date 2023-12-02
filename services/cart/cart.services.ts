@@ -37,8 +37,13 @@ export const removeProduct = (starDatetime: string, productId: number) => {
     }
 }
 
-export const getProducts = () => {
-    return localStorage.getItem('cart')
+export const getReservations = () => {
+    const localdata = localStorage.getItem('cart');
+
+    if (localdata) {
+        const objetoDeserializado: IReservations = JSON.parse(localdata);
+        console.log(objetoDeserializado)
+    }
 }
 
 export const sendReservations = ({ reservations }: IReservations) => {

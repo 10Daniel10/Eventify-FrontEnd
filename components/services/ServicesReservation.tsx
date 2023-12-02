@@ -20,16 +20,13 @@ export const ServiceReservation: FC<IServices> = ({service}) => {
   const router = useRouter();
   
   const { control, handleSubmit, formState: {errors} } = useForm<TInitialData>();
-  const { id, name } = service;
+  const { id, name } = service;  
 
   const numeroRandom = Math.floor(Math.random() * 9) + 1;
-  const onSubmit: SubmitHandler<TInitialData> = async (data) => {
-
-    console.log(data)
+  const onSubmit: SubmitHandler<TInitialData> = async (data) => {    
     const userId = 1;
-   
-    var fechaComoCadena = `2023-0${numeroRandom}-0${numeroRandom}`;
-    addProduct(userId,fechaComoCadena, id, name);
+    var fechaComoCadena = `${data.dateReservation}`;
+    addProduct(userId,fechaComoCadena, service);
   };
 
   const sendToCart = () => {

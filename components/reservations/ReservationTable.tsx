@@ -37,7 +37,7 @@ export const ReservationsTable:React.FC<IReservations> = ({ reservations }) => {
                     key={key}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >                
-                        <TableCell>{reservation.starDatetime}</TableCell>
+                        <TableCell>{reservation.startDateTime}</TableCell>
                         <TableCell>{row.name}</TableCell>                        
                     </TableRow>
                 ))                

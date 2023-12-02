@@ -22,7 +22,7 @@ export const ServicesDetail:FC<IServices> = ({service}) => {
   const lastname = user?.lastname;
   const categoryName  = category?.name;
   
-  const mainPhoto = photos.find(photo => photo.main);
+  const mainPhoto = photos?.find(photo => photo.main);
 
   function srcset(image: string, size: number, rows = 1, cols = 1) {
     return {
@@ -37,29 +37,31 @@ export const ServicesDetail:FC<IServices> = ({service}) => {
     <Section className={s.container}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={8}>
-          <ImageList
-            cols={3}
-            rowHeight={200}
-            sx={{overflow: 'hidden'}}
-          >
-            {photos.map((item) => (
-              <ImageListItem key={item.id}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  {...srcset(item.url, 121, 3, 2)}
-                  alt={`Image ${item.id}`}
-                  loading="lazy"
-                />
-                {/* <img src={item.url} alt={`Image ${item.id}`} /> */}
-                {/* <Image
-                  src={item.url}
-                  alt={service.name}
-                  width={500}
-                  height={500}
-                /> */}
-              </ImageListItem>
-            ))}
-          </ImageList>
+          {photos && (
+            <ImageList
+              cols={3}
+              rowHeight={200}
+              sx={{overflow: 'hidden'}}
+            >
+              {photos.map((item) => (
+                <ImageListItem key={item.id}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    {...srcset(item.url, 121, 3, 2)}
+                    alt={`Image ${item.id}`}
+                    loading="lazy"
+                  />
+                  {/* <img src={item.url} alt={`Image ${item.id}`} /> */}
+                  {/* <Image
+                    src={item.url}
+                    alt={service.name}
+                    width={500}
+                    height={500}
+                  /> */}
+                </ImageListItem>
+              ))}
+            </ImageList>
+          )}
           <CustomTitle color='gray' text='Información' htmlTag='h3' />
           <Typography display={'flex'} gap={.5} color={'gray'} mb={2}><SupervisorAccount/> Proveedor {firstname} {lastname}</Typography>
           <Typography display={'flex'} gap={.5} color={'gray'} mb={2}> <Redeem/> Categoría {categoryName}</Typography>

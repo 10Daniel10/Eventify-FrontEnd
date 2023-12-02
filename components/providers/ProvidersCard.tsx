@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import { SliderCard } from '../slider/SliderCard';
 import { IProvider } from 'interfaces/IProvider';
 
-interface ProvidersCardI {
+interface IProvidersCard {
   provider: IProvider
 }
 
-export const ProvidersCard:FC<ProvidersCardI> = ({ provider }) => {
+export const ProvidersCard:FC<IProvidersCard> = ({ provider }) => {
   return (
     <SliderCard
       avatar={{

@@ -13,12 +13,3 @@ export interface UserClientI extends IUser {
   reservations?: []
 }
 
-export interface UserProviderI extends IUser {
-  country: string,
-  province: string,
-  shortDescription: string,
-  description?: string,
-  defaultImage: string,
-  gallery?: string[],
-  rating?: number
-}

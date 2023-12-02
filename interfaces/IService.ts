@@ -13,3 +13,7 @@ export interface IService {
   products: IProduct[],
   user: IUser
 }
+
+export interface IServices {
+  service: IService
+}

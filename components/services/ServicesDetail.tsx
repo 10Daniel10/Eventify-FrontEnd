@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { IService } from 'interfaces';
+import { IService, IServices } from 'interfaces';
 import { Section } from '../layout/Section';
 import { CustomTitle } from '../layout/CustomTitle';
 import Grid from '@mui/material/Grid';
@@ -9,19 +9,16 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { Redeem, SupervisorAccount } from '@mui/icons-material';
 import s from '../../styles/services/ServiceDetail.module.css';
-import { ServiceReservation } from 'eventapp/components/services/ServicesReservation';
+import { ServiceReservation } from './ServicesReservation';
 
-interface Service {
- service: IService | undefined
-}
 
-export const ServicesDetail:FC<Service> = ({service}) => {
+export const ServicesDetail:FC<IServices> = ({service}) => {
   if(!service){
     return;
   }
 
   const { id, user, category, photos } = service;
-  const { firstname , lastname } = user;
+    const { firstname , lastname } = user;
   const {  name : categoryName } = category;
   
   const mainPhoto = service.photos.find(photo => photo.main);
@@ -70,7 +67,7 @@ export const ServicesDetail:FC<Service> = ({service}) => {
         <Grid item xs={12} sm={4}>
           <CustomTitle text={service.name} color='primary'/>
           <Paper className={s.form}>
-            <ServiceReservation servicePrice={service.price} /> 
+            <ServiceReservation service={service} />
           </Paper>
         </Grid>
       </Grid>

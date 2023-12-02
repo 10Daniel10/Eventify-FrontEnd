@@ -23,8 +23,6 @@ export const CustomSlider:FC<CustomSliderProps> = ({ className, variant, totalCa
     infinite: false,
     speed: 500,
     arrows: arrows,
-    // fade: true,
-    // centerMode: true,
     autoplay: autoplay,
     autoplaySpeed: autoplaySpeed,
     slidesToShow: totalCards >= cardsToShow ? cardsToShow : totalCards,

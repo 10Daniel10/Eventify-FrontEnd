@@ -23,36 +23,46 @@ export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUse
       >
         <AccountCircle />
       </IconButton>
-      <Menu
-        id="user-menu"
-        anchorEl={userMenu}
-        open={Boolean(userMenu)}
-        onClose={handleClose}
-        className={s['app-bar']}
-      >
-        <MenuItem onClick={handleClose}>
-          <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
-        </MenuItem>
-        {userType === 'USER' ? (
-          <>
-            <MenuItem onClick={handleClose}>
-              <CustomLink href={`/reservations`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mis reservas</CustomLink>
-            </MenuItem>
-          </>
-        ) : (
-          <>
-            <MenuItem onClick={handleClose}>
-              <CustomLink href={`/providers/${userId}/services`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
-            </MenuItem>
-            <MenuItem onClick={handleClose}>
-              <CustomLink href={`/agenda?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mi agenda</CustomLink>
-            </MenuItem>
-          </>
-        )}
-        <MenuItem onClick={handleLogOut} className={s['buttons-box']}>
-          <CustomLink href="/" underline="none" customVariant="link" customColor="primary"><Logout/> Cerrar sesión</CustomLink>
-        </MenuItem>
-      </Menu>
+      {userType === 'USER' ? (
+        <Menu
+          id="user-menu"
+          anchorEl={userMenu}
+          open={Boolean(userMenu)}
+          onClose={handleClose}
+          className={s['app-bar']}
+        >
+          <MenuItem onClick={handleClose}>
+            <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <CustomLink href={`/reservations`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mis reservas</CustomLink>
+          </MenuItem>
+          <MenuItem onClick={handleLogOut} className={s['buttons-box']}>
+            <CustomLink href="/" underline="none" customVariant="link" customColor="primary"><Logout/> Cerrar sesión</CustomLink>
+          </MenuItem>
+        </Menu>
+      ) : (
+        <Menu
+          id="user-menu"
+          anchorEl={userMenu}
+          open={Boolean(userMenu)}
+          onClose={handleClose}
+          className={s['app-bar']}
+        >
+          <MenuItem onClick={handleClose}>
+            <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <CustomLink href={`/providers/${userId}/services`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <CustomLink href={`/agenda?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mi agenda</CustomLink>
+          </MenuItem>
+          <MenuItem onClick={handleLogOut} className={s['buttons-box']}>
+            <CustomLink href="/" underline="none" customVariant="link" customColor="primary"><Logout/> Cerrar sesión</CustomLink>
+          </MenuItem>
+        </Menu>
+      )}
     </Box>
   )
 }

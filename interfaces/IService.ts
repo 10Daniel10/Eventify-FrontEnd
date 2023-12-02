@@ -7,7 +7,7 @@ export interface IService {
   creationDate?: string,
   updateDate?: string,
   address?: string,
-  price?: number,
+  price: number,
   category?: ICategory,
   photos: IPhoto[],
   products?: IProduct[],

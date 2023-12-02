@@ -8,8 +8,8 @@ import { CustomButton } from '../form/CustomButton';
 import { validateEmail } from 'utils/validations';
 import { Section } from '../layout/Section';
 import { CustomTitle } from '../layout/CustomTitle';
-import s from '../../styles/home/CallToAction.module.css';
 import { TUserEmail } from 'types';
+import s from '../../styles/home/CallToAction.module.css';
 
 const initialData = {
   email: ''
@@ -18,14 +18,14 @@ const initialData = {
 export const CallToAction:FC = () => {
   const { control, handleSubmit, formState: {errors} } = useForm<TUserEmail>();
 
-  const [credentialsError, setCredentialsError] = useState<boolean>(false);
-  const [credentialsErrorMessage, setCredentialsErrorMessage] = useState<string | undefined>(undefined);
+  const [success, setSuccess] = useState<boolean>(false);
+  const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined);
 
   const handleCloseToast = () => {
-    setCredentialsError(false);
+    setSuccess(false);
   };
 
-  const onSubmit: SubmitHandler<TUserEmail> = async (data: TUserEmail) => {
+  const onSubmit: SubmitHandler<TUserEmail> = async (data) => {
     const emailValidation = validateEmail(data.email);
 
     if (!emailValidation) {
@@ -36,24 +36,13 @@ export const CallToAction:FC = () => {
       return;
     }
 
-    const response = await validateEmail(data.email);
-
-    try{
-      if(response){
-        alert('Email enviado');
-      } else{
-        setCredentialsError(true);
-        setCredentialsErrorMessage(`Email inválido`);
-      }
-    } catch(error: any){
-      setCredentialsError(true);
-      setCredentialsErrorMessage(`Email inválido`);
-    }
+    setSuccess(true);
+    setSuccessMessage('Email enviado: revisa tu casilla para agendar la demostración');
   };
 
   return (
     <Section className={s.container}>
-      <Toast open={credentialsError} onClose={handleCloseToast} severity="error" message={credentialsErrorMessage}/>
+      <Toast open={success} onClose={handleCloseToast} severity="success" message={successMessage}/>
       <CustomTitle text={'Agenda una demo con nuestros especialistas'} className={s.title}/>
       <Box component="form" onSubmit={handleSubmit(onSubmit)} className={s.form}>
           <Grid container spacing={2}>
@@ -66,8 +55,8 @@ export const CallToAction:FC = () => {
                 defaultValue={initialData.email}
                 placeholder="Ej: maria@perez.com"
                 required={true}
-                error={Boolean(errors.email)}
-                helperText={errors.email?.message}
+                error={Boolean(errors?.email)}
+                helperText={errors?.email?.message}
               />
             </Grid>
             <Grid item xs={12} sm={4}>

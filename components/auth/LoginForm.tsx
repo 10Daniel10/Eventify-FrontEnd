@@ -112,8 +112,8 @@ export const LoginForm: FC = () => {
           </Grid>
         </Box>
         <Box display={"flex"} flexDirection={"column"} alignItems={"center"} gap={2}>
-          <CustomLink href="/" underline="none" customVariant="link" customColor="gray">Olvidé mi contraseña</CustomLink>
-          <CustomLink href="/auth/register" underline="none" customVariant="link" customColor="primary"><span className={s['link-description']}>Aún no tienes usuario?</span> Haz clic aquí</CustomLink>
+          <CustomLink href="/auth/forgetPassword" underline="none" customVariant="link" customColor="gray">Olvidé mi contraseña</CustomLink>
+          <CustomLink href="/auth/register" underline="none" customVariant="link" customColor="primary"><span className={s['link-description']}>¿Aún no tienes usuario?</span> Haz clic aquí</CustomLink>
         </Box>
       </Box>
     </Container>

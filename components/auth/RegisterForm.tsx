@@ -56,7 +56,7 @@ export const RegisterForm: FC = () => {
     const emailExists = await checkIfEmailExists(data.email);
 
     if (emailExists) {
-      control.setError('email', { message: 'El correo ingresado ya está registrado. Inicia sesión o utiliza un correo nuevo' });
+      control.setError('email', { message: 'El email ingresado ya está registrado. Inicia sesión o utiliza un email nuevo' });
       return;
     }
 

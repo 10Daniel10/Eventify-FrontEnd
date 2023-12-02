@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { Redeem, SupervisorAccount } from '@mui/icons-material';
 import s from '../../styles/services/ServiceDetail.module.css';
+import { ServiceBooking } from './ServiceBooking';
 
 interface Service {
  service: IService | undefined
@@ -69,7 +70,7 @@ export const ServicesDetail:FC<Service> = ({service}) => {
         <Grid item xs={12} sm={4}>
           <CustomTitle text={service.name} color='primary'/>
           <Paper className={s.form}>
-            
+            <ServiceBooking />
           </Paper>
         </Grid>
       </Grid>

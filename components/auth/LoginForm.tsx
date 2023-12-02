@@ -12,8 +12,8 @@ import { CustomLink } from '../form/CustomLink';
 import { CustomInput } from '../form/CustomInput';
 import { CustomButton } from '../form/CustomButton';
 import { CustomTitle } from '../layout/CustomTitle';
-import { LoginFormT } from 'types/auth/LoginForm.types';
 import { loginUser } from 'eventapp/services/auth/auth.service';
+import { TUserLogin } from 'types';
 import s from '../../styles/auth/Auth.module.css';
 
 const initialData = {
@@ -24,7 +24,7 @@ const initialData = {
 export const LoginForm: FC = () => {
   const router = useRouter();
 
-  const { control, handleSubmit, formState: {errors} } = useForm<LoginFormT>();
+  const { control, handleSubmit, formState: {errors} } = useForm<TUserLogin>();
 
   const [credentialsError, setCredentialsError] = useState<boolean>(false);
   const [credentialsErrorMessage, setCredentialsErrorMessage] = useState<string | undefined>(undefined);
@@ -33,9 +33,9 @@ export const LoginForm: FC = () => {
     setCredentialsError(false);
   };
 
-  const onSubmit: SubmitHandler<LoginFormT> = async (formData) => {
-    const emailValidation = validateEmail(formData.email);
-    const passwordValidation = validatePasswordLength(formData.password);
+  const onSubmit: SubmitHandler<TUserLogin> = async (data) => {
+    const emailValidation = validateEmail(data.email);
+    const passwordValidation = validatePasswordLength(data.password);
 
     control.setError('email', { message: emailValidation });
     control.setError('password', { message: passwordValidation });
@@ -44,7 +44,7 @@ export const LoginForm: FC = () => {
       return;
     }
 
-    const response = await loginUser(formData);
+    const response = await loginUser(data);
 
     try{
       if(!response.error){

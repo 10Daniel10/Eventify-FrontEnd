@@ -6,18 +6,17 @@ import { Toast } from '../form/Toast';
 import { CustomInput } from '../form/CustomInput';
 import { CustomButton } from '../form/CustomButton';
 import { validateEmail } from 'utils/validations';
-import { ValidateEmailT } from 'types/auth/LoginForm.types';
-import { userEmail } from 'eventapp/services/auth/auth.service';
 import { Section } from '../layout/Section';
 import { CustomTitle } from '../layout/CustomTitle';
 import s from '../../styles/home/CallToAction.module.css';
+import { TUserEmail } from 'types';
 
 const initialData = {
   email: ''
 }
 
 export const CallToAction:FC = () => {
-  const { control, handleSubmit, formState: {errors} } = useForm<ValidateEmailT>();
+  const { control, handleSubmit, formState: {errors} } = useForm<TUserEmail>();
 
   const [credentialsError, setCredentialsError] = useState<boolean>(false);
   const [credentialsErrorMessage, setCredentialsErrorMessage] = useState<string | undefined>(undefined);
@@ -26,27 +25,29 @@ export const CallToAction:FC = () => {
     setCredentialsError(false);
   };
 
-  const onSubmit: SubmitHandler<ValidateEmailT> = async (formData) => {
-    const emailValidation = validateEmail(formData.email);
+  const onSubmit: SubmitHandler<TUserEmail> = async (data: TUserEmail) => {
+    const emailValidation = validateEmail(data.email);
 
-    control.setError('email', { message: emailValidation });
+    if (!emailValidation) {
+      control.setError('email', { message: emailValidation });
+    }
 
     if (Object.keys(errors).length > 0) {
       return;
     }
 
-    const response = await userEmail(formData);
+    const response = await validateEmail(data.email);
 
     try{
-      if(!response.error){
+      if(response){
         alert('Email enviado');
       } else{
         setCredentialsError(true);
-        setCredentialsErrorMessage(`${response.error}: ${response.message}`);
+        setCredentialsErrorMessage(`Email inválido`);
       }
     } catch(error: any){
       setCredentialsError(true);
-      setCredentialsErrorMessage(`${response.error}: ${response.message}`);
+      setCredentialsErrorMessage(`Email inválido`);
     }
   };
 

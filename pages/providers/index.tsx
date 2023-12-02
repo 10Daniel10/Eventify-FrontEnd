@@ -5,7 +5,8 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { getProviders } from 'eventapp/services/providers/providers.service';
 import s from '../index.module.css';
-import { IUserProvider } from 'interfaces';
+import { IUserProvider } from 'interfaces/IProvider';
+
 
 const Categories: NextPage = () => {
   const [providers, setProviders] = useState<IUserProvider[]>([]);

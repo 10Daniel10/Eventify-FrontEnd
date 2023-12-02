@@ -2,20 +2,21 @@ import React, { FC } from 'react';
 import { SliderCard } from '../slider/SliderCard';
 import { IService } from 'interfaces';
 
-interface Service {
- service: IService | undefined
+interface IServicesCardProps {
+  service: IService;  
 }
 
-export const ServicesCard:FC<Service> = ({service}) => {
+export const ServicesCard:FC<IServicesCardProps> = ( { service }) => {
   if(!service){
     return;
   }
 
   const { id, user, category, photos } = service;
-  const { firstname , lastname } = user;
-  const {  name : categoryName } = category;
+  const firstname = user?.firstname;
+  const lastname = user?.lastname;  
+  const categoryName = category?.name;
   
-  const mainPhoto = service.photos.find(photo => photo.main);
+  const mainPhoto = photos?.find(photo => photo.main);
 
   return (
     <SliderCard
@@ -26,7 +27,7 @@ export const ServicesCard:FC<Service> = ({service}) => {
       }}
       title={service.name}
       cardImg={{
-        imgSrc: mainPhoto?.url || service.photos[0]?.url,
+        imgSrc: mainPhoto?.url || "imagenpordefecto",
         imgAlt: service.name
       }}
       description={service.information}

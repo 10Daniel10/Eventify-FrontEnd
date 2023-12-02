@@ -3,8 +3,8 @@ export interface IUser {
   avatar?: string,
   username?: string,
   email: string,
-  firstname: string,
-  lastname: string,
+  firstname?: string,
+  lastname?: string,
   type: 'USER' | 'PROVIDER'
 }
 

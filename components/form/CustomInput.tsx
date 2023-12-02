@@ -35,8 +35,7 @@ export const CustomInput = ({
           error={error}
           helperText={helperText}
           {...textFieldProps}
-          className={inputClass}
-          onChange={onChange}
+          className={inputClass}                    
         />
       )}
     />

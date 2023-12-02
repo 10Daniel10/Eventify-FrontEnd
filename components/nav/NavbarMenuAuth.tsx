@@ -36,7 +36,7 @@ export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUse
         {userType !== 'USER' ? (
           <>
             <MenuItem onClick={handleClose}>
-              <CustomLink href={`/reservations?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mis reservas</CustomLink>
+              <CustomLink href={`/reservations`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mis reservas</CustomLink>
             </MenuItem>
           </>
         ) : (

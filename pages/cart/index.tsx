@@ -1,5 +1,5 @@
+import { CartTable } from 'eventapp/components/cart/CartTable';
 import { Layout } from 'eventapp/components/layout/Layout';
-import { ReservationsTable } from 'eventapp/components/reservations/ReservationTable';
 import { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -61,7 +61,7 @@ const Reservations: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
-        <ReservationsTable reservations={reserv} />
+        <CartTable reservations={reserv} />
       </Layout>
     </>
   )

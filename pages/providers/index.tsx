@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { IProvider } from 'interfaces';
-import { getProviders } from 'eventapp/services/providers.service';
+import { getProviders } from 'eventapp/services/providers/providers.service';
 import { Layout } from 'eventapp/components/layout/Layout';
 import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
 import s from '../index.module.css';

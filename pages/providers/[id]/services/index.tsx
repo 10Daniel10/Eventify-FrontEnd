@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { getProviderServices } from 'eventapp/services/providers.service';
+import { getProviderServices } from 'eventapp/services/providers/providers.service';
 import { IService, IServiceProvider } from 'interfaces';
 import { Layout } from 'eventapp/components/layout/Layout';
 import { ProviderServices } from 'eventapp/components/providers/ProviderServices';

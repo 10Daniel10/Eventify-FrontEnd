@@ -25,6 +25,9 @@ export const getServicesByProvider = async (id: number): Promise<any> => {
 }
 
 export const getServiceById = async (id: number): Promise<any> => {
+
+  if (id === 0) return
+
   const response = await fetch(`${apiUrl}/product/${id}`, {
     method: "GET",
     headers: {

@@ -14,9 +14,11 @@ import { Box } from '@mui/material';
 import s from '../../styles/services/ProviderServices.module.css';
 import { IReservations } from 'interfaces';
 import { sendReservations } from 'eventapp/services/cart/cart.services';
+import { useRouter } from 'next/router';
+
 
 export const CartTable:React.FC<IReservations> = ({ reservations }) => {
-  
+  const router = useRouter();
   const total = reservations.reduce((total, objetoFecha) => {
     const totalTemporal = objetoFecha.products.reduce((subtotal, producto) => {      
       return subtotal + (producto.price || 0.00);
@@ -28,6 +30,7 @@ export const CartTable:React.FC<IReservations> = ({ reservations }) => {
 
   function sendReservation(){
     sendReservations()
+    router.push("ok")
   }
 
   return (

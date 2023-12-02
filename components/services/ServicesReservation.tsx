@@ -21,13 +21,17 @@ export const ServiceReservation: FC<IServices> = ({service}) => {
   const router = useRouter();
   const userId = getIdUser();  
   const { control, handleSubmit, formState: {errors} } = useForm<TInitialData>();
-  const { id, name } = service;  
-
+  const { id, name, bookedDates } = service;  
+console.log(bookedDates)
+  
   const numeroRandom = Math.floor(Math.random() * 9) + 1;
-  const onSubmit: SubmitHandler<TInitialData> = async (data) => {    
+  const onSubmit: SubmitHandler<TInitialData> = async (data) => {  
     var fechaComoCadena = `${data.dateReservation}`;
+    const reserved = bookedDates?.some(x => x == `${data.dateReservation}`);
+    if(reserved) alert("reservado")
     addProduct(userId,fechaComoCadena, service);
   };
+
 
   const sendToCart = () => {
     router.push('/cart');
@@ -44,7 +48,7 @@ export const ServiceReservation: FC<IServices> = ({service}) => {
             control={control}
             //defaultValue={initialData.dateLocura}
             placeholder="DD/MM/AAAA"
-            required={true}
+            required={true}            
           />
         </Grid>
         <Grid item xs={12}>

@@ -15,13 +15,12 @@ import { ServiceReservation } from './ServicesReservation';
 export const ServicesDetail:FC<IServices> = ({service}) => {
   if(!service){
     return;
-  }
+  }  
 
-  const { id, user, category, photos } = service;
+  const { id, user, category, photos,bookedDates } = service;
   const firstname = user?.firstname;
   const lastname = user?.lastname;
-  const categoryName  = category?.name;
-  
+  const categoryName  = category?.name;  
   const mainPhoto = photos?.find(photo => photo.main);
 
   function srcset(image: string, size: number, rows = 1, cols = 1) {

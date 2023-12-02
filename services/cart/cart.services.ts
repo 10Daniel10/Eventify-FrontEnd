@@ -3,7 +3,8 @@ import { IProduct, IReservation, IReservations, IService } from "interfaces";
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 
-export const addProduct = (userId: number, startDateTime: string, service: IService): void => {
+export const addProduct = (userId: number | null, startDateTime: string, service: IService): void => {
+    if (userId === null) return;
     const localStorageData = localStorage.getItem('cart');
     const arrayEnLocalStorage = localStorageData ? JSON.parse(localStorageData) : [];
     const objetoFecha = arrayEnLocalStorage.find((objeto: any) => objeto[startDateTime]);

@@ -2,7 +2,7 @@ import { TUserLogin, TUserRegister } from 'types';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-export const getAllUsers = async ():Promise<any> => {
+export const getAllUsers = async (): Promise<any> => {
   const response = await fetch(`${apiUrl}/users`, {
     method: "GET",
     headers: {
@@ -31,6 +31,7 @@ export const loginUser = async (data: TUserLogin): Promise<any> => {
 
 export const logOut = async () => {
   localStorage.removeItem('loginUser');
+  localStorage.removeItem('cart');
 }
 
 export const createUser = async (data: TUserRegister): Promise<any> => {

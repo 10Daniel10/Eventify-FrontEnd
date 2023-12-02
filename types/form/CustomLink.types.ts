@@ -6,4 +6,5 @@ export interface CustomLinkI extends PropsWithChildren {
   customColor?: 'primary' | 'secondary' | 'white' | 'gray' | 'black',
   href?: string,
   underline?: 'none' | 'hover' | 'always'
+  onclick?: () => {} | unknown
 }

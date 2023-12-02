@@ -6,7 +6,6 @@ import { Toast } from '../form/Toast';
 import { CustomInput } from '../form/CustomInput';
 import { CustomButton } from '../form/CustomButton';
 import { validateEmail } from 'utils/validations';
-import { validateUserEmail } from 'eventapp/services/auth/auth.service';
 import { Section } from '../layout/Section';
 import { CustomTitle } from '../layout/CustomTitle';
 import s from '../../styles/home/CallToAction.module.css';
@@ -37,7 +36,7 @@ export const CallToAction:FC = () => {
       return;
     }
 
-    const response = await validateUserEmail(data.email);
+    const response = await validateEmail(data.email);
 
     try{
       if(response){

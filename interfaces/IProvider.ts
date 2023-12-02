@@ -12,3 +12,13 @@ export interface IProvider {
     products: IProduct[]
     user: IUser
 }
+
+export interface IUserProvider extends IProvider {
+    country: string,
+    province: string,
+    shortDescription: string,
+    description?: string,
+    defaultImage: string,
+    gallery?: string[],
+    rating?: number
+}

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { IService } from 'interfaces';
+import { IService, IServices } from 'interfaces';
 import { Section } from '../layout/Section';
 import { CustomTitle } from '../layout/CustomTitle';
 import Grid from '@mui/material/Grid';
@@ -9,22 +9,20 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { Redeem, SupervisorAccount } from '@mui/icons-material';
 import s from '../../styles/services/ServiceDetail.module.css';
-import { ServiceBooking } from './ServiceBooking';
+import { ServiceReservation } from './ServicesReservation';
 
-interface Service {
- service: IService | undefined
-}
 
-export const ServicesDetail:FC<Service> = ({service}) => {
+export const ServicesDetail:FC<IServices> = ({service}) => {
   if(!service){
     return;
   }
 
   const { id, user, category, photos } = service;
-  const { firstname , lastname } = user;
-  const {  name : categoryName } = category;
+  const firstname = user?.firstname;
+  const lastname = user?.lastname;
+  const categoryName  = category?.name;
   
-  const mainPhoto = service.photos.find(photo => photo.main);
+  const mainPhoto = photos.find(photo => photo.main);
 
   function srcset(image: string, size: number, rows = 1, cols = 1) {
     return {
@@ -63,14 +61,14 @@ export const ServicesDetail:FC<Service> = ({service}) => {
             ))}
           </ImageList>
           <CustomTitle color='gray' text='Información' htmlTag='h3' />
-          <Typography display={'flex'} gap={.5} color={'gray'} mb={2}><SupervisorAccount/> Proveedor {service.user.firstname} {service.user.lastname}</Typography>
-          <Typography display={'flex'} gap={.5} color={'gray'} mb={2}> <Redeem/> Categoría {service.category.name}</Typography>
+          <Typography display={'flex'} gap={.5} color={'gray'} mb={2}><SupervisorAccount/> Proveedor {firstname} {lastname}</Typography>
+          <Typography display={'flex'} gap={.5} color={'gray'} mb={2}> <Redeem/> Categoría {categoryName}</Typography>
           <Typography display={'flex'} gap={.5} color={'gray'} mt={1}>{service.information}</Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
           <CustomTitle text={service.name} color='primary'/>
           <Paper className={s.form}>
-            <ServiceBooking />
+            <ServiceReservation service={service} />
           </Paper>
         </Grid>
       </Grid>

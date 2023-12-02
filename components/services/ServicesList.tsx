@@ -7,15 +7,14 @@ import { ServicesCard } from './ServicesCard';
 import Grid from '@mui/material/Grid';
 import { IService } from 'interfaces';
 
-interface ServicesListI {
+interface IPropList {
   className?: string,
   title?: CustomTitleI,
-  listVariant?: 'slider' | 'grid',
-  //TODO: HAY QUE TIPAR EL FUCKING SERVICE
-  services: IService[]
+  listVariant?: 'slider' | 'grid',  
+  services : IService[]
 }
 
-export const ServicesList:FC<ServicesListI> = ({ className, title, listVariant = 'slider', services }) => {
+export const ServicesList:FC<IPropList> = ({ className, title, listVariant = 'slider', services }) => {
   const { color = 'primary', htmlTag = 'h2', text } = {...title};
 
   const xs = useMediaQuery('(max-width:600px)');
@@ -30,8 +29,8 @@ export const ServicesList:FC<ServicesListI> = ({ className, title, listVariant =
         <>
           <CustomTitle color={color} htmlTag={htmlTag} text={text} />
           <CustomSlider variant="cards" totalCards={services.length} cardsToShow={cardsToShow}>
-            {services.map((p) => (
-              <ServicesCard key={p.id} service={p}/>
+            {services.map((p : IService) => (
+              <ServicesCard key={p.id} service={p}/>              
             ))}
           </CustomSlider>
         </>
@@ -39,9 +38,9 @@ export const ServicesList:FC<ServicesListI> = ({ className, title, listVariant =
         <>
           <CustomTitle color={color} htmlTag={htmlTag} text={text} />
           <Grid container spacing={2}>
-            {services.map((p) => (
+            {services.map((p : IService) => (
               <Grid key={p.id} item xs={12} sm={6} md={4}>
-                <ServicesCard key={p.id} service={p}/>
+                <ServicesCard service={p}/>
               </Grid>
             ))}
           </Grid>

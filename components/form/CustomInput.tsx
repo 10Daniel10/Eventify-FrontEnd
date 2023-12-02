@@ -14,7 +14,8 @@ export const CustomInput = ({
   error,
   helperText,
   textFieldProps,
-  className
+  className,
+  onChange
 }: CustomInputT) => {
   const inputClass = `${s.input} ${className}`
   return(
@@ -35,6 +36,7 @@ export const CustomInput = ({
           helperText={helperText}
           {...textFieldProps}
           className={inputClass}
+          onChange={onChange}
         />
       )}
     />

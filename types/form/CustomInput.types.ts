@@ -11,5 +11,6 @@ export type CustomInputT = {
     error?: boolean,
     helperText?: string,
     textFieldProps?: Record<string, any>,
-    className?: string
+    className?: string,
+    onChange?: (e: any) => void
 }

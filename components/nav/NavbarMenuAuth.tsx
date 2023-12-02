@@ -33,16 +33,16 @@ export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUse
         <MenuItem onClick={handleClose}>
           <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
         </MenuItem>
-        {userType === 'USER' ? (
+        {userType !== 'USER' ? (
           <>
             <MenuItem onClick={handleClose}>
-              <CustomLink href={`/reservations?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mis reservas</CustomLink>
+              <CustomLink href={`/reservations`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mis reservas</CustomLink>
             </MenuItem>
           </>
         ) : (
           <>
             <MenuItem onClick={handleClose}>
-              <CustomLink href={`/services?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
+              <CustomLink href={`/providers/${userId}/dashboard`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
             </MenuItem>
             <MenuItem onClick={handleClose}>
               <CustomLink href={`/agenda?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mi agenda</CustomLink>

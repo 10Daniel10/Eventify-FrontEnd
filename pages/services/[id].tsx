@@ -12,7 +12,7 @@ const Service: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const [service, setService] = useState<IService | undefined>();
+  const [service, setService] = useState<IService | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +44,11 @@ const Service: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
+      {service !== null ? (
         <ServicesDetail service={service} />
+      ) : (
+        <p>Cargando servicio...</p>
+      )}
       </Layout>
     </>
   )

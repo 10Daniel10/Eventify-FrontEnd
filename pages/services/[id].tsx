@@ -6,7 +6,6 @@ import Head from 'next/head';
 import { getServiceById } from 'eventapp/services/services/servicios.service';
 import { useRouter } from 'next/router';
 import { IService } from 'interfaces';
-import { ServiceReservation } from 'eventapp/components/services/ServicesReservation';
 import { ServicesDetail } from 'eventapp/components/services/ServicesDetail';
 
 const Service: NextPage = () => {
@@ -45,13 +44,6 @@ const Service: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
-      {service ? (
-        <>
-          <ServiceReservation servicePrice={service.price} />
-        </>
-      ) : (
-        <p>Cargando...</p>
-      )}
         <ServicesDetail service={service} />
       </Layout>
     </>

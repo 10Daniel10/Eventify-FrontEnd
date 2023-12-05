@@ -27,7 +27,7 @@ export const ServicesCard:FC<IServicesCardProps> = ( { service }) => {
       }}
       title={service.name}
       cardImg={{
-        imgSrc: mainPhoto?.url || "imagenpordefecto",
+        imgSrc: mainPhoto?.url || '/shapes/shape5.png',
         imgAlt: service.name
       }}
       description={service.information}

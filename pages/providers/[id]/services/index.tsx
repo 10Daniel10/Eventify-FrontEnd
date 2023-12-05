@@ -22,7 +22,7 @@ const ProviderServicesPage: NextPage = () => {
         if(providerId){
           const servicesData = await getProviderServices(providerId);
           setServices(servicesData);
-          setEmptyState(false);      
+          setEmptyState(false);
         } else{
           setEmptyState(true);
         }

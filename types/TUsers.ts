@@ -22,6 +22,10 @@ export type TUserRegister = {
   password: string;
   confirmPassword: string;
   isProvider?: boolean;
+  providerName?: string;
+  providerInformation?: string;
+  providerAddress?: string;
+  providerImageUrl?: string;
 }
 
 export type TUserEmail = {

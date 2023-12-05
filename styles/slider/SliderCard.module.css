@@ -2,6 +2,10 @@
   margin-bottom: 1rem;
 }
 
+.slider-card-header span, .slider-card-content p{
+  font-family: 'Nunito Sans', sans-serif !important;
+}
+
 .slider-card-header span:first-child{
   font-size: 1rem;
   font-weight: 600;

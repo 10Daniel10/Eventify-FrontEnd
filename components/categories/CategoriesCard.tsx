@@ -12,7 +12,7 @@ export const CategoriesCard:FC<CategoriesCardI> = ({ category }) => {
       key={category.id}
       title={`${category.name}`}
       cardImg={{
-        imgSrc: category.imageUrl || '',
+        imgSrc: `/categories/${category.id}.jpeg`,
         imgAlt: category.name
       }}
       favButtons={false}

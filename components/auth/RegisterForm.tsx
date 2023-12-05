@@ -25,13 +25,18 @@ const initialData: TUserRegister = {
   email: '',
   password: '',
   confirmPassword: '',
-  isProvider: false
+  isProvider: false,
+  providerName: '',
+  providerInformation: '',
+  providerAddress: '',
+  providerImageUrl: ''
 }
 
 export const RegisterForm: FC = () => {
   const router = useRouter();
 
-  const { control, handleSubmit, getValues, formState: {errors} } = useForm<TUserRegister>();
+  const { control, handleSubmit, watch, getValues, setValue, formState: {errors} } = useForm<TUserRegister>();
+  const isProvider = watch('isProvider');
 
   const [credentialsError, setCredentialsError] = useState<boolean>(false);
   const [credentialsErrorMessage, setCredentialsErrorMessage] = useState<string | undefined>(undefined);
@@ -60,7 +65,6 @@ export const RegisterForm: FC = () => {
       return;
     }
 
-    const isProvider = getValues('isProvider');
     const userType = isProvider ? 'PROVIDER' : 'USER';
     const userData: TUserRegister = {
       ...data,
@@ -95,15 +99,17 @@ export const RegisterForm: FC = () => {
     }
   };
 
+  const containerClass = `${s.container} ${s['register-container']}`
+
   return(
-    <Container className={s.container}>
+    <Container className={containerClass}>
       <Toast open={credentialsError} onClose={handleCloseToast} severity="error" message={credentialsErrorMessage}/>
       <Box>
         <CustomLink href="/" underline="none" customVariant="link" customColor="gray"><ArrowBack/></CustomLink>
         <CustomTitle color="gray" htmlTag="h2" text="Registrarme" className={s.title}/>
         <Box component="form" onSubmit={handleSubmit(onSubmit)} mb={2}>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
               <CustomInput
                 type="text"
                 name="username"
@@ -114,7 +120,7 @@ export const RegisterForm: FC = () => {
                 required={true}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
               <CustomInput
                 type="text"
                 name="firstname"
@@ -125,7 +131,7 @@ export const RegisterForm: FC = () => {
                 required={true}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
               <CustomInput
                 type="text"
                 name="lastname"
@@ -136,7 +142,7 @@ export const RegisterForm: FC = () => {
                 required={true}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
               <CustomInput
                 type="email"
                 name="email"
@@ -149,7 +155,7 @@ export const RegisterForm: FC = () => {
                 helperText={errors?.email?.message}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
               <CustomInput
                 type="password"
                 name="password"
@@ -162,7 +168,7 @@ export const RegisterForm: FC = () => {
                 helperText={errors?.password?.message}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
               <CustomInput
                 type="password"
                 name="confirmPassword"
@@ -183,7 +189,55 @@ export const RegisterForm: FC = () => {
                 defaultChecked={false}
               />
             </Grid>
-            <Grid item xs={12}>
+            {isProvider && (
+              <>
+                <Grid item xs={12} sm={6}>
+                  <CustomInput
+                    type="text"
+                    name="providerName"
+                    label="Nombre de proveedor"
+                    control={control}
+                    defaultValue={initialData.providerName}
+                    placeholder="Ej. Supercatering"
+                    required={isProvider}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomInput
+                    type="text"
+                    name="providerAddress"
+                    label="Provincia"
+                    control={control}
+                    defaultValue={initialData.providerName}
+                    placeholder="Mendoza"
+                    required={isProvider}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <CustomInput
+                    type="text"
+                    name="providerInformation"
+                    label="Información"
+                    control={control}
+                    defaultValue={initialData.providerName}
+                    placeholder="Ej. Somos una empresa dedicada a..."
+                    required={isProvider}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <CustomInput
+                    type="text"
+                    name="providerImageUrl"
+                    label="Imagen de portada"
+                    control={control}
+                    defaultValue={initialData.providerName}
+                    placeholder="Ej: https://images.com/image1"
+                    required={isProvider}
+                  />
+                </Grid>
+              </>
+            )}
+            <Grid item xs={12} className={s['register-button']}>
               <CustomButton type="submit" variant="contained" customColor="primary">Registrarme</CustomButton>
             </Grid>
           </Grid>

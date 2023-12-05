@@ -9,14 +9,9 @@ interface IProvidersCardProps {
 export const ProvidersCard:FC<IProvidersCardProps> = ({ provider }) => {
   return (
     <SliderCard
-      avatar={{
-        ariaLabel: `${provider.user.firstname} ${provider.user.lastname}`,
-        imgSrc: provider.user.urlImage || '/users/avatar.png',
-        imgAlt: `${provider.user.firstname} ${provider.user.lastname}`
-      }}
       title={`${provider.name}`}
       cardImg={{
-        imgSrc: provider.defaultImage, 
+        imgSrc: provider.defaultImage || '/shapes/shape6.png', 
         imgAlt: provider.name
       }}
       description={provider.information}

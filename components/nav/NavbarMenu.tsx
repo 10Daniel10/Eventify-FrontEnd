@@ -39,9 +39,6 @@ export const NavbarMenu = ({appBarMenu, handleAppBarMenu, handleClose}: TNavbar)
         <MenuItem onClick={handleClose}>
           <CustomLink href="/services" underline="none" customVariant="link" customColor="primary"><LocalMall/> Servicios</CustomLink>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <CustomLink href="/reservations" underline="none" customVariant="link" customColor="primary"><LocalMall/> Reservaciones</CustomLink>
-        </MenuItem>
         <MenuItem onClick={handleClose} className={s['buttons-box']}>
           <CustomLink href="/auth/login" underline="none" customVariant="button-outline" customColor="primary">Iniciar sesión</CustomLink>
           <CustomLink href="/auth/register" underline="none" customVariant="button" customColor="primary">Registrarme</CustomLink>

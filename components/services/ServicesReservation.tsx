@@ -10,6 +10,12 @@ import { addProduct } from 'eventapp/services/cart/cart.services';
 import { useRouter } from 'next/router';
 import { getIdUser } from 'eventapp/services/users/users.service';
 import Swal from 'sweetalert2'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs, { Dayjs } from 'dayjs'
+import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import "dayjs/locale/es";
+
 
 type TInitialData = {
   dateReservation: Date;
@@ -21,12 +27,13 @@ const initialData: TInitialData = {
 export const ServiceReservation: FC<IServices> = ({service}) => {
   const router = useRouter();
   const userId = getIdUser(); 
-  const [disabled, setDisabled] = useState(false) 
+  const [disabled, setDisabled] = useState(false);
+  const [selectedDate, setSelectedDate] = useState('')  
   const { control, handleSubmit, formState: {errors} } = useForm<TInitialData>();
   const { id, name, bookedDates } = service;   
   
   const onSubmit: SubmitHandler<TInitialData> = async (data) => {  
-    var fechaComoCadena = `${data.dateReservation}`;
+    var fechaComoCadena = `${selectedDate}`;    
     const reserved = bookedDates?.some(x => x == `${data.dateReservation}`);
     if(reserved){ 
       showSwalError();
@@ -76,22 +83,35 @@ export const ServiceReservation: FC<IServices> = ({service}) => {
     setDisabled(true)
   }
 
+  function disableWeekends(date : Date) {     
+
+     if(dayjs(Date.now()).format('YYYY-MM-DD') == dayjs(date).format('YYYY-MM-DD'))
+        return true;
+
+     if(bookedDates && bookedDates?.length > 0) {
+        return bookedDates.some( x => x == dayjs(date).format('YYYY-MM-DD'));
+     }    
+
+      return false;
+   }
+
   return(
     <Box component="form" onSubmit={handleSubmit(onSubmit)}>      
-      <Grid container spacing={2}>
+      <Grid container spacing={2}>                  
         <Grid item xs={12}>
-          <CustomInput
-            type="date"
-            name="dateReservation"
-            label="Fecha"
-            control={control}
-            //defaultValue={initialData.dateLocura}
-            placeholder="DD/MM/AAAA"
-            required={true}            
-          />
+          <LocalizationProvider adapterLocale='es' dateAdapter={AdapterDayjs}>
+            <DateCalendar 
+              shouldDisableDate={disableWeekends} 
+              disablePast={true}  
+              onChange={(date) => {               
+                setSelectedDate(dayjs(date).format('YYYY-MM-DD'));
+              }}
+            />
+          </LocalizationProvider>
         </Grid>
         <Grid item xs={12}>
           <CustomButton type="submit" variant="contained" customColor="primary">Reservar</CustomButton>
+          <br />
           <CustomButton type="button" onClick={sendToCart} variant="contained" customColor="primary">Finalizar reservas</CustomButton>
         </Grid>
       </Grid>

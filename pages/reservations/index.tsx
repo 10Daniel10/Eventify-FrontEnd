@@ -18,7 +18,7 @@ const Reservations: NextPage = () => {
         const reservationsData = await getHistorialReservations(userId);
         setReservations(reservationsData);
       } catch (error) {
-        console.error('Error al obtener reservaciones:', error);
+        console.error('Error al obtener reservas:', error);
       }
     };
     fetchData();

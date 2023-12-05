@@ -5,6 +5,7 @@ export interface IUser {
   email: string,
   firstname?: string,
   lastname?: string,
+  urlImage?: string,
   type: 'USER' | 'PROVIDER'
 }
 

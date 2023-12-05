@@ -33,7 +33,7 @@ export const AccountForm: FC <AccountFormProps> = ({user}) => {
 
   return (
     <Container className={s.container}>
-      <Box>
+      <Box sx={{ paddingTop: '3rem'}}>
         <CustomLink href="/" underline="none" customVariant="link" customColor="gray"></CustomLink>
         <CustomTitle color="gray" htmlTag="h2" text="Editar datos de usuario" className={s.title}/>
         <Box component="form" onSubmit={handleSubmit(onSubmit)} mb={2}>

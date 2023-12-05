@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { getUserById } from 'eventapp/services/users/users.service';
 import { IUser } from 'interfaces';
+import { Loader } from 'eventapp/components/loader/Loader';
 
 const UserId: NextPage = () => {
 
@@ -50,7 +51,7 @@ const UserId: NextPage = () => {
         {user ? (
         <AccountForm user={user} />
       ) : (
-        <p>Cargando usuario...</p>
+        <Loader/>
       )}
       </Layout>
     </>

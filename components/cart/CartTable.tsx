@@ -15,10 +15,13 @@ import s from '../../styles/services/ProviderServices.module.css';
 import { IReservations } from 'interfaces';
 import { sendReservations } from 'eventapp/services/cart/cart.services';
 import { useRouter } from 'next/router';
+import Swal from 'sweetalert2'
+import { useState } from 'react';
 
 
 export const CartTable:React.FC<IReservations> = ({ reservations }) => {
   const router = useRouter();
+  const [swalShown, setSwalShown] = useState(false)
   const total = reservations.reduce((total, objetoFecha) => {
     const totalTemporal = objetoFecha.products.reduce((subtotal, producto) => {      
       return subtotal + (producto.price || 0.00);
@@ -28,18 +31,54 @@ export const CartTable:React.FC<IReservations> = ({ reservations }) => {
   }, 0);
   
 
-  function sendReservation(){
-    sendReservations()
-    router.push("ok")
+  function sendReservation(){    
+    showSwal()
+  }
+
+ 
+  let timerInterval;
+  const showSwal = () => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Reserva realizada exitosamente.",
+      html: "<small>Seras redirigido a tus reservas en <b></b></small>",
+      showConfirmButton: (true),                
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const timer = Swal.getPopup()?.querySelector("b");
+        if(timer){          
+          const updateTimer = () => {
+            const timerLeft = Swal.getTimerLeft();
+            if (timerLeft !== null && timerLeft !== undefined) {
+              timer.textContent = `${Math.round(timerLeft / 60)}`;
+            } else {
+              clearInterval(timerInterval);
+              console.error("Valor de timerLeft indefinido");
+            }
+          };
+          updateTimer();
+          const timerInterval = setInterval(updateTimer, 100);         
+        }        
+      },
+      didClose: () => setSwalShown(false),
+    }).then((result) => {
+      if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+        sendReservations()
+        router.push("reservations")
+      }
+    })
   }
 
   return (
     <Section className={s.container}>
-
       <Box className={s['title-box']}>
         <CustomTitle color='primary' htmlTag='h1' text='Reservas por realizar' />        
         <CustomLink onclick={sendReservation} customVariant='link' customColor='primary'>
           <AddCircleOutline /> Terminar reserva
+          
         </CustomLink>
       </Box>
       <TableContainer component={Paper}>
@@ -62,7 +101,7 @@ export const CartTable:React.FC<IReservations> = ({ reservations }) => {
                         <TableCell>{reservation.startDateTime.replace("T00:00:00","")}</TableCell>
                         <TableCell>{row.name}</TableCell>                        
                         <TableCell>{row.category?.name}</TableCell>                              
-                        <TableCell align={"right"}>$ {row.price.toFixed(2)}</TableCell>
+                        <TableCell align={"right"}>$ {row.price?.toFixed(2) || 0.00}</TableCell>
                     </TableRow>
                 ))                           
             ))}

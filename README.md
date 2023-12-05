@@ -63,4 +63,4 @@ Aquí van todos los tests. Aún no hay librerías instaladas, pero utilizaremos 
 
 #### Carpeta types
 
-Aquí van todos types a los que deben hacer referencia los componentes de la aplicación.
+Aquí van todos types a los que deben hacer referencia los componentes de la aplicación. 

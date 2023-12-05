@@ -1,4 +1,5 @@
 .link, .button{
+  font-family: 'Nunito Sans', sans-serif !important;
   display: flex;
   align-items: center;
   gap: .5rem;
@@ -59,6 +60,7 @@
 }
 
 .button-primary{
+  font-family: 'Nunito Sans', sans-serif !important;
   background-color: var(--primary);
   border: .1rem solid var(--primary);
 }
@@ -68,6 +70,7 @@
 }
 
 .button-outline{
+  font-family: 'Nunito Sans', sans-serif !important;
   text-align: center;
   padding: .4rem .8rem;
   border: .1rem solid;

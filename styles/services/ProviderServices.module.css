@@ -9,3 +9,7 @@
   display: flex;
   justify-content: space-between;
 }
+
+.message > div{
+  font-family: 'Nunito Sans', sans-serif !important;
+}

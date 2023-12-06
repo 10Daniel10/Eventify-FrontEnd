@@ -1,4 +1,5 @@
 'use client';
+import { useRouter } from 'next/router';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
+import Alert from '@mui/material/Alert';
 import Visibility from '@mui/icons-material/Visibility';
 import AddCircleOutline from '@mui/icons-material/AddCircleOutline';
 import { IService, IServiceProvider } from 'interfaces';
@@ -14,8 +16,6 @@ import { Section } from '../layout/Section';
 import { CustomTitle } from '../layout/CustomTitle';
 import { CustomLink } from '../form/CustomLink';
 import s from '../../styles/services/ProviderServices.module.css';
-import { Typography } from '@mui/material';
-import { useRouter } from 'next/router';
 
 interface IProviderServicesProps {
   services: (IService & IServiceProvider)[],
@@ -68,7 +68,7 @@ export const ProviderServices:React.FC<IProviderServicesProps> = ({ services, em
           </Table>
         </TableContainer>
       ) : (
-        <Typography>Aún no cargas ningún servicio. Haz clic en &ldquo;{'Agregar'}&rdquo; para que los usuarios puedan contratar tus servicios.</Typography>
+        <Alert className={s.message} severity={'error'}>{'Aún no cargas ningún servicio. Haz clic en "Agregar" para que los usuarios puedan contratarte.'}</Alert>
       )}
     </Section>
   );

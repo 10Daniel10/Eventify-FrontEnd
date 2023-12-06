@@ -1,7 +1,7 @@
 import { ICategory, IPhoto, IProduct, IProvider, IUser } from 'interfaces';
 
 export interface IService {
-  id: number;
+  id?: number;
   name: string;
   price: number;
   information?: string;
@@ -23,6 +23,8 @@ export interface IServiceProvider {
   categoryId?: number;
   providerId?: number;
   bookedDates?: Date[];
+  features_string?: string;
+  features?: string[] | undefined;
 }
 
 export interface IServices {

@@ -1,4 +1,4 @@
-import { ICategory, IPhoto, IProduct, IProvider, IUser } from 'interfaces';
+import { ICategory, IProduct, IProvider, IUser } from 'interfaces';
 
 export interface IService {
   id?: number;
@@ -10,7 +10,7 @@ export interface IService {
   address?: string;
   category?: ICategory;
   provider?: IProvider;
-  photos?: IPhoto[];
+  imageUrls?: string[];
   products?: IProduct[];
   user?: IUser;
   bookedDates?: string[];

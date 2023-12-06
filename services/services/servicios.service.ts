@@ -14,8 +14,20 @@ export const getServices = async (): Promise<any> => {
   return await response.json();
 }
 
-export const getServicesByProvider = async (id: number): Promise<any> => {
+export const getServicesByProvider = async (id: string): Promise<any> => {
   const response = await fetch(`${apiUrl}/product/provider/${id}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  })
+
+  return await response.json();
+}
+
+export const getServicesByCategory = async (id: string): Promise<any> => {
+  const response = await fetch(`${apiUrl}/product/category/${id}`, {
     method: "GET",
     headers: {
       Accept: "application/json",

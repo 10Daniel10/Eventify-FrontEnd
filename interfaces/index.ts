@@ -1,5 +1,4 @@
 export * from './ICategory';
-export * from './IPhoto';
 export * from './IProduct';
 export * from './IProvider';
 export * from './IService';

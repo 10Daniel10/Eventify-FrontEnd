@@ -106,7 +106,7 @@ export const NewServiceForm: FC = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <CustomInput
-                type="text"
+                type="number"
                 name="price"
                 label="Precio del servicio"
                 control={control}
@@ -129,6 +129,39 @@ export const NewServiceForm: FC = () => {
               </CustomSelect>
             </Grid>
             <Grid item xs={12} sm={6}>
+              <CustomSelect
+                name="location"
+                label="Provincia"
+                control={control}
+              >
+                <MenuItem value=""><em>None</em></MenuItem>
+                <MenuItem value="Buenos Aires">Buenos Aires</MenuItem>
+                <MenuItem value="CABA">CABA</MenuItem>
+                <MenuItem value="Catamarca">Catamarca</MenuItem>
+                <MenuItem value="Chaco">Chaco</MenuItem>
+                <MenuItem value="Chubut">Chubut</MenuItem>
+                <MenuItem value="Córdoba">Córdoba</MenuItem>
+                <MenuItem value="Corrientes">Corrientes</MenuItem>
+                <MenuItem value="Entre Ríos">Entre Ríos</MenuItem>
+                <MenuItem value="Formosa">Formosa</MenuItem>
+                <MenuItem value="Jujuy">Jujuy</MenuItem>
+                <MenuItem value="La Pampa">La Pampa</MenuItem>
+                <MenuItem value="La Rioja">La Rioja</MenuItem>
+                <MenuItem value="Mendoza">Mendoza</MenuItem>
+                <MenuItem value="Misiones">Misiones</MenuItem>
+                <MenuItem value="Neuquén">Neuquén</MenuItem>
+                <MenuItem value="Río Negro">Río Negro</MenuItem>
+                <MenuItem value="Salta">Salta</MenuItem>
+                <MenuItem value="San Juan">San Juan</MenuItem>
+                <MenuItem value="San Luis">San Luis</MenuItem>
+                <MenuItem value="Santa Cruz">Santa Cruz</MenuItem>
+                <MenuItem value="Santa Fe">Santa Fe</MenuItem>
+                <MenuItem value="Santiago del Estero">Santiago del Estero</MenuItem>
+                <MenuItem value="Tierra del Fuego">Tierra del Fuego</MenuItem>
+                <MenuItem value="Tucumán">Tucumán</MenuItem>
+              </CustomSelect>
+            </Grid>
+            <Grid item xs={12}>
               <CustomInput
                 type="text"
                 name="shortDescription"

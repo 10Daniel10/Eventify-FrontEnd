@@ -3,8 +3,8 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { IService } from 'interfaces';
-import { getServices, getServicesByProvider } from 'eventapp/services/services/servicios.service';
+import { IService, IServiceProvider } from 'interfaces';
+import { getServices, getServicesByCategory, getServicesByProvider } from 'eventapp/services/services/servicios.service';
 import { Layout } from 'eventapp/components/layout/Layout';
 import { ServicesList } from 'eventapp/components/services/ServicesList';
 import s from '../index.module.css';
@@ -12,15 +12,18 @@ import s from '../index.module.css';
 const Services: NextPage = () => {
   const router = useRouter();
   const { providerId } = router.query;
-  const id = Number(providerId);
+  const { categoryId } = router.query;
 
-  const [services, setServices] = useState<IService[]>([]);
+  const [services, setServices] = useState<(IService & IServiceProvider)[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if(id){
-          const servicesData = await getServicesByProvider(id);
+        if(providerId){
+          const servicesData = await getServicesByProvider(`${providerId}`);
+          setServices(servicesData);
+        } else if(categoryId){
+          const servicesData = await getServicesByCategory(`${categoryId}`);
           setServices(servicesData);
         } else{
           const servicesData = await getServices();
@@ -31,7 +34,7 @@ const Services: NextPage = () => {
       }
     };
     fetchData();
-  }, [id]);
+  }, [providerId, categoryId]);
 
   return (
     <>

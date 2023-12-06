@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import MenuItem from '@mui/material/MenuItem';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import { checkIfEmailExists, comparePassword, validateEmail, validatePasswordLength } from 'utils/validations';
 import { TUserRegister } from 'types';
@@ -15,6 +16,7 @@ import { CustomInput } from '../form/CustomInput';
 import { CustomButton } from '../form/CustomButton';
 import { CustomTitle } from '../layout/CustomTitle';
 import { CustomSwitch } from '../form/CustomSwitch';
+import { CustomSelect } from '../form/CustomSelect';
 import s from '../../styles/auth/Auth.module.css';
 
 const initialData: TUserRegister = {
@@ -35,7 +37,7 @@ const initialData: TUserRegister = {
 export const RegisterForm: FC = () => {
   const router = useRouter();
 
-  const { control, handleSubmit, watch, getValues, setValue, formState: {errors} } = useForm<TUserRegister>();
+  const { control, handleSubmit, watch, formState: {errors} } = useForm<TUserRegister>();
   const isProvider = watch('isProvider');
 
   const [credentialsError, setCredentialsError] = useState<boolean>(false);
@@ -203,15 +205,37 @@ export const RegisterForm: FC = () => {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <CustomInput
-                    type="text"
+                  <CustomSelect
                     name="providerAddress"
                     label="Provincia"
-                    control={control}
-                    defaultValue={initialData.providerName}
-                    placeholder="Mendoza"
-                    required={isProvider}
-                  />
+                    control={control}                    
+                  >
+                    <MenuItem value=""><em>None</em></MenuItem>
+                    <MenuItem value="Buenos Aires">Buenos Aires</MenuItem>
+                    <MenuItem value="CABA">CABA</MenuItem>
+                    <MenuItem value="Catamarca">Catamarca</MenuItem>
+                    <MenuItem value="Chaco">Chaco</MenuItem>
+                    <MenuItem value="Chubut">Chubut</MenuItem>
+                    <MenuItem value="Córdoba">Córdoba</MenuItem>
+                    <MenuItem value="Corrientes">Corrientes</MenuItem>
+                    <MenuItem value="Entre Ríos">Entre Ríos</MenuItem>
+                    <MenuItem value="Formosa">Formosa</MenuItem>
+                    <MenuItem value="Jujuy">Jujuy</MenuItem>
+                    <MenuItem value="La Pampa">La Pampa</MenuItem>
+                    <MenuItem value="La Rioja">La Rioja</MenuItem>
+                    <MenuItem value="Mendoza">Mendoza</MenuItem>
+                    <MenuItem value="Misiones">Misiones</MenuItem>
+                    <MenuItem value="Neuquén">Neuquén</MenuItem>
+                    <MenuItem value="Río Negro">Río Negro</MenuItem>
+                    <MenuItem value="Salta">Salta</MenuItem>
+                    <MenuItem value="San Juan">San Juan</MenuItem>
+                    <MenuItem value="San Luis">San Luis</MenuItem>
+                    <MenuItem value="Santa Cruz">Santa Cruz</MenuItem>
+                    <MenuItem value="Santa Fe">Santa Fe</MenuItem>
+                    <MenuItem value="Santiago del Estero">Santiago del Estero</MenuItem>
+                    <MenuItem value="Tierra del Fuego">Tierra del Fuego</MenuItem>
+                    <MenuItem value="Tucumán">Tucumán</MenuItem>
+                  </CustomSelect>
                 </Grid>
                 <Grid item xs={12}>
                   <CustomInput

@@ -87,6 +87,11 @@ export const RegisterForm: FC = () => {
           type: responseData.type
         };
 
+        if(isProvider){
+          const providerId = responseData.providerInfo.id;
+          localStorage.setItem('providerId', JSON.stringify(providerId));
+        }
+
         localStorage.setItem('loginUser', JSON.stringify(userInformation));
 
         router.push('/');

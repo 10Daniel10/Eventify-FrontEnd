@@ -105,6 +105,17 @@ export const NewServiceForm: FC = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
+              <CustomInput
+                type="text"
+                name="price"
+                label="Precio del servicio"
+                control={control}
+                defaultValue={initialData.price}
+                placeholder="Ej: 500"
+                required={true}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
               <CustomSelect
                 name="categoryId"
                 label="Categoría del servicio"
@@ -117,7 +128,7 @@ export const NewServiceForm: FC = () => {
                 ))}
               </CustomSelect>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
               <CustomInput
                 type="text"
                 name="shortDescription"

@@ -8,7 +8,7 @@ export interface IProvider {
   information: string;
   address: string;
   category: ICategory[];
-  defaultImage: string;
+  imageUrl: string;
   products: (IService & IServiceProvider)[];
   user: TUserData
 }

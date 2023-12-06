@@ -8,13 +8,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import Alert from '@mui/material/Alert';
 import Visibility from '@mui/icons-material/Visibility';
 import AddCircleOutline from '@mui/icons-material/AddCircleOutline';
 import { IService, IServiceProvider } from 'interfaces';
 import { Section } from '../layout/Section';
 import { CustomTitle } from '../layout/CustomTitle';
 import { CustomLink } from '../form/CustomLink';
+import { CustomAlert } from '../form/CustomAlert';
 import s from '../../styles/services/ProviderServices.module.css';
 
 interface IProviderServicesProps {
@@ -68,7 +68,7 @@ export const ProviderServices:React.FC<IProviderServicesProps> = ({ services, em
           </Table>
         </TableContainer>
       ) : (
-        <Alert className={s.message} severity={'error'}>{'Aún no cargas ningún servicio. Haz clic en "Agregar" para que los usuarios puedan contratarte.'}</Alert>
+        <CustomAlert severity={'info'} message={'Aún no cargas ningún servicio. Haz clic en "Agregar" para que los usuarios puedan contratarte.'}/>
       )}
     </Section>
   );

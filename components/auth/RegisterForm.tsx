@@ -30,8 +30,7 @@ const initialData: TUserRegister = {
   isProvider: false,
   providerName: '',
   providerInformation: '',
-  providerAddress: '',
-  providerImageUrl: ''
+  providerAddress: ''
 }
 
 export const RegisterForm: FC = () => {
@@ -114,17 +113,6 @@ export const RegisterForm: FC = () => {
             <Grid item xs={12} sm={6}>
               <CustomInput
                 type="text"
-                name="username"
-                label="Nombre de usuario"
-                control={control}
-                defaultValue={initialData.username}
-                placeholder="Ej: mariaperez"
-                required={true}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <CustomInput
-                type="text"
                 name="firstname"
                 label="Nombre"
                 control={control}
@@ -141,6 +129,17 @@ export const RegisterForm: FC = () => {
                 control={control}
                 defaultValue={initialData.lastname}
                 placeholder="Ej: Pérez"
+                required={true}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <CustomInput
+                type="text"
+                name="username"
+                label="Nombre de usuario"
+                control={control}
+                defaultValue={initialData.username}
+                placeholder="Ej: mariaperez"
                 required={true}
               />
             </Grid>
@@ -245,17 +244,6 @@ export const RegisterForm: FC = () => {
                     control={control}
                     defaultValue={initialData.providerName}
                     placeholder="Ej. Somos una empresa dedicada a..."
-                    required={isProvider}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <CustomInput
-                    type="text"
-                    name="providerImageUrl"
-                    label="Imagen de portada"
-                    control={control}
-                    defaultValue={initialData.providerName}
-                    placeholder="Ej: https://images.com/image1"
                     required={isProvider}
                   />
                 </Grid>

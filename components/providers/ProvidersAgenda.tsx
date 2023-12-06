@@ -13,7 +13,7 @@ import { CustomAlert } from '../form/CustomAlert';
 import { IReservations } from 'interfaces/IReservations';
 import s from '../../styles/services/ProviderServices.module.css';
 
-export const ReservationsTable:FC<IReservations> = ({ reservations }) => {
+export const Agenda:FC<IReservations> = ({ reservations }) => {
   return (
     <Section className={s.container}>
       <Box className={s['title-box']}>
@@ -26,19 +26,18 @@ export const ReservationsTable:FC<IReservations> = ({ reservations }) => {
               <TableRow>
                 <TableCell>Fecha</TableCell>              
                 <TableCell>Nombre</TableCell>
-                <TableCell>Categoría</TableCell>
+                <TableCell>Categoria</TableCell>
                 <TableCell align={"right"}>Precio</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>          
               {reservations.map((reservation) => (  
                 reservation.products?.map((row, key) => (
-                  <TableRow key={key} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                  >                
-                    <TableCell>{reservation.startDateTime.split("T")[0]}</TableCell>
-                    <TableCell>{row.name}</TableCell>
-                    <TableCell>{row.category?.name}</TableCell>
-                    <TableCell align={"right"}>$ {row.price.toFixed(2)}</TableCell>
+                  <TableRow key={key} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                    <TableCell>Fecha</TableCell>
+                    <TableCell>Nombre</TableCell>
+                    <TableCell>Categoría</TableCell>
+                    <TableCell align={"right"}>Precio</TableCell>
                   </TableRow>
                 ))
               ))}
@@ -46,7 +45,7 @@ export const ReservationsTable:FC<IReservations> = ({ reservations }) => {
           </Table>
         </TableContainer>
       ) : (
-        <CustomAlert severity={'info'} message={'Aún no tienes reservas. Selecciona una fecha y un servicio para generar una.'}/>
+        <CustomAlert severity={'info'} message={'Aún no han reservado tus servicios. ¡Serás el primero en saberlo cuando alguien lo haga!'}/>
       )}
     </Section>
   );

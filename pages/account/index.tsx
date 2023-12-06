@@ -1,8 +1,35 @@
+import { AccountForm } from 'eventapp/components/auth/accountForm';
 import { Layout } from 'eventapp/components/layout/Layout';
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { getUserById } from 'eventapp/services/users/users.service';
+import { IUser } from 'interfaces';
+import { Loader } from 'eventapp/components/loader/Loader';
 
 const UserId: NextPage = () => {
+
+  const router = useRouter();
+  const { userId } = router.query;
+  const id = Number(userId);
+
+  const [user, setUser] = useState<IUser>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (id) {
+          const userData = await getUserById(id);
+          setUser(userData);
+        }
+      } catch (error) {
+        console.error('Error al obtener usuario:', error);
+      }
+    };
+    fetchData();
+  }, [id]);
+
   return (
     <>
       <Head>
@@ -21,7 +48,11 @@ const UserId: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
-        <h1>Aquí va el formulario del perfil del usuario</h1>
+        {user ? (
+        <AccountForm user={user} />
+      ) : (
+        <Loader/>
+      )}
       </Layout>
     </>
   )

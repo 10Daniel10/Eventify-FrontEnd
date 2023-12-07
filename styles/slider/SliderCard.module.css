@@ -12,6 +12,10 @@
   letter-spacing: .05rem;
 }
 
+.slider-card-header img{
+  width: auto;
+}
+
 .slider-card-actions{
   display: flex;
   align-items: center;

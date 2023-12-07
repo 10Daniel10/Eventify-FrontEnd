@@ -7,6 +7,7 @@ import CalendarMonth from '@mui/icons-material/CalendarMonth';
 import Logout from '@mui/icons-material/Logout';
 import Redeem from '@mui/icons-material/Redeem';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
+import Dashboard from '@mui/icons-material/Dashboard';
 import { TNavbar } from 'types';
 import { CustomLink } from '../form/CustomLink';
 import s from '../../styles/nav/NavbarMenu.module.css';
@@ -33,13 +34,13 @@ export const NavbarMenuAuth = ({userId, providerId, userType, userEmail, userMen
           className={s['app-bar']}
         >
           <MenuItem onClick={handleClose}>
-            <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
+            <CustomLink href={`/cart`} underline="none" customVariant="link" customColor="primary"><ShoppingCart/> Carrito de reservas</CustomLink>
           </MenuItem>
           <MenuItem onClick={handleClose}>
             <CustomLink href={`/reservations`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Reservas realizadas</CustomLink>
           </MenuItem>
           <MenuItem onClick={handleClose}>
-            <CustomLink href={`/cart`} underline="none" customVariant="link" customColor="primary"><ShoppingCart/> Carrito de reservas</CustomLink>
+            <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
           </MenuItem>
           <MenuItem onClick={handleLogOut} className={s['buttons-box']}>
             <CustomLink href="/" underline="none" customVariant="link" customColor="primary"><Logout/> Cerrar sesión</CustomLink>
@@ -54,13 +55,13 @@ export const NavbarMenuAuth = ({userId, providerId, userType, userEmail, userMen
           className={s['app-bar']}
         >
           <MenuItem onClick={handleClose}>
-            <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
+            <CustomLink href={`/providers/${providerId}/dashboard`} underline="none" customVariant="link" customColor="primary"><Dashboard/> Panel principal</CustomLink>
           </MenuItem>
           <MenuItem onClick={handleClose}>
             <CustomLink href={`/providers/${providerId}/services`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
           </MenuItem>
           <MenuItem onClick={handleClose}>
-            <CustomLink href={`/agenda?userId=${providerId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mi agenda</CustomLink>
+            <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
           </MenuItem>
           <MenuItem onClick={handleLogOut} className={s['buttons-box']}>
             <CustomLink href="/" underline="none" customVariant="link" customColor="primary"><Logout/> Cerrar sesión</CustomLink>

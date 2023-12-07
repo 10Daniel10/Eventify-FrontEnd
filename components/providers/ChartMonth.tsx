@@ -1,6 +1,4 @@
-import { Box } from "@mui/material";
 import { BarChart } from "@mui/x-charts";
-import s from '../../styles/providers/ProvidersDashboard.module.css';
 
 type DataSet = {
   month: string;
@@ -11,7 +9,8 @@ interface ChartMonthProps {
 }
 
 const ChartMonth: React.FC<ChartMonthProps> = ({ dataSet }) => {
-  const valueFormatter = (value: number) => `${value}mm`;
+  console.log({dataSet});
+  const valueFormatter = (value: number) => `$ ${value}`;
 
   const chartSetting = {
     xAxis: [
@@ -27,7 +26,7 @@ const ChartMonth: React.FC<ChartMonthProps> = ({ dataSet }) => {
       <BarChart
         dataset={dataSet}
         yAxis={[{ scaleType: 'band', dataKey: 'month' }]}
-        series={[{ dataKey: 'Catering', valueFormatter }]}
+        series={[{ dataKey: 'Iluminación', valueFormatter }]}
         layout="horizontal"
         {...chartSetting}
       />

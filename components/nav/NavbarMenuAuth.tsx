@@ -11,7 +11,7 @@ import { TNavbar } from 'types';
 import { CustomLink } from '../form/CustomLink';
 import s from '../../styles/nav/NavbarMenu.module.css';
 
-export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUserMenu, handleClose, handleLogOut}: TNavbar) => {
+export const NavbarMenuAuth = ({userId, providerId, userType, userEmail, userMenu, handleUserMenu, handleClose, handleLogOut}: TNavbar) => {
   return (
     <Box display={"flex"} alignItems={"center"} gap={.5}>
       <span className={s['user-email']}>{userEmail}</span>
@@ -57,10 +57,10 @@ export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUse
             <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
           </MenuItem>
           <MenuItem onClick={handleClose}>
-            <CustomLink href={`/providers/${userId}/services`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
+            <CustomLink href={`/providers/${providerId}/services`} underline="none" customVariant="link" customColor="primary"><Redeem/> Mis servicios</CustomLink>
           </MenuItem>
           <MenuItem onClick={handleClose}>
-            <CustomLink href={`/agenda?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mi agenda</CustomLink>
+            <CustomLink href={`/agenda?userId=${providerId}`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mi agenda</CustomLink>
           </MenuItem>
           <MenuItem onClick={handleLogOut} className={s['buttons-box']}>
             <CustomLink href="/" underline="none" customVariant="link" customColor="primary"><Logout/> Cerrar sesión</CustomLink>

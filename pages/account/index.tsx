@@ -7,6 +7,7 @@ import { getUserById } from 'eventapp/services/users/users.service';
 import { IUser } from 'interfaces';
 import { Loader } from 'eventapp/components/loader/Loader';
 import { EditProfile } from 'eventapp/components/auth/EditUserProfile';
+import { Section } from 'eventapp/components/layout/Section';
 
 const UserId: NextPage = () => {
   const router = useRouter();
@@ -50,7 +51,9 @@ const UserId: NextPage = () => {
         {user ? (
           <EditProfile user={user} />
         ) : (
-          <Loader/>
+          <Section>
+            <Loader/>
+          </Section>
         )}
       </Layout>
     </>

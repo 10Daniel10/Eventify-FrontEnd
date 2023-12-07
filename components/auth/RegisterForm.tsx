@@ -36,7 +36,7 @@ const initialData: TUserRegister = {
 export const RegisterForm: FC = () => {
   const router = useRouter();
 
-  const { control, handleSubmit, watch, formState: {errors}, reset } = useForm<TUserRegister>();
+  const { control, handleSubmit, watch, formState: {errors}, clearErrors } = useForm<TUserRegister>();
   const isProvider = watch('isProvider');
 
   const [credentialsError, setCredentialsError] = useState<boolean>(false);
@@ -55,7 +55,7 @@ export const RegisterForm: FC = () => {
     control.setError('password', { message: emailValidation });
     control.setError('confirmPassword', { message: passwordComparation });
 
-    reset();
+    clearErrors();
 
     if (Object.keys(errors).length > 0) {
       return;

@@ -33,7 +33,7 @@ export const NewServiceForm: FC = () => {
   const { id } = router.query;
   const providerId = Number(id);
 
-  const { control, handleSubmit, getValues, formState: {errors} } = useForm<IService & IServiceProvider>();
+  const { control, handleSubmit, getValues, formState: {errors}, reset } = useForm<IService & IServiceProvider>();
 
   const [categories, setCategories] = useState<ICategory[]>([]);
 
@@ -73,6 +73,7 @@ export const NewServiceForm: FC = () => {
       if(response.ok){
         setToast('success');
         setToastMessage('El servicio fue cargado con éxito.');
+        reset();
         router.push(`/providers/${providerId}/services`);
       } else{
         setToast('error');

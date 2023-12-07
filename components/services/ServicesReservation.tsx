@@ -29,7 +29,7 @@ export const ServiceReservation: FC<IServices> = ({service}) => {
   const userId = getIdUser(); 
   const [disabled, setDisabled] = useState(false);
   const [selectedDate, setSelectedDate] = useState('')  
-  const { control, handleSubmit, formState: {errors} } = useForm<TInitialData>();
+  const { control, handleSubmit, formState: {errors}, reset } = useForm<TInitialData>();
   const { id, name, bookedDates } = service;   
 
   const onSubmit: SubmitHandler<TInitialData> = async (data) => {  
@@ -41,6 +41,9 @@ export const ServiceReservation: FC<IServices> = ({service}) => {
     }
     addProduct(userId,fechaComoCadena, service);
     showSwalSuccess(fechaComoCadena);
+
+    reset();
+
   };
 
   const sendToCart = () => {

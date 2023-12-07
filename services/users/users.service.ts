@@ -8,8 +8,6 @@ export const getIdUser = () => {
     const localStorageData = localStorage.getItem('loginUser') || null;
     const userLocalStorage: IUser = localStorageData ? JSON.parse(localStorageData) : null;
 
-    if (userLocalStorage == null) router.push("/")  //throw new Error("No tienes permisos")
-
     return userLocalStorage?.id;
 }
 
@@ -28,3 +26,18 @@ export const getUserById = async (userId: number): Promise<any> => {
 
   return await response.json();
 };
+
+export const editProfile = async (data: IUser): Promise<any> => {
+  const userData = JSON.stringify(data);
+
+  const response = await fetch(`${apiUrl}/users/${data.id}`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "PUT",
+    body: userData
+  });
+
+  return response;
+}

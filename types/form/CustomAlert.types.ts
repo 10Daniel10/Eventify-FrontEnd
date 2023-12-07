@@ -1,9 +1,7 @@
 import { AlertProps } from '@mui/material/Alert';
 
-export type ToastT = {
+export type AlertT = {
   className?: string,
-  open: boolean,
-  onClose?: () => void,
   severity: AlertProps['severity'],
   message?: string | undefined
 }

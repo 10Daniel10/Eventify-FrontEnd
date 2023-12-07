@@ -1,4 +1,5 @@
 'use client';
+import { useRouter } from 'next/router';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -13,9 +14,8 @@ import { IService, IServiceProvider } from 'interfaces';
 import { Section } from '../layout/Section';
 import { CustomTitle } from '../layout/CustomTitle';
 import { CustomLink } from '../form/CustomLink';
+import { CustomAlert } from '../form/CustomAlert';
 import s from '../../styles/services/ProviderServices.module.css';
-import { Typography } from '@mui/material';
-import { useRouter } from 'next/router';
 
 interface IProviderServicesProps {
   services: (IService & IServiceProvider)[],
@@ -68,7 +68,7 @@ export const ProviderServices:React.FC<IProviderServicesProps> = ({ services, em
           </Table>
         </TableContainer>
       ) : (
-        <Typography>Aún no cargas ningún servicio. Haz clic en &ldquo;{'Agregar'}&rdquo; para que los usuarios puedan contratar tus servicios.</Typography>
+        <CustomAlert severity={'info'} message={'Aún no cargas ningún servicio. Haz clic en "Agregar" para que los usuarios puedan contratarte.'}/>
       )}
     </Section>
   );

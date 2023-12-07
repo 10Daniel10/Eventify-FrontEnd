@@ -25,7 +25,6 @@ export type TUserRegister = {
   providerName?: string;
   providerInformation?: string;
   providerAddress?: string;
-  providerImageUrl?: string;
 }
 
 export type TUserEmail = {

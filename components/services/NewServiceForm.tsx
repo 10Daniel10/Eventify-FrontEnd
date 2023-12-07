@@ -25,7 +25,8 @@ const initialData: (IService & IServiceProvider) = {
   location: '',
   categoryId: 0,
   providerId: 0,
-  features_string: ''
+  features_string: '',
+  imageUrls_string: ''
 }
 
 export const NewServiceForm: FC = () => {
@@ -58,12 +59,15 @@ export const NewServiceForm: FC = () => {
 
   const onSubmit: SubmitHandler<IService & IServiceProvider> = async (data) => {
     const initialFeatures = getValues('features_string');
+    const initialImageUrls = getValues('imageUrls_string');
 
     const features = !initialFeatures ? undefined : (initialFeatures.includes(',') ? initialFeatures.split(',').map(feature => feature.trim()).filter(Boolean) : [initialFeatures.trim()]);
+    const imageUrls = !initialImageUrls ? undefined : (initialImageUrls.includes(',') ? initialImageUrls.split(',').map(feature => feature.trim()).filter(Boolean) : [initialImageUrls.trim()]);
 
     const serviceData: (IService & IServiceProvider) = {
       ...data,
       features: features,
+      imageUrls: imageUrls,
       providerId: providerId,
     };
 
@@ -191,7 +195,17 @@ export const NewServiceForm: FC = () => {
                 label="Características"
                 control={control}
                 defaultValue={initialData.features_string}
-                placeholder="Ingresa las características separadas por coma. Ej: Grandioso, Fabuloso, Increíblemente bueno"
+                placeholder="Ingresa las características separadas por coma"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <CustomInput
+                type="text"
+                name="imageUrls_string"
+                label="Imágenes"
+                control={control}
+                defaultValue={initialData.imageUrls_string}
+                placeholder="Ingresa la url de las imágenes separadas por coma"
               />
             </Grid>
             <Grid item xs={12}>

@@ -11,6 +11,7 @@ export interface IService {
   category?: ICategory;
   provider?: IProvider;
   imageUrls?: string[];
+  imageUrls_string?: string;
   products?: IProduct[];
   user?: IUser;
   bookedDates?: string[];

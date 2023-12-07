@@ -1,8 +1,13 @@
 import { Box } from "@mui/material";
 import { BarChart } from "@mui/x-charts";
+import s from '../../styles/providers/ProvidersDashboard.module.css';
 
+type DataSet = {
+  month: string;
+  value: number;
+}
 interface ChartMonthProps {
-  dataSet: any[]; // Ajusta este tipo según la estructura de tus datos
+  dataSet: DataSet[]; // Ajusta este tipo según la estructura de tus datos
 }
 
 const ChartMonth: React.FC<ChartMonthProps> = ({ dataSet }) => {
@@ -14,22 +19,19 @@ const ChartMonth: React.FC<ChartMonthProps> = ({ dataSet }) => {
         label: 'Pesos',
       },
     ],
-    width: 500,
     height: 400,
   };
 
   return (
-    <Box>
-      {dataSet && (
-        <BarChart
-          dataset={dataSet}
-          yAxis={[{ scaleType: 'band', dataKey: 'month' }]}
-          series={[{ dataKey: 'Catering', valueFormatter }]}
-          layout="horizontal"
-          {...chartSetting}
-        />
-      )}
-    </Box>
+    dataSet && (
+      <BarChart
+        dataset={dataSet}
+        yAxis={[{ scaleType: 'band', dataKey: 'month' }]}
+        series={[{ dataKey: 'Catering', valueFormatter }]}
+        layout="horizontal"
+        {...chartSetting}
+      />
+    )
   );
 };
 

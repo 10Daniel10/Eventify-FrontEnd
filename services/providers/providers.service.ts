@@ -23,3 +23,15 @@ export const getProviderServices = async (id: number):Promise<any> => {
 
   return await response.json();
 }
+
+export const getReports = async (providerId: string, dateFrom: string, dateTo: string):Promise<any> => {
+  const response = await fetch(`${apiUrl}/report/${providerId}?startDate=${dateFrom}T00:00:00&endDate=${dateTo}T23:59:59`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  })
+
+  return await response;
+}

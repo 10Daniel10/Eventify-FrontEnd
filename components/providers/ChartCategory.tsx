@@ -9,17 +9,14 @@ const ChartCategory: React.FC<ChartCategoryProps> = ({ dataSetCategory }) => {
   console.log(dataSetCategory);
 
   return (
-    <Box>
-      <PieChart
-        series={[
-          {
-            data: dataSetCategory,
-          },
-        ]}
-        width={400}
-        height={200}
-      />
-    </Box>
+    <PieChart
+      series={[
+        {
+          data: dataSetCategory,
+        },
+      ]}
+      height={200}
+    />
   );
 };
 

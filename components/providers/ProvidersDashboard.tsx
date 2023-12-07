@@ -83,9 +83,9 @@ const ProvidersDashboard: FC = () => {
       if(id){
         const formattedDateFrom = dayjs(dateFrom).format('YYYY-MM-DD');
         const formattedDateTo = dayjs(dateTo).format('YYYY-MM-DD');
-        const pdf = await getReports(`${id}`, `${formattedDateFrom}`, `${formattedDateTo}`);
+        const pdf = getReports(`${id}`, `${formattedDateFrom}`, `${formattedDateTo}`);
 
-        window.open(pdf.url, '_blank');
+        window.open(pdf, '_blank');
 
       }
     } catch (error) {

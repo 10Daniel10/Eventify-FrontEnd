@@ -11,7 +11,7 @@ export const ProvidersCard:FC<IProvidersCardProps> = ({ provider }) => {
     <SliderCard
       title={`${provider.name}`}
       cardImg={{
-        imgSrc: provider.defaultImage || '/shapes/shape6.png', 
+        imgSrc: provider.imageUrl || '/shapes/shape6.png', 
         imgAlt: provider.name
       }}
       description={provider.information}

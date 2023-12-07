@@ -1,7 +1,38 @@
 .container{
-  padding-top: 4rem;
+  padding-top: 2rem;
+}
+
+.container p{
+  font-family: 'Nunito Sans', sans-serif !important;
+}
+
+.info{
+  order: 2;
+}
+
+.price{
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.title{
+  margin: 0;
+  font-size: 2rem;
 }
 
 .form{
+  order: 1;
+}
+
+.reservation{
   padding: 0 1rem 1rem 1rem;
+}
+
+@media screen and (min-width: 960px){
+  .info{
+    order: 1;
+  }
+  .form{
+    order: 2;
+  }
 }

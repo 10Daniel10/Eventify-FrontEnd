@@ -16,10 +16,11 @@ import s from '../../styles/nav/Navbar.module.css';
 
 interface INavbarProps {
   auth: boolean,
-  user?: TUserData
+  user?: TUserData,
+  providerId?: number
 }
 
-export const Navbar:FC<INavbarProps> = ({ auth, user }) => {
+export const Navbar:FC<INavbarProps> = ({ auth, user, providerId }) => {
   const router = useRouter();
 
   const [userMenu, setUserMenu] = useState<null | HTMLElement>(null);
@@ -74,7 +75,7 @@ export const Navbar:FC<INavbarProps> = ({ auth, user }) => {
         </Box>
         {auth ? (
           <NavbarMenuAuth
-            userId={user?.id}
+            userId={providerId ? providerId : user?.id}
             userType={user?.type}
             userEmail={user?.email}
             userMenu={userMenu}

@@ -21,6 +21,15 @@
   background-color: var(--primary-hover);
 }
 
+.button.secondary{
+  color: var(--white);
+  background-color: var(--secondary);
+}
+
+.button.secondary:hover{
+  background-color: var(--secondary-hover);
+}
+
 .button-outline{
   background-color: var(--white);
 }

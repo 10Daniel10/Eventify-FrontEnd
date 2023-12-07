@@ -1,24 +1,23 @@
 'use client';
+import { NextPage } from 'next';
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { CategoriesList } from 'eventapp/components/categories/CategoriesList';
 import { Hero } from 'eventapp/components/home/Hero';
 import { ServicesList } from 'eventapp/components/services/ServicesList';
 import { Layout } from 'eventapp/components/layout/Layout';
-import { NextPage } from 'next';
-import Head from 'next/head';
 import { getCategories } from 'eventapp/services/categories/categories.service';
 import { getServices } from 'eventapp/services/services/servicios.service';
-import { ICategory, IService } from 'interfaces';
+import { ICategory, IProvider, IService, IServiceProvider } from 'interfaces';
 import { ProvidersList } from 'eventapp/components/providers/ProvidersList';
-// import { getProviders } from 'eventapp/services/providers/providers.service';
-
-import s from './index.module.css';
+import { getProviders } from 'eventapp/services/providers/providers.service';
 import { Clients } from 'eventapp/components/home/Clients';
 import { CallToAction } from 'eventapp/components/home/CallToAction';
+import s from './index.module.css';
 
 const Home: NextPage = () => {
-  const [services, setServices] = useState<IService[]>([]);
-  const [providers, setProviders] = useState([]);
+  const [services, setServices] = useState<(IService & IServiceProvider)[]>([]);
+  const [providers, setProviders] = useState<IProvider[]>([]);
   const [categories, setCategories] = useState<ICategory[]>([]);
 
   useEffect(() => {
@@ -45,17 +44,17 @@ const Home: NextPage = () => {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {        
-  //       const providersData = await getProviders();
-  //       setProviders(providersData);
-  //     } catch (error) {
-  //       console.error('Error al obtener proveedores:', error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {        
+        const providersData = await getProviders();
+        setProviders(providersData);
+      } catch (error) {
+        console.error('Error al obtener proveedores:', error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -79,7 +78,7 @@ const Home: NextPage = () => {
         <CallToAction/>
         <Clients/>
         <CategoriesList listVariant='slider' title={{text: 'Categorías'}} categories={categories} className={s['categories-slider-container']} />
-        {/* <ProvidersList listVariant='slider' title={{text: 'Proveedores'}} providers={providers}/> */}
+        <ProvidersList listVariant='slider' title={{text: 'Proveedores'}} providers={providers}/>
         <ServicesList listVariant='slider' title={{text: 'Servicios'}} services={services} className={s['services-slider-container']}/>
       </Layout>
     </>

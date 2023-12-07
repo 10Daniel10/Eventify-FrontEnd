@@ -30,8 +30,7 @@ export const loginUser = async (data: TUserLogin): Promise<any> => {
 };
 
 export const logOut = async () => {
-  localStorage.removeItem('loginUser');
-  localStorage.removeItem('cart');
+  localStorage.clear();
 }
 
 export const createUser = async (data: TUserRegister): Promise<any> => {

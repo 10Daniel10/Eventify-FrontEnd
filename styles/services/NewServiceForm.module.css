@@ -1,0 +1,20 @@
+.container{
+  margin-top: 4rem;
+}
+
+.title{
+  margin-bottom: 2rem;
+}
+
+
+@media screen and (min-width: 600px){
+  .container{
+    max-width: 50rem;
+  }
+  .buttons-box{
+    flex-direction: row-reverse;
+  }
+  .buttons-box button{
+    width: auto;
+  }
+}

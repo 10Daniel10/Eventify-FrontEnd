@@ -16,17 +16,16 @@ const Cart: NextPage = () => {
         if (reservationsData !== undefined)
           setReservations(reservationsData);
       } catch (error) {
-        console.error('Error al obtener categorías:', error);
+        console.error('Error al obtener reservas:', error);
       }
     }; 
     fetchData();
   }, []);
-  
 
   return (
     <>
       <Head>
-        <title>Eventify | Reservas por realizar</title>
+        <title>Eventify | Carrito de reservas</title>
         <meta property='og:title' content='Eventify' key='title'></meta>
         <meta
           name='description'
@@ -41,12 +40,7 @@ const Cart: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
-      {reservations !== null ? (
         <CartTable reservations={reservations} />
-      ) : (
-        <p>No hay reservas</p>
-      )}        
-        
       </Layout>
     </>
   )

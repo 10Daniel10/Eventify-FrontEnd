@@ -6,6 +6,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import CalendarMonth from '@mui/icons-material/CalendarMonth';
 import Logout from '@mui/icons-material/Logout';
 import Redeem from '@mui/icons-material/Redeem';
+import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import { TNavbar } from 'types';
 import { CustomLink } from '../form/CustomLink';
 import s from '../../styles/nav/NavbarMenu.module.css';
@@ -35,7 +36,10 @@ export const NavbarMenuAuth = ({userId, userType, userEmail, userMenu, handleUse
             <CustomLink href={`/account?userId=${userId}`} underline="none" customVariant="link" customColor="primary"><AccountCircle/> Mi cuenta</CustomLink>
           </MenuItem>
           <MenuItem onClick={handleClose}>
-            <CustomLink href={`/reservations`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Mis reservas</CustomLink>
+            <CustomLink href={`/reservations`} underline="none" customVariant="link" customColor="primary"><CalendarMonth/> Reservas realizadas</CustomLink>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <CustomLink href={`/cart`} underline="none" customVariant="link" customColor="primary"><ShoppingCart/> Carrito de reservas</CustomLink>
           </MenuItem>
           <MenuItem onClick={handleLogOut} className={s['buttons-box']}>
             <CustomLink href="/" underline="none" customVariant="link" customColor="primary"><Logout/> Cerrar sesión</CustomLink>

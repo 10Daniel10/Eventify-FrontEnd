@@ -3,8 +3,8 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { IService } from 'interfaces';
-import { getServices, getServicesByProvider } from 'eventapp/services/services/servicios.service';
+import { IService, IServiceProvider } from 'interfaces';
+import { getServices, getServicesByCategory, getServicesByProvider } from 'eventapp/services/services/servicios.service';
 import { Layout } from 'eventapp/components/layout/Layout';
 import { ServicesList } from 'eventapp/components/services/ServicesList';
 import s from '../index.module.css';
@@ -12,26 +12,52 @@ import s from '../index.module.css';
 const Services: NextPage = () => {
   const router = useRouter();
   const { providerId } = router.query;
-  const id = Number(providerId);
+  const { categoryId } = router.query;
 
-  const [services, setServices] = useState<IService[]>([]);
+  const [byProvider, setByProvider] = useState<boolean>(false);
+  const [byCategory, setByCategory] = useState<boolean>(false);
+
+  useEffect(() => {
+    if(providerId){
+      setByProvider(true);
+    }
+    if(categoryId){
+      setByCategory(true);
+    }
+  }, [providerId, categoryId])
+
+  const [services, setServices] = useState<(IService & IServiceProvider)[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        if(id){
-          const servicesData = await getServicesByProvider(id);
+      if(providerId){
+        try{
+          const servicesData = await getServicesByProvider(`${providerId}`);
           setServices(servicesData);
-        } else{
+        } catch (error){
+          setServices([]);
+          console.error('Error al obtener servicios por proveedor:', error);
+        }
+      } else if(categoryId){
+        try{
+          const servicesData = await getServicesByCategory(`${categoryId}`);
+          setServices(servicesData);
+        } catch (error){
+          setServices([]);
+          console.error('Error al obtener servicios por categoría:', error);
+        }
+      } else {
+        try{
           const servicesData = await getServices();
           setServices(servicesData);
+        } catch (error){
+          setServices([]);
+          console.error('Error al obtener servicios por categoría:', error);
         }
-      } catch (error) {
-        console.error('Error al obtener servicios:', error);
       }
     };
     fetchData();
-  }, [id]);
+  }, [providerId, categoryId]);
 
   return (
     <>

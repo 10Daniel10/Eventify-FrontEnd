@@ -5,7 +5,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { getServiceById } from 'eventapp/services/services/servicios.service';
 import { useRouter } from 'next/router';
-import { IService } from 'interfaces';
+import { IService, IServiceProvider } from 'interfaces';
 import { ServicesDetail } from 'eventapp/components/services/ServicesDetail';
 
 const Service: NextPage = () => {
@@ -13,7 +13,7 @@ const Service: NextPage = () => {
   let { id } = router.query;
   const serviceId = id ? parseInt(id as string, 10) : 0;
     
-  const [service, setService] = useState<IService | null>(null);
+  const [service, setService] = useState<(IService & IServiceProvider) | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -13,4 +13,3 @@ export interface UserClientI extends IUser {
   // fixMe: agregar type reservations
   reservations?: []
 }
-

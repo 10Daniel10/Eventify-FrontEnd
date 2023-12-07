@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 import { Layout } from 'eventapp/components/layout/Layout';
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { getServiceById } from 'eventapp/services/services/servicios.service';
+import { getServiceById, getServiceFeatures } from 'eventapp/services/services/servicios.service';
 import { useRouter } from 'next/router';
 import { IService, IServiceProvider } from 'interfaces';
-import { ServicesDetail } from 'eventapp/components/services/ServicesDetail';
+import { ServicesDetail, TFeature } from 'eventapp/components/services/ServicesDetail';
 
 const Service: NextPage = () => {
   const router = useRouter();
@@ -14,12 +14,15 @@ const Service: NextPage = () => {
   const serviceId = id ? parseInt(id as string, 10) : 0;
     
   const [service, setService] = useState<(IService & IServiceProvider) | null>(null);
+  const [serviceFeatures, setServiceFeatures] = useState<TFeature[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const serviceData = await getServiceById(serviceId);
         setService(serviceData);
+        const featuresData = await getServiceFeatures(serviceId);
+        setServiceFeatures(featuresData);
       } catch (error) {
         console.error('Error al obtener servicio:', error);
       }
@@ -46,7 +49,7 @@ const Service: NextPage = () => {
       </Head>
       <Layout>
       {service !== null ? (
-        <ServicesDetail service={service} />
+        <ServicesDetail service={service} features={serviceFeatures}/>
       ) : (
         <p>Cargando servicio...</p>
       )}

@@ -1,15 +1,14 @@
-import { AccountForm } from 'eventapp/components/auth/accountForm';
-import { Layout } from 'eventapp/components/layout/Layout';
 import { NextPage } from 'next';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Head from 'next/head';
+import { Layout } from 'eventapp/components/layout/Layout';
 import { getUserById } from 'eventapp/services/users/users.service';
 import { IUser } from 'interfaces';
 import { Loader } from 'eventapp/components/loader/Loader';
+import { EditProfile } from 'eventapp/components/auth/EditUserProfile';
 
 const UserId: NextPage = () => {
-
   const router = useRouter();
   const { userId } = router.query;
   const id = Number(userId);
@@ -49,10 +48,10 @@ const UserId: NextPage = () => {
       </Head>
       <Layout>
         {user ? (
-        <AccountForm user={user} />
-      ) : (
-        <Loader/>
-      )}
+          <EditProfile user={user} />
+        ) : (
+          <Loader/>
+        )}
       </Layout>
     </>
   )

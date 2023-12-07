@@ -4,12 +4,12 @@ import s from '../../styles/layout/CustomTitle.module.css';
 
 export interface CustomTitleI {
   className?: string,
-  color?: 'primary' | 'secondary' | 'white' | 'gray',
+  color?: 'deafult' | 'primary' | 'secondary' | 'white' | 'gray',
   htmlTag?: 'h1' | 'h2' | 'h3' | 'h4',
   text: string | ReactNode
 }
 
-export const CustomTitle: FC<CustomTitleI> = ({ className, color, htmlTag = 'h2', text}) => {
+export const CustomTitle: FC<CustomTitleI> = ({ className, color = 'default', htmlTag = 'h2', text}) => {
   const titleClass = `${s.title} ${s[htmlTag]} ${color && s[color]} ${className}`;
 
   return (

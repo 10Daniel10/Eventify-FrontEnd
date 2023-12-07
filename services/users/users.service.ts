@@ -8,8 +8,6 @@ export const getIdUser = () => {
     const localStorageData = localStorage.getItem('loginUser') || null;
     const userLocalStorage: IUser = localStorageData ? JSON.parse(localStorageData) : null;
 
-    if (userLocalStorage == null) router.push("/")  //throw new Error("No tienes permisos")
-
     return userLocalStorage?.id;
 }
 

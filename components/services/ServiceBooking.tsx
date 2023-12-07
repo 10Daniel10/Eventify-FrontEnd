@@ -14,7 +14,9 @@ const initialData: TInitialData = {
 }
 
 export const ServiceBooking: FC = () => {
-  const { control, handleSubmit, formState: {errors} } = useForm<TInitialData>();
+  const { control, handleSubmit, formState: {errors}, reset } = useForm<TInitialData>();
+
+  reset();
 
   const onSubmit: SubmitHandler<TInitialData> = async (data) => {
     console.log(data);

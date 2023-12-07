@@ -20,7 +20,7 @@ const initialData = {
 }
 
 export const ForgetPasswordForm: FC = () => {
-  const { control, handleSubmit, formState: {errors} } = useForm<TUserEmail>();
+  const { control, handleSubmit, formState: {errors}, reset } = useForm<TUserEmail>();
 
   const [success, setSuccess] = useState<boolean>(false);
   const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined);
@@ -37,6 +37,8 @@ export const ForgetPasswordForm: FC = () => {
     if (!emailValidation) {
       control.setError('email', { message: emailValidation });
     }
+
+    reset();
 
     if (Object.keys(errors).length > 0) {
       return;

@@ -1,5 +1,6 @@
 export type TNavbar = {
   userId?: number | null,
+  providerId?: number | null,
   userType?: 'USER' | 'PROVIDER' | null,
   userEmail?: string | null,
   userMenu?: HTMLElement | null,

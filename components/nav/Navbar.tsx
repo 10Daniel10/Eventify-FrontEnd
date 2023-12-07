@@ -75,7 +75,8 @@ export const Navbar:FC<INavbarProps> = ({ auth, user, providerId }) => {
         </Box>
         {auth ? (
           <NavbarMenuAuth
-            userId={providerId ? providerId : user?.id}
+            userId={user?.id}
+            providerId={providerId}
             userType={user?.type}
             userEmail={user?.email}
             userMenu={userMenu}

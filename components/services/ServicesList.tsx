@@ -16,7 +16,6 @@ interface IServicesListProps {
 }
 
 export const ServicesList:FC<IServicesListProps> = ({ className, title, listVariant = 'slider', services }) => {
-  console.log({services});
   const { color = 'primary', htmlTag = 'h2', text } = {...title};
 
   const xs = useMediaQuery('(max-width:600px)');

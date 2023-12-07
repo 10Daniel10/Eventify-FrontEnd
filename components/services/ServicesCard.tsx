@@ -3,11 +3,10 @@ import { SliderCard } from '../slider/SliderCard';
 import { IService, IServiceProvider } from 'interfaces';
 
 interface IServicesCardProps {
-  service: (IService & IServiceProvider);  
+  service: (IService & IServiceProvider);
 }
 
 export const ServicesCard:FC<IServicesCardProps> = ( { service }) => {
-  console.log({service});
   return (
     <SliderCard
       avatar={{

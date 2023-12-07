@@ -31,7 +31,7 @@ export const ServiceReservation: FC<IServices> = ({service}) => {
   const [selectedDate, setSelectedDate] = useState('')  
   const { control, handleSubmit, formState: {errors} } = useForm<TInitialData>();
   const { id, name, bookedDates } = service;   
-  
+
   const onSubmit: SubmitHandler<TInitialData> = async (data) => {  
     var fechaComoCadena = `${selectedDate}`;    
     const reserved = bookedDates?.some(x => x == `${data.dateReservation}`);
@@ -68,7 +68,7 @@ export const ServiceReservation: FC<IServices> = ({service}) => {
       html: `Se reservo <b>${name}</b> el día : <b>${fechaComoCadena}</b>`,   
       showCancelButton: true,
       confirmButtonColor: "#2ABCC8",
-      cancelButtonColor: "#3085d6",
+      cancelButtonColor: "#FE5CA7",
       confirmButtonText: "Seguir viendo servicios",
       cancelButtonText: "Finalizar Reservas",
       allowOutsideClick: false,
@@ -96,25 +96,18 @@ export const ServiceReservation: FC<IServices> = ({service}) => {
    }
 
   return(
-    <Box component="form" onSubmit={handleSubmit(onSubmit)}>      
-      <Grid container spacing={2}>                  
-        <Grid item xs={12}>
-          <LocalizationProvider adapterLocale='es' dateAdapter={AdapterDayjs}>
-            <DateCalendar 
-              shouldDisableDate={disableWeekends} 
-              disablePast={true}  
-              onChange={(date) => {               
-                setSelectedDate(dayjs(date).format('YYYY-MM-DD'));
-              }}
-            />
-          </LocalizationProvider>
-        </Grid>
-        <Grid item xs={12}>
-          <CustomButton type="submit" variant="contained" customColor="primary">Reservar</CustomButton>
-          <br />
-          <CustomButton type="button" onClick={sendToCart} variant="contained" customColor="primary">Finalizar reservas</CustomButton>
-        </Grid>
-      </Grid>
+    <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+      <LocalizationProvider adapterLocale='es' dateAdapter={AdapterDayjs}>
+        <DateCalendar 
+          shouldDisableDate={disableWeekends} 
+          disablePast={true}  
+          onChange={(date) => {               
+            setSelectedDate(dayjs(date).format('YYYY-MM-DD'));
+          }}
+        />
+      </LocalizationProvider>
+      <CustomButton type="submit" variant="contained" customColor="primary">Reservar</CustomButton>
+      {/* <CustomButton type="button" onClick={sendToCart} variant="contained" customColor="secondary">Finalizar reservas</CustomButton> */}
     </Box>
   )
 }

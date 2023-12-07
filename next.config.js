@@ -1,5 +1,6 @@
 // next.config.js
 module.exports = {
+  transpilePackages: ['@mui/x-charts'],
   reactStrictMode: true,
   images: {
     remotePatterns: [

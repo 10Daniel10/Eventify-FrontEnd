@@ -23,7 +23,7 @@ interface IEditProfile {
 export const EditProfile: FC<IEditProfile> = ({ user }) => {
   const router = useRouter();
 
-  const { control, handleSubmit, formState: {errors}, reset } = useForm<IUser>({defaultValues: user});
+  const { control, handleSubmit, formState: {errors}, clearErrors } = useForm<IUser>({defaultValues: user});
 
   const [toast, setToast] = useState<'error' | 'success' | ''>('');
   const [toastMessage, setToastMessage] = useState<string | undefined>(undefined);
@@ -37,7 +37,7 @@ export const EditProfile: FC<IEditProfile> = ({ user }) => {
 
     control.setError('email', { message: emailValidation });
 
-    reset();
+    clearErrors();
 
     if (Object.keys(errors).length > 0) {
       return;

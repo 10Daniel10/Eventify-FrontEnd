@@ -24,7 +24,8 @@ const initialData = {
 export const LoginForm: FC = () => {
   const router = useRouter();
 
-  const { control, handleSubmit, formState: {errors}, reset } = useForm<TUserLogin>();
+  const { control, handleSubmit, formState: {errors}, reset, clearErrors } = useForm<TUserLogin>();
+  const [isError, setIsError] = useState(false);
 
   const [credentialsError, setCredentialsError] = useState<boolean>(false);
   const [credentialsErrorMessage, setCredentialsErrorMessage] = useState<string | undefined>(undefined);
@@ -37,10 +38,22 @@ export const LoginForm: FC = () => {
     const emailValidation = validateEmail(data.email);
     const passwordValidation = validatePasswordLength(data.password);
 
-    control.setError('email', { message: emailValidation });
-    control.setError('password', { message: passwordValidation });
+    clearErrors();
 
-    reset();
+      if (emailValidation) {
+        control.setError('email', { message: emailValidation });
+      }
+
+      if (passwordValidation) {
+        control.setError('password', { message: passwordValidation });
+      }
+
+      if (emailValidation || passwordValidation) {
+        setIsError(true);
+        return;
+      }
+
+      setIsError(false);
 
     if (Object.keys(errors).length > 0) {
       return;
@@ -96,8 +109,8 @@ export const LoginForm: FC = () => {
                 defaultValue={initialData.email}
                 placeholder="Ej: maria@perez.com"
                 required={true}
-                error={Boolean(errors?.email)}
-                helperText={errors?.email?.message}
+                error={Boolean(errors?.email) || credentialsError}
+                helperText={Boolean(errors?.email) ? errors?.email?.message : ''}
               />
             </Grid>
             <Grid item xs={12}>
@@ -109,8 +122,8 @@ export const LoginForm: FC = () => {
                 defaultValue={initialData.password}
                 placeholder="······"
                 required={true}
-                error={Boolean(errors?.password)}
-                helperText={errors?.password?.message}
+                error={Boolean(errors?.password) || credentialsError}
+                helperText={Boolean(errors?.password) ? errors?.password?.message : ''}
               />
             </Grid>
             <Grid item xs={12}>

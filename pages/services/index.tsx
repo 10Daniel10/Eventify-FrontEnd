@@ -14,23 +14,46 @@ const Services: NextPage = () => {
   const { providerId } = router.query;
   const { categoryId } = router.query;
 
+  const [byProvider, setByProvider] = useState<boolean>(false);
+  const [byCategory, setByCategory] = useState<boolean>(false);
+
+  useEffect(() => {
+    if(providerId){
+      setByProvider(true);
+    }
+    if(categoryId){
+      setByCategory(true);
+    }
+  }, [providerId, categoryId])
+
   const [services, setServices] = useState<(IService & IServiceProvider)[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        if(providerId){
+      if(providerId){
+        try{
           const servicesData = await getServicesByProvider(`${providerId}`);
           setServices(servicesData);
-        } else if(categoryId){
+        } catch (error){
+          setServices([]);
+          console.error('Error al obtener servicios por proveedor:', error);
+        }
+      } else if(categoryId){
+        try{
           const servicesData = await getServicesByCategory(`${categoryId}`);
           setServices(servicesData);
-        } else{
+        } catch (error){
+          setServices([]);
+          console.error('Error al obtener servicios por categoría:', error);
+        }
+      } else {
+        try{
           const servicesData = await getServices();
           setServices(servicesData);
+        } catch (error){
+          setServices([]);
+          console.error('Error al obtener servicios por categoría:', error);
         }
-      } catch (error) {
-        console.error('Error al obtener servicios:', error);
       }
     };
     fetchData();

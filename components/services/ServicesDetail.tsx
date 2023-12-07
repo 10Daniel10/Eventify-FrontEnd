@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import CategoryRounded from '@mui/icons-material/CategoryRounded';
 import SupervisorAccount from '@mui/icons-material/SupervisorAccount';
 import { ServiceReservation } from './ServicesReservation';
+import { CustomAlert } from 'eventapp/components/form/CustomAlert';
 import s from '../../styles/services/ServiceDetail.module.css';
 
 interface IServicesDetailProps {
@@ -26,6 +27,7 @@ export const ServicesDetail:FC<IServicesDetailProps> = ({ service }) => {
     };
   }
 
+  const isLogged = localStorage.getItem('loginUser');
   const isProvider = localStorage.getItem('providerId');
 
   return (
@@ -37,7 +39,7 @@ export const ServicesDetail:FC<IServicesDetailProps> = ({ service }) => {
             <Typography display={'flex'} gap={.5} color={'gray'}>{service.shortDescription}</Typography>
             <Typography className={s.price} mb={4}>$ {service.price.toFixed(2)}</Typography>
           </Grid>
-          <Grid item xs={12} md={!isProvider ? 6 : 12} className={s.info}>
+          <Grid item xs={12} md={!isProvider ? 6 : 12} lg={!isProvider ? 8 : 12} className={s.info}>
             {(service.imageUrls && service.imageUrls.length > 0) && (
               <ImageList
                 cols={3}
@@ -68,10 +70,14 @@ export const ServicesDetail:FC<IServicesDetailProps> = ({ service }) => {
             <Typography display={'flex'} gap={.5} color={'gray'} mt={1}>{service.description}</Typography>
           </Grid>
           {!isProvider && (
-            <Grid item xs={12} md={6} className={s.form}>
-              <Paper className={s.reservation}>
-                <ServiceReservation service={service} />
-              </Paper>
+            <Grid item xs={12} md={6} lg={4} className={s.form}>
+              {isLogged ? (
+                <Paper className={s.reservation}>
+                  <ServiceReservation service={service} />
+                </Paper>
+              ) : (
+                <CustomAlert severity={'error'} message={'Para reservar un servicio, debes registrarte o iniciar sesión.'}/>
+              )}
             </Grid>
           )}
         </Grid>

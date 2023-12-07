@@ -6,7 +6,10 @@ import { Section } from '../layout/Section';
 import { ServicesCard } from './ServicesCard';
 import { CustomAlert } from '../form/CustomAlert';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import ArrowBack from '@mui/icons-material/ArrowBack';
 import { IService, IServiceProvider } from 'interfaces';
+import { CustomLink } from '../form/CustomLink';
 
 interface IServicesListProps {
   className?: string,
@@ -27,7 +30,7 @@ export const ServicesList:FC<IServicesListProps> = ({ className, title, listVari
   return (
     <Section className={className}>
       <CustomTitle color={color} htmlTag={htmlTag} text={text} />
-      {services ? (
+      {services.length > 0 ? (
         listVariant === 'slider' ? (
           <CustomSlider variant="cards" totalCards={services.length} cardsToShow={cardsToShow}>
             {services.map((service : (IService & IServiceProvider)) => (

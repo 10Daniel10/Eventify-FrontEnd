@@ -15,32 +15,24 @@ import { ProvidersTable } from 'eventapp/components/providers/ProvidersTable';
 import { useRouter } from 'next/router';
 import "dayjs/locale/es";
 
-
 const ProvidersDashboard: NextPage = () => {
-  
   const router = useRouter();
-  const { id: idProvider } = router.query; 
+  const { id: idProvider } = router.query;
 
-  
   const [dateFrom, setDateFrom] = useState<Dayjs | null>(dayjs('2023-12-01'));
   const [dateTo, setDateTo] = useState<Dayjs | null>(dayjs('2023-12-17'));
-  
-  const [dataSet, setDataSet] = useState();
-  const [dataSetCategory, setDataSetCategory] = useState();
-  const [total, setTotal] = useState(0);
-  const [datos, setDatos] = useState([]);
-  const [filteredEventsSet, setfilteredEventsSet] = useState([]);
-  
-  
-  
+  const [dataSet, setDataSet] = useState<any>();
+  const [dataSetCategory, setDataSetCategory] = useState<any>();
+  const [total, setTotal] = useState<number>(0);
+  const [datos, setDatos] = useState<any[]>([]);
+  const [filteredEventsSet, setfilteredEventsSet] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (idProvider) {
-          const dataChart = await getDataForChart(`${idProvider}`);          
+          const dataChart = await getDataForChart(`${idProvider}`);
           if (Array.isArray(dataChart)) {
-            // @ts-ignore
             setDatos(dataChart);
           } else {
             console.error('getDataForChart no devolvió un array:', dataChart);
@@ -53,40 +45,31 @@ const ProvidersDashboard: NextPage = () => {
       }
     };
     fetchData();
-  }, [idProvider]);
+  }, [idProvider, router.query]);
 
-  function handleFilter(){
-        
+  function handleFilter() {
     if (Array.isArray(datos) && datos.length > 0) {
-          const filteredEvents = datos.filter((event:any) => {
-            const eventDate = dayjs(event.startDateTime);                      
-            return eventDate.isAfter(dayjs(dateFrom)) && eventDate.isBefore(dayjs(dateTo));
-          });
+      const filteredEvents = datos.filter((event: any) => {
+        const eventDate = dayjs(event.startDateTime);
+        return eventDate.isAfter(dayjs(dateFrom)) && eventDate.isBefore(dayjs(dateTo));
+      });
 
-          if(filteredEvents.length == 0){
-            // @ts-ignore
-            setDataSet();        
-            // @ts-ignore
-            setTotal(0);  
-            // @ts-ignore
-            setDataSetCategory([])  
-          }
-          
-          if (Array.isArray(filteredEvents) && filteredEvents.length > 0) {
-            setfilteredEventsSet(filteredEvents)
-          const valuesChart = processesData(filteredEvents);
-          // @ts-ignore            
-          setDataSet(valuesChart);        
-          // @ts-ignore
-          setTotal(calculateTotalSum(valuesChart));  
-          // @ts-ignore
-          setDataSetCategory(generateChartDataByCategory(filteredEvents))  
-        }
-      } 
-           
+      if (filteredEvents.length === 0) {
+        setDataSet(undefined);
+        setTotal(0);
+        setDataSetCategory([]);
+      }
+
+      if (Array.isArray(filteredEvents) && filteredEvents.length > 0) {
+        setfilteredEventsSet(filteredEvents);
+        const valuesChart = processesData(filteredEvents);
+        setDataSet(valuesChart);
+        setTotal(Number(calculateTotalSum(valuesChart)));
+        setDataSetCategory(generateChartDataByCategory(filteredEvents));
+      }
+    }
   }
 
-  
   return (
     <>
       <Head>
@@ -108,47 +91,38 @@ const ProvidersDashboard: NextPage = () => {
         <br />
         <br />
         <br />
-
-
-        <br />
-
         <br />
         <br />
         <br />
         <Box>
-        <LocalizationProvider adapterLocale='es' dateAdapter={AdapterDayjs}>
-                
-                <DatePicker
-                    label="Desde"
-                    value={dateFrom}
-                    onChange={(newValue) => setDateFrom(newValue)}
-                    format="YYYY-MM-DD"
-                />
-                <DatePicker
-                    label="Hasta"
-                    value={dateTo}
-                    onChange={(newValue) => setDateTo(newValue)}
-                    format="YYYY-MM-DD"
-                />
-            
-        </LocalizationProvider>
-        <button onClick={handleFilter}>asdasdasdasd</button>
+          <LocalizationProvider adapterLocale='es' dateAdapter={AdapterDayjs}>
+            <DatePicker
+              label="Desde"
+              value={dateFrom}
+              onChange={(newValue) => setDateFrom(newValue)}
+              format="YYYY-MM-DD"
+            />
+            <DatePicker
+              label="Hasta"
+              value={dateTo}
+              onChange={(newValue) => setDateTo(newValue)}
+              format="YYYY-MM-DD"
+            />
+          </LocalizationProvider>
+          <button onClick={handleFilter}>Filtrar</button>
         </Box>
 
-{datos && dataSetCategory && dataSet &&
-        <>
-          <ChartMonth dataSet={dataSet} />
-          <ChartTotal total={total} />
-          <ChartCategory dataSetCategory={dataSetCategory} />
-          <ProvidersTable reservations={filteredEventsSet} />
-        </>
-}
-      
-
-
+        {datos && dataSetCategory && dataSet && (
+          <>
+            <ChartMonth dataSet={dataSet} />
+            <ChartTotal total={total} />
+            <ChartCategory dataSetCategory={dataSetCategory} />
+            <ProvidersTable reservations={filteredEventsSet} />
+          </>
+        )}
       </Layout>
     </>
-  )
-}
+  );
+};
 
 export default ProvidersDashboard;

@@ -1,26 +1,26 @@
 import { Box } from "@mui/material";
 import { PieChart } from "@mui/x-charts";
 
-// @ts-ignore
-const ChartCategory = ( {dataSetCategory}  ) => {
+interface ChartCategoryProps {
+  dataSetCategory: any[]; // Ajusta este tipo según la estructura de tus datos
+}
 
-  
-  console.log(dataSetCategory)
+const ChartCategory: React.FC<ChartCategoryProps> = ({ dataSetCategory }) => {
+  console.log(dataSetCategory);
 
   return (
-        <Box>                        
-            <PieChart
-            series={[
-              {
-                data:dataSetCategory,
-              },
-            ]}
-            width={400}
-            height={200}
-          />
-                  </Box>        
-          
-  )
-}
+    <Box>
+      <PieChart
+        series={[
+          {
+            data: dataSetCategory,
+          },
+        ]}
+        width={400}
+        height={200}
+      />
+    </Box>
+  );
+};
 
 export default ChartCategory;

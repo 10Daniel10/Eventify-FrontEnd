@@ -53,6 +53,21 @@ export const getServiceById = async (id: number): Promise<any> => {
   return await response.json();
 }
 
+export const getServiceFeatures = async (id: number): Promise<any> => {
+
+  if (id === 0) return
+
+  const response = await fetch(`${apiUrl}/productFeature/${id}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  })
+
+  return await response.json();
+}
+
 export const createService = async (data: (IService | IServiceProvider)): Promise<any> => {
   const serviceData = JSON.stringify(data);
 

@@ -24,7 +24,7 @@ const initialData = {
 export const LoginForm: FC = () => {
   const router = useRouter();
 
-  const { control, handleSubmit, formState: {errors} } = useForm<TUserLogin>();
+  const { control, handleSubmit, formState: {errors}, reset } = useForm<TUserLogin>();
 
   const [credentialsError, setCredentialsError] = useState<boolean>(false);
   const [credentialsErrorMessage, setCredentialsErrorMessage] = useState<string | undefined>(undefined);
@@ -39,6 +39,8 @@ export const LoginForm: FC = () => {
 
     control.setError('email', { message: emailValidation });
     control.setError('password', { message: passwordValidation });
+
+    reset();
 
     if (Object.keys(errors).length > 0) {
       return;

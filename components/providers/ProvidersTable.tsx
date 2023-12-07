@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, JSXElementConstructor, Key, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -35,8 +35,8 @@ export const ProvidersTable:FC<any> = ({reservations}) => {
               </TableRow>
             </TableHead>
             <TableBody>          
-              {reservations.map((reservation) => (  
-                reservation.products?.map((row, key) => (
+              {reservations.map((reservation: { products: any[]; startDateTime: string; }) => (  
+                reservation.products?.map((row: { name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; category: { name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; }; price: number; }, key: Key | null | undefined) => (
                   <TableRow key={key} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >                
                     <TableCell>{reservation.startDateTime.split("T")[0]}</TableCell>

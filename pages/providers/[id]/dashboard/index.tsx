@@ -12,204 +12,78 @@ import ChartTotal from 'eventapp/components/providers/ChartTotal';
 import ChartCategory from 'eventapp/components/providers/ChartCategory';
 import { getDataForChart } from 'eventapp/services/charts/chart.data.service';
 import { ProvidersTable } from 'eventapp/components/providers/ProvidersTable';
-
-
-
-
-const datos = [
-  {
-      "userId": 41,
-      "startDateTime": "2023-10-08T00:00:00",
-      "endDateTime": "2023-10-08T00:00:00",
-      "products": [
-        {
-          "id": 7,
-          "name": "Mesa de canapés",
-          "price": 10,
-          "shortDescription": "Degusta una selección exquisita de canapés artesanales para tus eventos. Sabores únicos en cada bocado, presentados con elegancia y estilo.",
-          "description": "Nuestra Mesa de Canapés es perfecta para cualquier ocasión especial. Desde eventos corporativos hasta celebraciones íntimas, ofrecemos una variedad de deliciosos canapés preparados con ingredientes frescos y de alta calidad. Disfruta de una experiencia gastronómica única con nuestros exquisitos sabores y presentación impecable.",
-          "location": "asd",
-          "category": {
-            "id": 5,
-            "name": "Cena"
-          },
-          "provider": {
-            "id": 12,
-            "name": "Catering La Claudia",
-            "imageUrl": "https://eventify-bucket.s3.amazonaws.com/252597.JPEG"
-          },
-          "bookedDates": null,
-          "imageUrls": []
-        }
-      ]
-    },
-  {
-      "userId": 41,
-      "startDateTime": "2023-10-08T00:00:00",
-      "endDateTime": "2023-10-08T00:00:00",
-      "products": [
-        {
-          "id": 7,
-          "name": "Mesa de canapés",
-          "price": 10,
-          "shortDescription": "Degusta una selección exquisita de canapés artesanales para tus eventos. Sabores únicos en cada bocado, presentados con elegancia y estilo.",
-          "description": "Nuestra Mesa de Canapés es perfecta para cualquier ocasión especial. Desde eventos corporativos hasta celebraciones íntimas, ofrecemos una variedad de deliciosos canapés preparados con ingredientes frescos y de alta calidad. Disfruta de una experiencia gastronómica única con nuestros exquisitos sabores y presentación impecable.",
-          "location": "asd",
-          "category": {
-            "id": 5,
-            "name": "Catering"
-          },
-          "provider": {
-            "id": 12,
-            "name": "Catering La Claudia",
-            "imageUrl": "https://eventify-bucket.s3.amazonaws.com/252597.JPEG"
-          },
-          "bookedDates": null,
-          "imageUrls": []
-        }
-      ]
-    },
-  {
-    "userId": 41,
-    "startDateTime": "2023-12-08T00:00:00",
-    "endDateTime": "2023-12-08T00:00:00",
-    "products": [
-      {
-        "id": 7,
-        "name": "Mesa de canapés",
-        "price": 10,
-        "shortDescription": "Degusta una selección exquisita de canapés artesanales para tus eventos. Sabores únicos en cada bocado, presentados con elegancia y estilo.",
-        "description": "Nuestra Mesa de Canapés es perfecta para cualquier ocasión especial. Desde eventos corporativos hasta celebraciones íntimas, ofrecemos una variedad de deliciosos canapés preparados con ingredientes frescos y de alta calidad. Disfruta de una experiencia gastronómica única con nuestros exquisitos sabores y presentación impecable.",
-        "location": "asd",
-        "category": {
-          "id": 5,
-          "name": "Catering"
-        },
-        "provider": {
-          "id": 12,
-          "name": "Catering La Claudia",
-          "imageUrl": "https://eventify-bucket.s3.amazonaws.com/252597.JPEG"
-        },
-        "bookedDates": null,
-        "imageUrls": []
-      }
-    ]
-  },
-  {
-    "userId": 41,
-    "startDateTime": "2023-12-09T00:00:00",
-    "endDateTime": "2023-12-09T00:00:00",
-    "products": [
-      {
-        "id": 7,
-        "name": "Mesa de canapés",
-        "price": 15,
-        "shortDescription": "Degusta una selección exquisita de canapés artesanales para tus eventos. Sabores únicos en cada bocado, presentados con elegancia y estilo.",
-        "description": "Nuestra Mesa de Canapés es perfecta para cualquier ocasión especial. Desde eventos corporativos hasta celebraciones íntimas, ofrecemos una variedad de deliciosos canapés preparados con ingredientes frescos y de alta calidad. Disfruta de una experiencia gastronómica única con nuestros exquisitos sabores y presentación impecable.",
-        "location": "asd",
-        "category": {
-          "id": 5,
-          "name": "Catering"
-        },
-        "provider": {
-          "id": 12,
-          "name": "Catering La Claudia",
-          "imageUrl": "https://eventify-bucket.s3.amazonaws.com/252597.JPEG"
-        },
-        "bookedDates": null,
-        "imageUrls": []
-      }
-    ]
-  },
-  {
-    "userId": 41,
-    "startDateTime": "2022-12-09T00:00:00",
-    "endDateTime": "2022-12-09T00:00:00",
-    "products": [
-      {
-        "id": 7,
-        "name": "Mesa de canapés",
-        "price": 200,
-        "shortDescription": "Degusta una selección exquisita de canapés artesanales para tus eventos. Sabores únicos en cada bocado, presentados con elegancia y estilo.",
-        "description": "Nuestra Mesa de Canapés es perfecta para cualquier ocasión especial. Desde eventos corporativos hasta celebraciones íntimas, ofrecemos una variedad de deliciosos canapés preparados con ingredientes frescos y de alta calidad. Disfruta de una experiencia gastronómica única con nuestros exquisitos sabores y presentación impecable.",
-        "location": "asd",
-        "category": {
-          "id": 5,
-          "name": "Catering"
-        },
-        "provider": {
-          "id": 12,
-          "name": "Catering La Claudia",
-          "imageUrl": "https://eventify-bucket.s3.amazonaws.com/252597.JPEG"
-        },
-        "bookedDates": null,
-        "imageUrls": []
-      }
-    ]
-  }
-  ,
-  {
-    "userId": 41,
-    "startDateTime": "2022-11-09T00:00:00",
-    "endDateTime": "2022-11-09T00:00:00",
-    "products": [
-      {
-        "id": 7,
-        "name": "Mesa de canapés",
-        "price": 250,
-        "shortDescription": "Degusta una selección exquisita de canapés artesanales para tus eventos. Sabores únicos en cada bocado, presentados con elegancia y estilo.",
-        "description": "Nuestra Mesa de Canapés es perfecta para cualquier ocasión especial. Desde eventos corporativos hasta celebraciones íntimas, ofrecemos una variedad de deliciosos canapés preparados con ingredientes frescos y de alta calidad. Disfruta de una experiencia gastronómica única con nuestros exquisitos sabores y presentación impecable.",
-        "location": "asd",
-        "category": {
-          "id": 5,
-          "name": "Catering"
-        },
-        "provider": {
-          "id": 12,
-          "name": "Catering La Claudia",
-          "imageUrl": "https://eventify-bucket.s3.amazonaws.com/252597.JPEG"
-        },
-        "bookedDates": null,
-        "imageUrls": []
-      }
-    ]
-  }
-]
+import { useRouter } from 'next/router';
+import "dayjs/locale/es";
 
 
 const ProvidersDashboard: NextPage = () => {
   
-  const [dateFrom, setDateFrom] = useState<Dayjs | null>(dayjs('2023-04-17'));
+  const router = useRouter();
+  const { id: idProvider } = router.query; 
+
+  
+  const [dateFrom, setDateFrom] = useState<Dayjs | null>(dayjs('2023-12-01'));
   const [dateTo, setDateTo] = useState<Dayjs | null>(dayjs('2023-12-17'));
   
   const [dataSet, setDataSet] = useState();
   const [dataSetCategory, setDataSetCategory] = useState();
   const [total, setTotal] = useState(0);
-  const [datos, setDatos] = useState();
+  const [datos, setDatos] = useState([]);
+  const [filteredEventsSet, setfilteredEventsSet] = useState([]);
   
+  
+  
+
   useEffect(() => {
     const fetchData = async () => {
-      try {        
-        const dataChart = await getDataForChart("12");        
-        setDatos(dataChart);
+      try {
+        if (idProvider) {
+          const dataChart = await getDataForChart(`${idProvider}`);          
+          if (Array.isArray(dataChart)) {
+            // @ts-ignore
+            setDatos(dataChart);
+          } else {
+            console.error('getDataForChart no devolvió un array:', dataChart);
+          }
+        } else {
+          console.error('La propiedad id no está definida en router.query:', router.query);
+        }
       } catch (error) {
         console.error('Error al obtener proveedores:', error);
       }
     };
     fetchData();
-  }, []);
+  }, [idProvider]);
 
   function handleFilter(){
         
-      const filteredEvents = datos.filter(event => {
-          const eventDate = dayjs(event.startDateTime);
-          return eventDate.isAfter(dayjs(dateFrom)) && eventDate.isBefore(dayjs(dateTo));
-      });
-              
-      const valuesChart = processesData(filteredEvents);            
-      setDataSet(valuesChart);        
-      setTotal(calculateTotalSum(valuesChart));  
-      setDataSetCategory(generateChartDataByCategory(filteredEvents))       
+    if (Array.isArray(datos) && datos.length > 0) {
+          const filteredEvents = datos.filter((event:any) => {
+            const eventDate = dayjs(event.startDateTime);                      
+            return eventDate.isAfter(dayjs(dateFrom)) && eventDate.isBefore(dayjs(dateTo));
+          });
+
+          if(filteredEvents.length == 0){
+            // @ts-ignore
+            setDataSet();        
+            // @ts-ignore
+            setTotal(0);  
+            // @ts-ignore
+            setDataSetCategory([])  
+          }
+          
+          if (Array.isArray(filteredEvents) && filteredEvents.length > 0) {
+            setfilteredEventsSet(filteredEvents)
+          const valuesChart = processesData(filteredEvents);
+          // @ts-ignore            
+          setDataSet(valuesChart);        
+          // @ts-ignore
+          setTotal(calculateTotalSum(valuesChart));  
+          // @ts-ignore
+          setDataSetCategory(generateChartDataByCategory(filteredEvents))  
+        }
+      } 
+           
   }
 
   
@@ -245,13 +119,13 @@ const ProvidersDashboard: NextPage = () => {
         <LocalizationProvider adapterLocale='es' dateAdapter={AdapterDayjs}>
                 
                 <DatePicker
-                    label="Controlled picker"
+                    label="Desde"
                     value={dateFrom}
                     onChange={(newValue) => setDateFrom(newValue)}
                     format="YYYY-MM-DD"
                 />
                 <DatePicker
-                    label="Controlled picker"
+                    label="Hasta"
                     value={dateTo}
                     onChange={(newValue) => setDateTo(newValue)}
                     format="YYYY-MM-DD"
@@ -261,16 +135,15 @@ const ProvidersDashboard: NextPage = () => {
         <button onClick={handleFilter}>asdasdasdasd</button>
         </Box>
 
-{datos && dataSetCategory &&
+{datos && dataSetCategory && dataSet &&
         <>
           <ChartMonth dataSet={dataSet} />
           <ChartTotal total={total} />
           <ChartCategory dataSetCategory={dataSetCategory} />
-          <ProvidersTable reservations={datos} />
+          <ProvidersTable reservations={filteredEventsSet} />
         </>
 }
-        
-        
+      
 
 
       </Layout>
